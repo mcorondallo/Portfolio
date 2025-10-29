@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<script>
+			// Side Navigation Functions
+			document.addEventListener('DOMContentLoaded', function() {
+				console.log('DOM loaded, initializing navigation...');
+				
+				// Wait for layout to settle, then check sections
+				setTimeout(function() {
+					const sections = ['about', 'timeline', 'work', 'projects', 'community', 'contact'];
+					console.log('Checking sections after layout settle...');
+					
+					sections.forEach(function(sectionId) {
+						const section = document.getElementById(sectionId);
+						if (section) {
+							// Force layout recalculation
+							section.style.display = 'block';
+							const position = section.getBoundingClientRect().top + window.scrollY;
+							console.log('Found section:', sectionId, 'at position:', position, 'offsetTop:', section.offsetTop);
+						} else {
+							console.error('Missing section:', sectionId);
+						}
+					});
+				}, 1000);
+				
+				// Show side nav after scrolling past intro section
+				window.addEventListener('scroll', function() {
+					const sideNav = document.getElementById('sideNav');
+					const header = document.getElementById('header');
+					
+					if (header && sideNav) {
+						const introHeight = header.offsetHeight;
+						
+						if (window.scrollY > introHeight * 0.7) {
+							sideNav.classList.add('side-nav-visible');
+						} else {
+							sideNav.classList.remove('side-nav-visible');
+						}
+					}
+					
+					// Highlight current section in nav
+					highlightCurrentSection();
+				});
+				
+				// Smooth scroll to section when clicking nav links
+				const navLinks = document.querySelectorAll('.side-nav-link');
+				console.log('Found navigation links:', navLinks.length);
+				
+				navLinks.forEach(function(link) {
+					link.addEventListener('click', function(e) {
+						e.preventDefault();
+						const targetId = this.getAttribute('href').substring(1);
+						const targetSection = document.getElementById(targetId);
+						
+						console.log('Clicked navigation for:', targetId);
+						
+						if (targetSection) {
+							// Use getBoundingClientRect for more accurate positioning
+							const rect = targetSection.getBoundingClientRect();
+							const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+							const targetPosition = rect.top + scrollTop - 80;
+							
+							console.log('Scrolling to section:', targetId, 'calculated position:', targetPosition);
+							window.scrollTo({
+								top: targetPosition,
+								behavior: 'smooth'
+							});
+						} else {
+							console.error('Target section not found:', targetId);
+						}
+					});
+				});
+				
+				// Scroll down button functionality - go to first visible section
+				const scrollDownBtn = document.getElementById('scrollDownBtn');
+				if (scrollDownBtn) {
+					scrollDownBtn.addEventListener('click', function() {
+						// Find the first visible section dynamically
+						const sections = ['about', 'bio', 'timeline', 'work', 'projects', 'community', 'contact'];
+						let firstSection = null;
+						
+						for (let sectionId of sections) {
+							const section = document.getElementById(sectionId);
+							if (section && section.style.display !== 'none') {
+								firstSection = section;
+								break;
+							}
+						}
+						
+						if (firstSection) {
+							console.log('Scroll down button clicked, going to first section:', firstSection.id);
+							// Force recalculation and scroll
+							const rect = firstSection.getBoundingClientRect();
+							const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+							const targetPosition = rect.top + scrollTop - 80;
+							
+							window.scrollTo({
+								top: targetPosition,
+								behavior: 'smooth'
+							});
+						}
+					});
+				}
+				
+				// Initial highlighting
+				setTimeout(function() {
+					highlightCurrentSection();
+				}, 500);
+			});
+			
+			// Function to highlight current section in navigation
+			function highlightCurrentSection() {
+				const sections = document.querySelectorAll('article');
+				const navLinks = document.querySelectorAll('.side-nav-link');
+				
+				let currentSectionId = '';
+				const scrollPosition = window.scrollY + 100; // Offset for better UX
+				
+				// Find which section is currently in view
+				sections.forEach(function(section) {
+					const sectionTop = section.offsetTop;
+					const sectionHeight = section.offsetHeight;
+					
+					if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+						currentSectionId = section.id;
+					}
+				});
+				
+				// Update active class on nav links
+				navLinks.forEach(function(link) {
+					link.classList.remove('active');
+					if (link.getAttribute('href') === '#' + currentSectionId) {
+						link.classList.add('active');
+					}
+				});
+			}
+			
+			// Legacy functions (kept for compatibility)
+			function toggleDropdown() {
+				document.getElementById("navDropdown").classList.toggle("show-dropdown");
+			}
+			
+			// Close the dropdown if clicked outside
+			window.onclick = function(event) {
+				if (!event.target.matches('.main-nav-button') && !event.target.matches('.main-nav-button *')) {
+					var dropdowns = document.getElementsByClassName("dropdown-content");
+					for (var i = 0; i < dropdowns.length; i++) {
+						var openDropdown = dropdowns[i];
+						if (openDropdown.classList.contains('show-dropdown')) {
+							openDropdown.classList.remove('show-dropdown');
+						}
+					}
+				}
+			}
+			
+			// Function to show specific section
+			function showSection(id) {
+				console.log('Showing section: ' + id);
+				
+				// Close the dropdown
+				document.getElementById("navDropdown").classList.remove("show-dropdown");
+				
+				// Smooth scroll to section
+				const targetSection = document.getElementById(id);
+				if (targetSection) {
+					window.scrollTo({
+						top: targetSection.offsetTop - 20,
+						behavior: 'smooth'
+					});
+				}
+			}
+			
+			// Fallback function if jQuery is not available or fails
+			function fallbackShowSection(id) {
+				// Smooth scroll to section
+				const targetSection = document.getElementById(id);
+				if (targetSection) {
+					window.scrollTo({
+						top: targetSection.offsetTop - 20,
+						behavior: 'smooth'
+					});
+				}
+			}
+		</script>
+		<title>Maxime CORON-DALL'O</title>
+		<meta charset="utf-8" />
+		<meta name="description" content="Portfolio">
+		<meta name="author" content="Maxime CORON-DALL'O">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Side Navigation Styles */
+			#sideNav {
+				position: fixed;
+				right: 20px;
+				top: 50%;
+				transform: translateY(-50%);
+				z-index: 1000;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				padding: 15px 10px;
+				background: rgba(20, 20, 20, 0.8);
+				border-radius: 30px;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+				backdrop-filter: blur(10px);
+				border: 1px solid rgba(240, 240, 240, 0.2);
+				opacity: 0;
+				visibility: hidden;
+				transition: all 0.5s ease;
+			}
+			
+			#sideNav.side-nav-visible {
+				opacity: 1;
+				visibility: visible;
+			}
+			
+			.side-nav-link {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin: 10px 0;
+				color: rgba(255, 255, 255, 0.6);
+				text-decoration: none;
+				transition: all 0.3s ease;
+			}
+			
+			.side-nav-link .side-nav-icon {
+				font-size: 1.2rem;
+				margin-bottom: 5px;
+				transition: all 0.3s ease;
+			}
+			
+			.side-nav-link .side-nav-label {
+				font-size: 0.7rem;
+				opacity: 0;
+				transform: translateX(-10px);
+				transition: all 0.3s ease;
+				white-space: nowrap;
+			}
+			
+			.side-nav-link:hover,
+			.side-nav-link.active {
+				color: #f0f0f0;
+				transform: translateX(-3px);
+			}
+			
+			.side-nav-link:hover .side-nav-icon,
+			.side-nav-link.active .side-nav-icon {
+				transform: scale(1.2);
+			}
+			
+			.side-nav-link:hover .side-nav-label,
+			.side-nav-link.active .side-nav-label {
+				opacity: 1;
+				transform: translateX(0);
+			}
+			
+			/* Divider between nav items */
+			.side-nav-divider {
+				width: 3px;
+				height: 3px;
+				background-color: rgba(240, 240, 240, 0.3);
+				margin: 5px 0;
+				border-radius: 50%;
+			}
+			
+			/* Override any conflicting styles from main.css and main.js */
+			#main {
+				padding-top: 0 !important;
+				margin-top: 0 !important;
+				display: block !important;
+				position: static !important;
+				transform: none !important;
+			}
+			
+			/* Force all sections to be visible and properly positioned */
+			#main article[id] {
+				display: block !important;
+				visibility: visible !important;
+				opacity: 1 !important;
+				position: static !important;
+				transform: none !important;
+				left: auto !important;
+				top: auto !important;
+				right: auto !important;
+				bottom: auto !important;
+			}
+			
+			/* Scrollable layout - making all articles visible with consistent width */
+			#main article {
+				display: block !important;
+				visibility: visible !important;
+				opacity: 1 !important;
+				position: static !important;
+				margin: 12vh auto !important;
+				padding: 80px 60px !important;
+				min-height: 60vh;
+				max-width: 1200px;
+				width: 85%;
+				background: rgba(255, 255, 255, 0.02);
+				border-radius: 15px;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+				border: 1px solid rgba(240, 240, 240, 0.1);
+			}
+			
+			#main article:first-child {
+				margin-top: 8vh !important;
+			}
+			
+			#main article:last-child {
+				margin-bottom: 15vh !important;
+			}
+			
+			/* Strong section separator - appears between all sections */
+			#main article:not(:last-child)::after {
+				content: '';
+				position: absolute;
+				bottom: -6vh;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 80%;
+				height: 3px;
+				background: linear-gradient(90deg, 
+					transparent 0%, 
+					rgba(240, 240, 240, 0.2) 20%, 
+					rgba(240, 240, 240, 0.6) 50%, 
+					rgba(240, 240, 240, 0.2) 80%, 
+					transparent 100%);
+				border-radius: 2px;
+				box-shadow: 0 1px 3px rgba(240, 240, 240, 0.1);
+			}
+			
+			/* Scroll Down Button */
+			.scroll-down-container {
+				position: static;
+				margin-top: 40px;
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				animation: bounce 2s infinite;
+			}
+			
+			.scroll-down-button {
+				background: #111;
+				color: #fff;
+				border: none;
+				padding: 18px 36px;
+				border-radius: 30px;
+				font-size: 1.15rem;
+				font-weight: 700;
+				box-shadow: 0 2px 10px rgba(100,255,218,0.1);
+				transition: background 0.3s, color 0.3s;
+				display: flex;
+				align-items: center;
+				gap: 12px;
+				margin: 0 auto;
+				min-width: 220px;
+				justify-content: center;
+				white-space: normal;
+			}
+			.scroll-down-button:hover {
+				background: #222;
+				color: #64ffda;
+			}
+			
+			.scroll-down-icon {
+				font-size: 1.1rem;
+			}
+			
+			.mouse-scroll-icon {
+				font-size: 1.1rem;
+				margin-right: 5px;
+			}
+			
+			@keyframes bounce {
+				0%, 20%, 50%, 80%, 100% {
+					transform: translateY(0);
+				}
+				40% {
+					transform: translateY(-15px);
+				}
+				60% {
+					transform: translateY(-7px);
+				}
+			}
+			
+			/* Adjust existing header for full-height intro */
+			#header {
+				height: 100vh;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				min-height: 600px;
+				position: relative;
+				background: transparent;
+			}
+			
+			/* Legacy styles kept for compatibility */
+			.floating-nav-container {
+				display: none;
+			}
+			
+			.dropdown-nav {
+				display: none;
+			}
+			
+			/* Project Carousel Button Styles */
+			.carousel-button {
+				background: rgba(70, 130, 180, 0.8);
+				color: #ffffff;
+				border: 1px solid rgba(70, 130, 180, 0.9);
+				border-radius: 25px;
+				padding: 10px 25px;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				font-size: 0.9rem;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+			}
+			
+			.carousel-button:hover {
+				background: rgba(100, 149, 237, 0.9);
+				border-color: rgba(100, 149, 237, 1);
+				transform: translateY(-3px);
+				box-shadow: 0 6px 20px rgba(70, 130, 180, 0.4);
+			}
+			
+			.carousel-button:active {
+				transform: translateY(-1px);
+				box-shadow: 0 3px 10px rgba(70, 130, 180, 0.3);
+			}
+			
+			/* Mobile adjustments */
+			@media screen and (max-width: 736px) {
+				#sideNav {
+					right: 10px;
+					padding: 10px 5px;
+				}
+				
+				.side-nav-link {
+					margin: 8px 0;
+				}
+				
+				.side-nav-link .side-nav-icon {
+					font-size: 1rem;
+				}
+				
+				#main article {
+					padding: 40px 30px !important;
+					margin: 10vh auto !important;
+					width: 90% !important;
+					max-width: 1000px !important;
+				}
+				
+				.carousel-button {
+					padding: 8px 20px;
+					font-size: 0.8rem;
+					font-weight: 600;
+				}
+			}
+		</style>
+		
+	</head>
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<body class="is-preload">
+
+<!-- Staggered Navigation Menu (Top Right) -->
+<nav id="staggeredNav" class="staggered-nav" role="navigation" aria-label="Main navigation">
+	<div class="staggered-nav-container">
+		<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="staggeredMenu">
+			<span class="nav-toggle-icon" aria-hidden="true"></span>
+			<span class="nav-toggle-text">Menu</span>
+		</button>
+		
+		<div class="staggered-menu" id="staggeredMenu" role="menu">
+			<a href="#story" class="staggered-item" data-index="1" role="menuitem">
+				<span class="item-icon" aria-hidden="true"><i class="fas fa-user-circle"></i></span>
+				<span class="item-label">Story</span>
+			</a>
+				<span class="item-icon" aria-hidden="true"><i class="fas fa-user"></i></span>
+				<span class="item-label">About</span>
+			</a>
+				<span class="item-icon" aria-hidden="true"><i class="fas fa-briefcase"></i></span>
+				<span class="item-label">Experience</span>
+			</a>
+			<a href="#projects" class="staggered-item" data-index="3" role="menuitem">
+				<span class="item-icon" aria-hidden="true"><i class="fas fa-project-diagram"></i></span>
+				<span class="item-label">Projects</span>
+			</a>
+			<a href="#community" class="staggered-item" data-index="4" role="menuitem">
+				<span class="item-icon" aria-hidden="true"><i class="fas fa-users"></i></span>
+				<span class="item-label">Community</span>
+			</a>
+		</div>
+	</div>
+</nav>
+
+
+<!-- Wrapper -->
+			<div id="wrapper">
+
+			<!-- Header -->
+					<header id="header">
+						<div class="logo">
+						<span class="fas fa-cloud"></span>
+						
+						</div>
+						<div class="content" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
+									<div class="inner" style="text-align: center;">
+										<h1><Strong>Maxime CORON-DALL'O</Strong></h1>
+										<p>Chapter Lead – Business Intelligence | Power BI & Tableau | Microsoft Fabric, Azure, Governance & Enablement</p>
+									</div>
+									
+									<!-- Technology Showcase -->
+									<section id="tech-showcase" class="tech-showcase-container" style="width: 100%; max-width: 1200px; margin-top: 35px; padding: 0 20px;">
+										<div class="tech-showcase-inner">
+											<h3 class="tech-showcase-title">Technologies & Tools</h3>
+											<div class="tech-carousel">
+												<div class="tech-track">
+													<!-- Tech items will be dynamically generated by tech-showcase.js -->
+												</div>
+											</div>
+										</div>
+									</section>
+									
+									<div class="inner" style="text-align: center;">
+									</div>
+									<div style="display: flex; flex-direction: column; align-items: center; margin-top: 40px; width: 100%;">
+										<button id="scrollDownBtn" class="scroll-down-button" style="margin: 0 auto; min-width: 220px;">
+											<span class="mouse-scroll-icon"><i class="fas fa-mouse"></i></span>
+											Explore My Portfolio
+											<span class="scroll-down-icon"><i class="fas fa-chevron-down"></i></span>
+										</button>
+									</div>
+						
+						<!-- Hidden Legacy Navigation (kept for reference) -->
+						<nav style="margin-top: 60px; display: none;">
+							<div class="dropdown-nav">
+								<button class="main-nav-button" onclick="toggleDropdown()">Navigation <i class="fas fa-caret-down"></i></button>
+								<div id="navDropdown" class="dropdown-content">
+									<a onclick="showSection('about')"><i class="fas fa-user"></i> About</a>
+									<a onclick="showSection('timeline')"><i class="fas fa-clock"></i> Timeline</a>
+									<a onclick="showSection('work')"><i class="fas fa-briefcase"></i> Experience</a>
+									<a onclick="showSection('projects')"><i class="fas fa-project-diagram"></i> Projects</a>
+									<a onclick="showSection('community')"><i class="fas fa-users"></i> Community</a>
+									<a onclick="showSection('contact')"><i class="fas fa-envelope"></i> Contact</a>
+								</div>
+							</div>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+					
+					
+					<!-- About -->
+						<!-- Story Section (Merged: About + Bio + Work + Timeline) -->
+						<article id="story" class="scroll-reveal">
+							<h2 class="major">My Story</h2>
+
+							<!-- Introduction -->
+							<div class="story-intro scroll-reveal-delay-1">
+								<p>From media planner in Paris to Chapter Lead in Amsterdam, I've spent a decade transforming how organizations use data to drive decisions. Here's my journey through BI, analytics, and enablement.</p>
+							</div>
+
+							<!-- Horizontal Timeline -->
+							<div class="story-timeline">
+								<div class="timeline-track">
+
+									<!-- 2015-2017: NRJ -->
+									<div class="timeline-card scroll-reveal-scale">
+										<div class="timeline-year">2015-2017</div>
+										<div class="timeline-company">
+											<span class="company-icon">🎵</span>
+											<h4>Media Planner</h4>
+											<h5>NRJ Group — Paris</h5>
+										</div>
+										<div class="timeline-description">
+											<p>Campaign analysis, audience reporting, and VBA/Excel dashboards. Where I discovered the power of data storytelling in media.</p>
+										</div>
+										<div class="timeline-skills">
+											<span class="skill-tag">Excel</span>
+											<span class="skill-tag">VBA</span>
+											<span class="skill-tag">Analytics</span>
+										</div>
+									</div>
+
+									<!-- 2017-2019: Education -->
+									<div class="timeline-card timeline-education scroll-reveal-scale">
+										<div class="timeline-year">2017-2019</div>
+										<div class="timeline-company">
+											<span class="company-icon">🎓</span>
+											<h4>MSc, Data Management</h4>
+											<h5>EFREI & PSB Paris</h5>
+										</div>
+										<div class="timeline-description">
+											<p>Deep dive into data engineering, business intelligence, and modern analytics platforms. Dual degree combining technical and business expertise.</p>
+										</div>
+										<div class="timeline-skills">
+											<span class="skill-tag">Data Engineering</span>
+											<span class="skill-tag">BI Platforms</span>
+											<span class="skill-tag">Analytics</span>
+										</div>
+									</div>
+
+									<!-- 2017-2019: Eurosport -->
+									<div class="timeline-card scroll-reveal-scale">
+										<div class="timeline-year">2017-2019</div>
+										<div class="timeline-company">
+											<span class="company-icon">📺</span>
+											<h4>Junior Revenue Manager</h4>
+											<h5>Eurosport — Paris</h5>
+										</div>
+										<div class="timeline-description">
+											<p>Revenue operations with Power BI and OLAP cubes. First hands-on experience with modern BI platforms at scale.</p>
+										</div>
+										<div class="timeline-skills">
+											<span class="skill-tag">Power BI</span>
+											<span class="skill-tag">OLAP</span>
+											<span class="skill-tag">SQL</span>
+										</div>
+									</div>
+
+									<!-- 2019-2022: CBRE -->
+									<div class="timeline-card scroll-reveal-scale">
+										<div class="timeline-year">2019-2022</div>
+										<div class="timeline-company">
+											<span class="company-icon">🏢</span>
+											<h4>Senior Business Analyst</h4>
+											<h5>CBRE — Slovakia</h5>
+										</div>
+										<div class="timeline-description">
+											<p>Transformed legacy Excel/Access processes into scalable BI solutions. Led migrations to MicroStrategy, Tableau, and Alteryx across multiple teams.</p>
+										</div>
+										<div class="timeline-skills">
+											<span class="skill-tag">MicroStrategy</span>
+											<span class="skill-tag">Tableau</span>
+											<span class="skill-tag">Alteryx</span>
+											<span class="skill-tag">ETL</span>
+										</div>
+									</div>
+
+									<!-- 2022-Present: Mileway -->
+									<div class="timeline-card timeline-current scroll-reveal-scale">
+										<div class="timeline-year">2022-Present</div>
+										<div class="timeline-company">
+											<span class="company-icon">📊</span>
+											<h4>Chapter Lead – Business Intelligence</h4>
+											<h5>Mileway — Amsterdam</h5>
+										</div>
+										<div class="timeline-description">
+											<p>Lead BI platform strategy for 130+ users. Own Power BI/Tableau governance, Microsoft Fabric architecture, Azure infrastructure, and enablement programs.</p>
+										</div>
+										<div class="timeline-skills">
+											<span class="skill-tag">Power BI</span>
+											<span class="skill-tag">Microsoft Fabric</span>
+											<span class="skill-tag">Governance</span>
+											<span class="skill-tag">Azure</span>
+											<span class="skill-tag">Spark</span>
+											<span class="skill-tag">Leadership</span>
+										</div>
+										<div class="timeline-highlight">
+											<strong>Key Achievements:</strong>
+											<ul>
+												<li>Standardized BI governance with comprehensive documentation</li>
+												<li>Optimized Fabric capacity management across environments</li>
+												<li>Built enablement programs and community of practice</li>
+												<li>Co-authored Tableau Desktop course with Éditions ENI</li>
+											</ul>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+							<!-- Core Expertise -->
+							<div class="core-expertise scroll-reveal-delay-2">
+								<h3>Core Expertise</h3>
+								<div class="expertise-grid">
+									<div class="expertise-item">
+										<span class="expertise-icon">📊</span>
+										<h4>Visualization & BI</h4>
+										<p>Power BI, Tableau, DAX, complex dashboards, data modeling</p>
+									</div>
+									<div class="expertise-item">
+										<span class="expertise-icon">☁️</span>
+										<h4>Cloud & Platform</h4>
+										<p>Microsoft Fabric, Azure, Lakehouse architecture, Spark, data pipelines</p>
+									</div>
+									<div class="expertise-item">
+										<span class="expertise-icon">⚙️</span>
+										<h4>Data Processing</h4>
+										<p>SQL Server, Alteryx, Power Query, ETL, data transformation</p>
+									</div>
+									<div class="expertise-item">
+										<span class="expertise-icon">🔐</span>
+										<h4>Governance & Enablement</h4>
+										<p>Security, compliance, documentation, training, community building</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Personal Touch -->
+							<div class="personal-note scroll-reveal-delay-3">
+								<p>Born in Provence, raised in Paris, worked across Europe and South America. Now based in Amsterdam, where I combine my love for data, technology, and helping teams unlock their analytical potential. When I'm not wrangling data, you'll find me exploring new tools, cooking, or running along the canals.</p>
+							</div>
+						</article>
+
+							<article class="strength-category scroll-reveal" id="projects">
+								<h2 class="major">Projects</h2>
+								
+								<!-- Project Carousel -->
+								<div class="project-carousel" style="position: relative; overflow: hidden; margin-bottom: 40px;">
+									<div class="carousel-container" style="display: flex; transition: transform 0.5s ease;">
+										<!-- Project 1 -->
+										<div class="carousel-item" style="min-width: 100%; padding: 0 10px; box-sizing: border-box;">
+											<div style="display: flex; flex-wrap: wrap;">
+												<div style="flex: 1; min-width: 200px; padding-right: 15px;">
+													<h3>Tableau Course with Éditions ENI</h3>
+													<p>Co-authored a comprehensive Tableau Desktop course with Éditions ENI, covering everything from data connections to advanced visualizations and dashboard design.</p>
+													<a href="https://www.editions-eni.fr/livre/tableau-desktop-exploitez-et-analysez-vos-donnees-pour-creer-des-visualisations-interactives-9782409033940" target="_blank" class="button primary">View Course</a>
+												</div>
+												<div style="flex: 1; min-width: 200px;">
+													<img src="https://www.editions-eni.fr/Media/Eni/Couvertures/9782409033940-tableau-desktop_w250.jpg" alt="Tableau Book Cover" style="width: 100%; max-width: 250px; display: block; margin: 0 auto;">
+												</div>
+											</div>
+										</div>
+										
+										<!-- Project 2 -->
+										<div class="carousel-item" style="min-width: 100%; padding: 0 10px; box-sizing: border-box;">
+											<div style="display: flex; flex-wrap: wrap;">
+												<div style="flex: 1; min-width: 200px; padding-right: 15px;">
+													<h3>Interactive Tableau CV</h3>
+													<p>Created a fully interactive resume using Tableau, showcasing both data visualization skills and professional experience in an engaging format.</p>
+													<a href="https://public.tableau.com/app/profile/maxime.coron.dall.o/viz/CV_mcorondallo/CV" target="_blank" class="button primary">View CV</a>
+												</div>
+												<div style="flex: 1; min-width: 200px;">
+													<img src="https://public.tableau.com/static/images/CV/CV_mcorondallo/CV/4_3.png" alt="Interactive CV Screenshot" style="width: 100%; max-width: 250px; display: block; margin: 0 auto;">
+												</div>
+											</div>
+										</div>
+										
+										<!-- Project 3 -->
+										<div class="carousel-item" style="min-width: 100%; padding: 0 10px; box-sizing: border-box;">
+											<div style="display: flex; flex-wrap: wrap;">
+												<div style="flex: 1; min-width: 200px; padding-right: 15px;">
+													<h3>Power Apps Onboarding PoC</h3>
+													<p>Developed a Power Apps proof-of-concept for streamlining the onboarding process of new BI users, reducing manual steps and ensuring consistent security setup.</p>
+												</div>
+												<div style="flex: 1; min-width: 200px;">
+													<img src="https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/media/getting-started/homepage.png" alt="Power Apps Screenshot" style="width: 100%; max-width: 250px; display: block; margin: 0 auto;">
+												</div>
+											</div>
+										</div>
+										
+										<!-- Project 4 -->
+										<div class="carousel-item" style="min-width: 100%; padding: 0 10px; box-sizing: border-box;">
+											<div style="display: flex; flex-wrap: wrap;">
+												<div style="flex: 1; min-width: 200px; padding-right: 15px;">
+													<h3>BI Governance & Architecture Diagrams</h3>
+													<p>Created comprehensive governance frameworks and architectural diagrams using Lucidchart to document and standardize BI processes, security protocols, and development workflows.</p>
+												</div>
+												<div style="flex: 1; min-width: 200px;">
+													<img src="https://d2slcw3kip6qmk.cloudfront.net/marketing/blog/2020Q2/data-governance-framework/data-governance-process-2.png" alt="Governance Framework" style="width: 100%; max-width: 250px; display: block; margin: 0 auto;">
+												</div>
+											</div>
+										</div>
+										
+										<!-- Project 5: Nomos AI -->
+										<div class="carousel-item" style="min-width: 100%; padding: 0 10px; box-sizing: border-box;">
+											<div style="display: flex; flex-wrap: wrap;">
+												<div style="flex: 1; min-width: 200px; padding-right: 15px;">
+													<h3>🧠 Nomos AI – Predictive Collections Automation</h3>
+													<p>Smart assistant designed to transform how Mileway handles overdue payments, shifting from reactive dunning to proactive, data-driven collection actions using automation and machine learning.</p>
+													<p><strong>Role:</strong> Project lead and concept owner</p>
+													<p><strong>Tech stack:</strong> Power Automate, Excel Online, Microsoft SQL Server, Fabric</p>
+													<p><strong>Impact:</strong> Reduced manual workload, faster reaction time on high-risk tenants, and data-backed decisions</p>
+												</div>
+												<div style="flex: 1; min-width: 200px;">
+													<img src="https://www.microsoft.com/en-us/microsoft-365/blog/wp-content/uploads/sites/2/2021/09/Power-Automate-Blog-Header.png" alt="Power Automate Flow" style="width: 100%; max-width: 250px; display: block; margin: 0 auto;">
+												</div>
+											</div>
+										</div>
+										
+										<!-- Project 6: Sunrise Alarm Clock -->
+										<div class="carousel-item" style="min-width: 100%; padding: 0 10px; box-sizing: border-box;">
+											<div style="display: flex; flex-wrap: wrap;">
+												<div style="flex: 1; min-width: 200px; padding-right: 15px;">
+													<h3>☀️ Sunrise Alarm Clock – Raspberry Pi + MicroPython</h3>
+													<p>A custom-built sunrise alarm clock using a Raspberry Pi Pico W, designed to simulate natural daylight to help wake up more gently.</p>
+													<p><strong>Built with:</strong></p>
+													<ul>
+														<li>MicroPython scripts for timing, LED control, and brightness levels</li>
+														<li>Raspberry Pi Pico W, WS2812B LED strip</li>
+														<li>Hardware setup with GPIO pins and power regulation</li>
+													</ul>
+												</div>
+												<div style="flex: 1; min-width: 200px;">
+													<img src="https://projects-static.raspberrypi.org/projects/get-started-pico-w/c042316dfa248ec9593dff2113be6bc3fb56c6d8/en/images/pico-w-single.png" alt="Raspberry Pi Pico W" style="width: 100%; max-width: 250px; display: block; margin: 0 auto;">
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<!-- Carousel Navigation -->
+									<div class="carousel-nav-center">
+										<button class="carousel-button prev" style="margin-right: 10px;">Previous</button>
+										<span class="carousel-indicator">1/6</span>
+										<button class="carousel-button next" style="margin-left: 10px;">Next</button>
+									</div>
+								</div>
+								
+							</article>
+
+                            <!-- Speaking & Community -->
+                        <!-- Community & Contact (Merged) -->
+                        <article class="strength-category scroll-reveal" id="community">
+                            <h2 class="major">Community & Contact</h2>
+
+                            <!-- Community Activities -->
+                            <div class="community-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 40px;">
+                                <div class="community-item scroll-reveal-delay-1" style="background: rgba(255, 255, 255, 0.02); padding: 20px; border-radius: 10px; border: 1px solid rgba(100, 255, 218, 0.15);">
+                                    <h3 style="color: #64ffda; margin-top: 0;">📚 Workshops & Training</h3>
+                                    <p>Regular workshops helping teams transition from Excel to modern BI platforms. Developed comprehensive learning paths covering the full BI stack.</p>
+                                </div>
+
+                                <div class="community-item scroll-reveal-delay-2" style="background: rgba(255, 255, 255, 0.02); padding: 20px; border-radius: 10px; border: 1px solid rgba(100, 255, 218, 0.15);">
+                                    <h3 style="color: #64ffda; margin-top: 0;">🏆 BI Challenges</h3>
+                                    <p>Organized recurring BI challenges to foster learning, innovation, and best practice sharing. Building communities of practice.</p>
+                                </div>
+
+                                <div class="community-item scroll-reveal-delay-3" style="background: rgba(255, 255, 255, 0.02); padding: 20px; border-radius: 10px; border: 1px solid rgba(100, 255, 218, 0.15);">
+                                    <h3 style="color: #64ffda; margin-top: 0;">📖 Documentation</h3>
+                                    <p>Comprehensive documentation supporting users with governance policies, how-to guides, and best practices for effective BI development.</p>
+                                </div>
+                            </div>
+
+                            <!-- Contact Information -->
+                            <div class="contact-section scroll-reveal-delay-4" style="text-align: center; margin-top: 50px; padding: 30px; background: linear-gradient(135deg, rgba(100, 255, 218, 0.05), rgba(124, 154, 255, 0.05)); border-radius: 12px; border: 1px solid rgba(100, 255, 218, 0.2);">
+                                <h3 style="margin-bottom: 20px; color: #64ffda;">Let's Connect</h3>
+                                <p style="font-size: 1.1rem; margin-bottom: 25px;"><strong>Maxime CORON-DALL'O</strong></p>
+                                <p style="margin-bottom: 25px;">
+                                    <a href="tel:+33684429173" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; border-bottom: 1px solid rgba(100, 255, 218, 0.3);">+33 684 429 173</a> •
+                                    <a href="mailto:corondallo.m@gmail.com" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; border-bottom: 1px solid rgba(100, 255, 218, 0.3);">corondallo.m@gmail.com</a>
+                                </p>
+
+                                <!-- Download CV Button -->
+                                <div style="margin-bottom: 25px;">
+                                    <a href="https://drive.google.com/file/d/13tuWcaY2Y6CduSA4zqgv8nVwaibkPbby/view?usp=sharing" target="_blank" class="button primary icon solid fa-download" style="display: inline-block;">Download CV</a>
+                                </div>
+
+                                <!-- Social Links -->
+                                <ul class="icons" style="list-style: none; padding: 0; display: flex; justify-content: center; gap: 15px; margin: 0;">
+                                    <li><a href="https://www.linkedin.com/in/maxime-corondallo/" class="icon brands fa-linkedin-in" style="font-size: 1.5rem;"><span class="label">LinkedIn</span></a></li>
+                                    <li><a href="https://www.facebook.com/maxime.corondallo.5" class="icon brands fa-facebook-f" style="font-size: 1.5rem;"><span class="label">Facebook</span></a></li>
+                                    <li><a href="mailto:corondallo.m@gmail.com" class="icon fa-envelope" style="font-size: 1.5rem;"><span class="label">Email</span></a></li>
+                                </ul>
+                            </div>
+                        </article>
+
+
+						<!-- Elements -->
+						<!--
+							<article id="elements">
+								<h2 class="major">Elements</h2>
+
+								<section>
+									<h3 class="major">Text</h3>
+									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+									<hr />
+									<h2>Heading Level 2</h2>
+									<h3>Heading Level 3</h3>
+									<h4>Heading Level 4</h4>
+									<h5>Heading Level 5</h5>
+									<h6>Heading Level 6</h6>
+									<hr />
+									<h4>Blockquote</h4>
+									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+									<h4>Preformatted</h4>
+									<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+								</section>
+
+								<section>
+									<h3 class="major">Lists</h3>
+
+									<h4>Unordered</h4>
+									<ul>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Alternate</h4>
+									<ul class="alt">
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Ordered</h4>
+									<ol>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis viverra.</li>
+										<li>Felis enim feugiat.</li>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis lorem.</li>
+										<li>Felis enim et feugiat.</li>
+									</ol>
+									<h4>Icons</h4>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+									</ul>
+
+									<h4>Actions</h4>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions stacked">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Table</h3>
+									<h4>Default</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h4>Alternate</h4>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</section>
+
+								<section>
+									<h3 class="major">Buttons</h3>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Primary</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button primary disabled">Disabled</span></li>
+										<li><span class="button disabled">Disabled</span></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Form</h3>
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field half">
+												<label for="demo-name">Name</label>
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
+											</div>
+											<div class="field half">
+												<label for="demo-email">Email</label>
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
+											</div>
+											<div class="field">
+												<label for="demo-category">Category</label>
+												<select name="demo-category" id="demo-category">
+													<option value="">-</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+												<label for="demo-priority-low">Low</label>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-high" name="demo-priority">
+												<label for="demo-priority-high">High</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Email me a copy</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-human" name="demo-human" checked>
+												<label for="demo-human">Not a robot</label>
+											</div>
+											<div class="field">
+												<label for="demo-message">Message</label>
+												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</section>
+
+							</article>
+							-->
+					</div>
+							
+				<!-- Footer -->
+					<footer id="footer">
+							<p style="color:grey;">2021</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+		<script src="assets/js/carousel.js"></script>
+		<script src="assets/js/tech-config.js"></script>
+		<script src="assets/js/tech-showcase.js"></script>
+		<script src="assets/js/staggered-nav.js"></script>
+		<script src="assets/js/scroll-reveal.js"></script>
+			<script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
+			<script src="https://kit.fontawesome.com/3d4e9075fa.js" crossorigin="anonymous"></script>
+
+
+	</body>
+</html>

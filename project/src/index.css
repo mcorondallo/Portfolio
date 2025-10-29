@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  @apply antialiased;
+  background-color: rgb(227,192,184);
+}
+
+.text-primary {
+  color: #493129;
+}
