@@ -3023,3 +3023,65 @@ a:hover {
 		opacity: 1;
 		transform: scale(1.2);
 	}
+
+/* Side Navigation */
+.side-nav {
+	position: fixed;
+	right: 30px;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 1000;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.side-nav.side-nav-visible {
+	opacity: 1;
+	visibility: visible;
+}
+
+.side-nav-link {
+	display: flex;
+	align-items: center;
+	padding: 12px 15px;
+	margin: 8px 0;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 8px;
+	color: rgba(255, 255, 255, 0.7);
+	text-decoration: none;
+	transition: all 0.3s ease;
+	backdrop-filter: blur(10px);
+}
+
+.side-nav-link i {
+	font-size: 1.2rem;
+	margin-right: 10px;
+	min-width: 20px;
+}
+
+.side-nav-link span {
+	font-size: 0.9rem;
+	font-weight: 500;
+}
+
+.side-nav-link:hover {
+	background: rgba(100, 255, 218, 0.1);
+	border-color: #64ffda;
+	color: #64ffda;
+	transform: translateX(-5px);
+}
+
+.side-nav-link.active {
+	background: rgba(100, 255, 218, 0.15);
+	border-color: #64ffda;
+	color: #64ffda;
+	box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+}
+
+@media screen and (max-width: 980px) {
+	.side-nav {
+		display: none;
+	}
+}

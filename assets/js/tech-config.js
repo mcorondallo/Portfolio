@@ -63,13 +63,13 @@ const techConfig = [
 	},
 	{
 		name: 'Power Automate',
-		icon: 'https://static-00.iconduck.com/assets.00/power-automate-icon-1024x1024-0brb8jfi.png',
+		icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Microsoft_Power_Automate.svg/1200px-Microsoft_Power_Automate.svg.png',
 		url: 'https://powerautomate.microsoft.com/',
 		category: 'automation'
 	},
 	{
 		name: 'Power Apps',
-		icon: 'https://static-00.iconduck.com/assets.00/power-apps-icon-1024x1024-q2d2ahhh.png',
+		icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Powerapps-logo.svg/2048px-Powerapps-logo.svg.png',
 		url: 'https://powerapps.microsoft.com/',
 		category: 'lowcode'
 	},
@@ -87,13 +87,13 @@ const techConfig = [
 	},
 	{
 		name: 'Git',
-		icon: 'https://cdn.worldvectorlogo.com/logos/git-icon.svg',
+		icon: 'https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png',
 		url: 'https://git-scm.com/',
 		category: 'devops'
 	},
 	{
 		name: 'Lucidchart',
-		icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmO4AKoHOOm9hFUqwTg0HgsoME3E6a1c3vhw&s',
+		icon: 'https://store-images.s-microsoft.com/image/apps.7736.f1e439b9-777e-47dd-b695-f05d19eb7b38.8ee3e6f6-c400-4919-811d-59b0cd18fa41.e5bd6ef7-31e5-4ca5-a5c6-79be979af666.png',
 		url: 'https://www.lucidchart.com/',
 		category: 'productivity'
 	},
@@ -144,5 +144,29 @@ const techConfig = [
 		icon: 'https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg',
 		url: 'https://learn.microsoft.com/en-us/powerquery-m/',
 		category: 'language'
+	},
+	{
+		name: 'Cursor',
+		icon: 'https://www.cursor.com/brand/icon.svg',
+		url: 'https://www.cursor.com/',
+		category: 'development'
+	},
+	{
+		name: 'Claude',
+		icon: 'https://claude.ai/images/claude_app_icon.png',
+		url: 'https://claude.ai/',
+		category: 'ai'
+	},
+	{
+		name: 'Saviynt',
+		icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzQVLQ8mW7HqH2VW5Q5JYw5P_hXGZE6z8_Aw&s',
+		url: 'https://www.saviynt.com/',
+		category: 'security'
+	},
+	{
+		name: 'Whiteboard',
+		icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Microsoft_Office_logo_%282013%E2%80%932019%29.svg/1024px-Microsoft_Office_logo_%282013%E2%80%932019%29.svg.png',
+		url: 'https://www.microsoft.com/microsoft-365/microsoft-whiteboard/',
+		category: 'collaboration'
 	}
 ];
