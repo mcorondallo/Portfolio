@@ -2717,9 +2717,10 @@ a:hover {
 
 .expertise-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 	gap: 20px;
 	margin-top: 30px;
+	max-width: 100%;
 }
 
 .expertise-item {
@@ -2823,5 +2824,76 @@ a:hover {
 	
 	.personal-note p {
 		font-size: 0.95rem;
+	}
+}
+
+/* ============================================
+   TIMELINE NAVIGATION ARROWS
+   ============================================ */
+
+.timeline-nav {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 10;
+	background: rgba(20, 20, 20, 0.9);
+	border: 1px solid rgba(100, 255, 218, 0.4);
+	border-radius: 50%;
+	width: 45px;
+	height: 45px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	color: #64ffda;
+	font-size: 1.2rem;
+	transition: all 0.3s ease;
+	backdrop-filter: blur(10px);
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-nav:hover {
+	background: rgba(100, 255, 218, 0.15);
+	border-color: #64ffda;
+	transform: translateY(-50%) scale(1.1);
+	box-shadow: 0 6px 20px rgba(100, 255, 218, 0.3);
+}
+
+.timeline-nav:active {
+	transform: translateY(-50%) scale(0.95);
+}
+
+.timeline-nav-left {
+	left: -60px;
+}
+
+.timeline-nav-right {
+	right: -60px;
+}
+
+/* Hide arrows on mobile */
+@media screen and (max-width: 980px) {
+	.timeline-nav-left {
+		left: 5px;
+	}
+	
+	.timeline-nav-right {
+		right: 5px;
+	}
+}
+
+@media screen and (max-width: 736px) {
+	.timeline-nav {
+		width: 38px;
+		height: 38px;
+		font-size: 1rem;
+	}
+	
+	.timeline-nav-left {
+		left: 0;
+	}
+	
+	.timeline-nav-right {
+		right: 0;
 	}
 }

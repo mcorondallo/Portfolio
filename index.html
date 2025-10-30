@@ -531,15 +531,6 @@
 										</div>
 									</section>
 									
-									<div class="inner" style="text-align: center;">
-									</div>
-									<div style="display: flex; flex-direction: column; align-items: center; margin-top: 40px; width: 100%;">
-										<button id="scrollDownBtn" class="scroll-down-button" style="margin: 0 auto; min-width: 220px;">
-											<span class="mouse-scroll-icon"><i class="fas fa-mouse"></i></span>
-											Explore My Portfolio
-											<span class="scroll-down-icon"><i class="fas fa-chevron-down"></i></span>
-										</button>
-									</div>
 						
 						<!-- Hidden Legacy Navigation (kept for reference) -->
 						<nav style="margin-top: 60px; display: none;">
@@ -573,7 +564,14 @@
 
 							<!-- Horizontal Timeline -->
 							<div class="story-timeline">
-								<div class="timeline-track">
+								<div class="timeline-track" id="timelineTrack">
+								<!-- Timeline Navigation Arrows -->
+								<button class="timeline-nav timeline-nav-left" id="timelineNavLeft" aria-label="Scroll timeline left">
+									<i class="fas fa-chevron-left"></i>
+								</button>
+								<button class="timeline-nav timeline-nav-right" id="timelineNavRight" aria-label="Scroll timeline right">
+									<i class="fas fa-chevron-right"></i>
+								</button>
 
 									<!-- 2015-2017: NRJ -->
 									<div class="timeline-card scroll-reveal-scale">
@@ -703,7 +701,17 @@
 									<div class="expertise-item">
 										<span class="expertise-icon">🔐</span>
 										<h4>Governance & Enablement</h4>
-										<p>Security, compliance, documentation, training, community building</p>
+										<p>Role-based access (Entra ID, RLS), security policies, Confluence documentation, Champions network, training programs</p>
+									</div>
+									<div class="expertise-item">
+										<span class="expertise-icon">🤖</span>
+										<h4>AI & Automation</h4>
+										<p>AI agents, Copilot Studio, Power Automate, n8n, intelligent reminders, email automation, predictive modeling (Nomos AI, Process Mining)</p>
+									</div>
+									<div class="expertise-item">
+										<span class="expertise-icon">🐳</span>
+										<h4>DevOps & Integration</h4>
+										<p>Docker, Raspberry Pi hosting, Git, PowerShell, deployment pipelines, environment management (Dev/UAT/Prod), on-premise to cloud integration</p>
 									</div>
 								</div>
 							</div>
@@ -1133,6 +1141,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 		<script src="assets/js/tech-showcase.js"></script>
 		<script src="assets/js/staggered-nav.js"></script>
 		<script src="assets/js/scroll-reveal.js"></script>
+		<script src="assets/js/timeline-nav.js"></script>
 			<script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
 			<script src="https://kit.fontawesome.com/3d4e9075fa.js" crossorigin="anonymous"></script>
 
