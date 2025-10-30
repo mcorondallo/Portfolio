@@ -21,7 +21,7 @@ const techConfig = [
 	},
 	{
 		name: 'Microsoft Fabric',
-		icon: 'https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Fabric_Logo_1920x720_RE5ynGO?scl=1',
+		icon: 'https://swimburger.net/media/ppnn3pcl/azure.png',
 		url: 'https://www.microsoft.com/microsoft-fabric',
 		category: 'cloud'
 	},
@@ -63,13 +63,13 @@ const techConfig = [
 	},
 	{
 		name: 'Power Automate',
-		icon: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Microsoft_Power_Automate.svg',
+		icon: 'https://static-00.iconduck.com/assets.00/power-automate-icon-1024x1024-0brb8jfi.png',
 		url: 'https://powerautomate.microsoft.com/',
 		category: 'automation'
 	},
 	{
 		name: 'Power Apps',
-		icon: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Microsoft_Power_Apps_icon.svg',
+		icon: 'https://static-00.iconduck.com/assets.00/power-apps-icon-1024x1024-q2d2ahhh.png',
 		url: 'https://powerapps.microsoft.com/',
 		category: 'lowcode'
 	},
@@ -93,7 +93,7 @@ const techConfig = [
 	},
 	{
 		name: 'Lucidchart',
-		icon: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Lucidchart_Logo.svg',
+		icon: 'https://static-00.iconduck.com/assets.00/lucidchart-icon-2048x2048-1bi5ih6k.png',
 		url: 'https://www.lucidchart.com/',
 		category: 'productivity'
 	},
@@ -123,13 +123,13 @@ const techConfig = [
 	},
 	{
 		name: 'Process Mining',
-		icon: 'https://cdn-icons-png.flaticon.com/512/9850/9850883.png',
-		url: 'https://www.processmining.org/',
+		icon: 'https://store-images.s-microsoft.com/image/apps.44524.de0892a8-d864-4a39-ba3a-19769b6c0e19.df759c85-fea0-42a8-9f54-8d3ec0106a7a.d268eefb-ca43-4ba6-913d-e904c7eafb6d',
+		url: 'https://powerautomate.microsoft.com/process-mining/',
 		category: 'analytics'
 	},
 	{
 		name: 'OneLake',
-		icon: 'https://techcommunity.microsoft.com/t5/image/serverpage/image-id/498826iB1BB0C16E08DF6E9/image-size/large?v=v2&px=999',
+		icon: 'https://static-00.iconduck.com/assets.00/azure-data-lake-icon-2048x2048-rbjv4qbm.png',
 		url: 'https://learn.microsoft.com/en-us/fabric/onelake/',
 		category: 'cloud'
 	}
