@@ -21,7 +21,7 @@ const techConfig = [
 	},
 	{
 		name: 'Microsoft Fabric',
-		icon: 'https://learn.microsoft.com/en-us/fabric/media/index/microsoft-fabric.svg',
+		icon: 'https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Fabric_Logo_1920x720_RE5ynGO?scl=1',
 		url: 'https://www.microsoft.com/microsoft-fabric',
 		category: 'cloud'
 	},
@@ -51,7 +51,7 @@ const techConfig = [
 	},
 	{
 		name: 'N8N',
-		icon: 'https://n8n.io/favicon.svg',
+		icon: 'https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png',
 		url: 'https://n8n.io/',
 		category: 'automation'
 	},
@@ -63,19 +63,19 @@ const techConfig = [
 	},
 	{
 		name: 'Power Automate',
-		icon: 'https://powerautomate.microsoft.com/images/application-logos/svg/power-automate.svg',
+		icon: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Microsoft_Power_Automate.svg',
 		url: 'https://powerautomate.microsoft.com/',
 		category: 'automation'
 	},
 	{
 		name: 'Power Apps',
-		icon: 'https://powerapps.microsoft.com/images/application-logos/svg/powerapps.svg',
+		icon: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Microsoft_Power_Apps_icon.svg',
 		url: 'https://powerapps.microsoft.com/',
 		category: 'lowcode'
 	},
 	{
 		name: 'Excel',
-		icon: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg',
+		icon: 'https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg',
 		url: 'https://www.microsoft.com/microsoft-365/excel',
 		category: 'productivity'
 	},
@@ -93,7 +93,7 @@ const techConfig = [
 	},
 	{
 		name: 'Lucidchart',
-		icon: 'https://cdn.worldvectorlogo.com/logos/lucidchart.svg',
+		icon: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Lucidchart_Logo.svg',
 		url: 'https://www.lucidchart.com/',
 		category: 'productivity'
 	},
@@ -105,20 +105,32 @@ const techConfig = [
 	},
 	{
 		name: 'MicroPython',
-		icon: 'https://micropython.org/static/img/micropython-logo.svg',
+		icon: 'https://raw.githubusercontent.com/micropython/micropython/master/logo/upython-with-micro.jpg',
 		url: 'https://micropython.org/',
 		category: 'programming'
 	},
 	{
 		name: 'JavaScript',
-		icon: 'https://cdn.worldvectorlogo.com/logos/logo-javascript.svg',
+		icon: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
 		url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
 		category: 'programming'
 	},
 	{
 		name: 'Alteryx',
-		icon: 'https://www.alteryx.com/sites/default/files/alteryx-logo-1color-navy_0.png',
+		icon: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Alteryx_logo.svg',
 		url: 'https://www.alteryx.com/',
 		category: 'data'
+	},
+	{
+		name: 'Process Mining',
+		icon: 'https://cdn-icons-png.flaticon.com/512/9850/9850883.png',
+		url: 'https://www.processmining.org/',
+		category: 'analytics'
+	},
+	{
+		name: 'OneLake',
+		icon: 'https://techcommunity.microsoft.com/t5/image/serverpage/image-id/498826iB1BB0C16E08DF6E9/image-size/large?v=v2&px=999',
+		url: 'https://learn.microsoft.com/en-us/fabric/onelake/',
+		category: 'cloud'
 	}
 ];
