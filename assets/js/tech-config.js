@@ -21,7 +21,7 @@ const techConfig = [
 	},
 	{
 		name: 'Microsoft Fabric',
-		icon: 'https://swimburger.net/media/ppnn3pcl/azure.png',
+		icon: 'https://static.wikia.nocookie.net/logopedia/images/a/aa/Microsoft_Fabric_2023.svg',
 		url: 'https://www.microsoft.com/microsoft-fabric',
 		category: 'cloud'
 	},
@@ -93,7 +93,7 @@ const techConfig = [
 	},
 	{
 		name: 'Lucidchart',
-		icon: 'https://static-00.iconduck.com/assets.00/lucidchart-icon-2048x2048-1bi5ih6k.png',
+		icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmO4AKoHOOm9hFUqwTg0HgsoME3E6a1c3vhw&s',
 		url: 'https://www.lucidchart.com/',
 		category: 'productivity'
 	},
@@ -129,8 +129,20 @@ const techConfig = [
 	},
 	{
 		name: 'OneLake',
-		icon: 'https://static-00.iconduck.com/assets.00/azure-data-lake-icon-2048x2048-rbjv4qbm.png',
+		icon: 'https://gerhardbrueckl.gallerycdn.vsassets.io/extensions/gerhardbrueckl/onelake-vscode/0.2.1/1756467629005/Microsoft.VisualStudio.Services.Icons.Default',
 		url: 'https://learn.microsoft.com/en-us/fabric/onelake/',
 		category: 'cloud'
+	},
+	{
+		name: 'DAX',
+		icon: 'https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg',
+		url: 'https://learn.microsoft.com/en-us/dax/',
+		category: 'language'
+	},
+	{
+		name: 'M Language',
+		icon: 'https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg',
+		url: 'https://learn.microsoft.com/en-us/powerquery-m/',
+		category: 'language'
 	}
 ];
