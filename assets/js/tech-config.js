@@ -56,6 +56,12 @@ const techConfig = [
 		category: 'automation'
 	},
 	{
+		name: 'Home Assistant',
+		icon: 'https://upload.wikimedia.org/wikipedia/en/4/49/Home_Assistant_logo_%282023%29.svg',
+		url: 'https://www.home-assistant.io/',
+		category: 'automation'
+	},
+	{
 		name: 'Power Automate',
 		icon: 'https://powerautomate.microsoft.com/images/application-logos/svg/power-automate.svg',
 		url: 'https://powerautomate.microsoft.com/',
