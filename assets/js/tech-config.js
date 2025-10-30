@@ -129,7 +129,7 @@ const techConfig = [
 	},
 	{
 		name: 'OneLake',
-		icon: 'https://static-00.iconduck.com/assets.00/azure-data-lake-icon-2048x2048-rbjv4qbm.png',
+		icon: 'https://debruyn.dev/2023/all-microsoft-fabric-icons-for-diagramming-old-version/onelake_48_color.svg',
 		url: 'https://learn.microsoft.com/en-us/fabric/onelake/',
 		category: 'cloud'
 	},
@@ -141,13 +141,13 @@ const techConfig = [
 	},
 	{
 		name: 'Claude',
-		icon: 'https://claude.ai/images/claude_app_icon.png',
+		icon: 'https://cdn.worldvectorlogo.com/logos/claude-logo.svg',
 		url: 'https://claude.ai/',
 		category: 'ai'
 	},
 	{
 		name: 'Saviynt',
-		icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzQVLQ8mW7HqH2VW5Q5JYw5P_hXGZE6z8_Aw&s',
+		icon: 'https://awsmp-logos.s3.amazonaws.com/85b79092-68e7-467e-9b84-0c33251226d9/df84b5322ceec225063950eb85da85e1.png',
 		url: 'https://www.saviynt.com/',
 		category: 'security'
 	},
