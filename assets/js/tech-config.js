@@ -90,5 +90,35 @@ const techConfig = [
 		icon: 'https://cdn.worldvectorlogo.com/logos/git-icon.svg',
 		url: 'https://git-scm.com/',
 		category: 'devops'
+	},
+	{
+		name: 'Lucidchart',
+		icon: 'https://cdn.worldvectorlogo.com/logos/lucidchart.svg',
+		url: 'https://www.lucidchart.com/',
+		category: 'productivity'
+	},
+	{
+		name: 'XGBoost',
+		icon: 'https://upload.wikimedia.org/wikipedia/commons/6/69/XGBoost_logo.png',
+		url: 'https://xgboost.ai/',
+		category: 'ml'
+	},
+	{
+		name: 'MicroPython',
+		icon: 'https://micropython.org/static/img/micropython-logo.svg',
+		url: 'https://micropython.org/',
+		category: 'programming'
+	},
+	{
+		name: 'JavaScript',
+		icon: 'https://cdn.worldvectorlogo.com/logos/logo-javascript.svg',
+		url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+		category: 'programming'
+	},
+	{
+		name: 'Alteryx',
+		icon: 'https://www.alteryx.com/sites/default/files/alteryx-logo-1color-navy_0.png',
+		url: 'https://www.alteryx.com/',
+		category: 'data'
 	}
 ];
