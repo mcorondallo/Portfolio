@@ -1,8 +1,10 @@
 // ============================================
-// TECHNOLOGY SHOWCASE CAROUSEL
+// TECHNOLOGY SHOWCASE CAROUSEL WITH TOOLTIPS
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
 	const techTrack = document.querySelector('.tech-track');
+	let isPaused = false;
+	let activeTooltip = null;
 
 	if (techTrack && typeof techConfig !== 'undefined') {
 		// Generate tech items from config
@@ -21,35 +23,145 @@ document.addEventListener('DOMContentLoaded', function() {
 		// Add click event handlers to all items (including clones)
 		const allTechItems = document.querySelectorAll('.tech-item');
 		allTechItems.forEach(function(item) {
-			item.addEventListener('click', function() {
-				const url = this.dataset.url;
-				if (url) {
-					window.open(url, '_blank', 'noopener,noreferrer');
-				}
+			item.addEventListener('click', function(e) {
+				e.stopPropagation();
+				handleTechClick(this);
 			});
 
 			// Add keyboard support
 			item.addEventListener('keypress', function(e) {
 				if (e.key === 'Enter' || e.key === ' ') {
 					e.preventDefault();
-					const url = this.dataset.url;
-					if (url) {
-						window.open(url, '_blank', 'noopener,noreferrer');
-					}
+					e.stopPropagation();
+					handleTechClick(this);
 				}
 			});
+		});
+
+		// Close tooltips when clicking outside
+		document.addEventListener('click', function(e) {
+			if (!e.target.closest('.tech-item') && !e.target.closest('.tech-tooltip')) {
+				closeAllTooltips();
+				resumeAnimation();
+			}
+		});
+
+		// Resume animation on scroll
+		window.addEventListener('scroll', function() {
+			if (isPaused) {
+				closeAllTooltips();
+				resumeAnimation();
+			}
 		});
 
 		// Pause animation on hover (for accessibility)
 		const techCarousel = document.querySelector('.tech-carousel');
 		if (techCarousel) {
 			techCarousel.addEventListener('mouseenter', function() {
-				techTrack.style.animationPlayState = 'paused';
+				if (!isPaused) {
+					techTrack.style.animationPlayState = 'paused';
+				}
 			});
 
 			techCarousel.addEventListener('mouseleave', function() {
-				techTrack.style.animationPlayState = 'running';
+				if (!isPaused) {
+					techTrack.style.animationPlayState = 'running';
+				}
 			});
+		}
+	}
+
+	/**
+	 * Handle tech item click
+	 */
+	function handleTechClick(item) {
+		const techName = item.dataset.tech;
+		const description = item.dataset.description;
+
+		// Close all other tooltips first
+		closeAllTooltips();
+
+		// If clicking the same item, just toggle
+		if (activeTooltip && activeTooltip.dataset.tech === techName) {
+			resumeAnimation();
+			return;
+		}
+
+		// Show new tooltip
+		showTooltip(item, description);
+		pauseAnimation();
+	}
+
+	/**
+	 * Show tooltip for a tech item
+	 */
+	function showTooltip(item, description) {
+		// Create tooltip element
+		const tooltip = document.createElement('div');
+		tooltip.className = 'tech-tooltip';
+		tooltip.dataset.tech = item.dataset.tech;
+		tooltip.textContent = description;
+
+		// Position tooltip above the item
+		const rect = item.getBoundingClientRect();
+		const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+		tooltip.style.position = 'absolute';
+		tooltip.style.left = (rect.left + rect.width / 2) + 'px';
+		tooltip.style.top = (rect.top + scrollTop - 10) + 'px';
+
+		document.body.appendChild(tooltip);
+		activeTooltip = tooltip;
+
+		// Add active class to item
+		item.classList.add('tech-item-active');
+
+		// Trigger animation
+		setTimeout(function() {
+			tooltip.classList.add('visible');
+		}, 10);
+	}
+
+	/**
+	 * Close all tooltips
+	 */
+	function closeAllTooltips() {
+		const tooltips = document.querySelectorAll('.tech-tooltip');
+		const activeItems = document.querySelectorAll('.tech-item-active');
+
+		tooltips.forEach(function(tooltip) {
+			tooltip.classList.remove('visible');
+			setTimeout(function() {
+				if (tooltip.parentNode) {
+					tooltip.parentNode.removeChild(tooltip);
+				}
+			}, 300);
+		});
+
+		activeItems.forEach(function(item) {
+			item.classList.remove('tech-item-active');
+		});
+
+		activeTooltip = null;
+	}
+
+	/**
+	 * Pause animation
+	 */
+	function pauseAnimation() {
+		if (techTrack) {
+			techTrack.style.animationPlayState = 'paused';
+			isPaused = true;
+		}
+	}
+
+	/**
+	 * Resume animation
+	 */
+	function resumeAnimation() {
+		if (techTrack) {
+			techTrack.style.animationPlayState = 'running';
+			isPaused = false;
 		}
 	}
 });
@@ -66,9 +178,10 @@ function createTechItem(tech, index) {
 	item.dataset.tech = tech.name.toLowerCase().replace(/\s+/g, '');
 	item.dataset.url = tech.url;
 	item.dataset.category = tech.category;
+	item.dataset.description = tech.description || 'No description available';
 	item.setAttribute('role', 'button');
 	item.setAttribute('tabindex', '0');
-	item.setAttribute('aria-label', 'Visit ' + tech.name + ' website');
+	item.setAttribute('aria-label', tech.name + ' - Click to view description');
 
 	// Calculate animation delay for stagger effect
 	const animationDelay = (index * 0.1) + 's';
