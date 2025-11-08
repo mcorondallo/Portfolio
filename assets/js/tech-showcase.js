@@ -70,62 +70,31 @@ document.addEventListener('DOMContentLoaded', function() {
 			});
 		}
 
-		// Control buttons
-		const leftBtn = document.getElementById('tech-left');
-		const rightBtn = document.getElementById('tech-right');
+		// Play/Pause Button
+		const playPauseBtn = document.getElementById('tech-play-pause');
+		const playIcon = playPauseBtn ? playPauseBtn.querySelector('.play-icon') : null;
+		const pauseIcon = playPauseBtn ? playPauseBtn.querySelector('.pause-icon') : null;
 
-		// Track current speed
-		let currentSpeed = 60; // Default slow speed in seconds
-		const speeds = [60, 45, 30, 20]; // Different speed levels
-		let speedIndex = 0;
-
-		// Left arrow - scroll backward to see previous logos
-		if (leftBtn) {
-			leftBtn.addEventListener('click', function() {
-				// Temporarily pause and move backward
-				pauseAnimation();
-
-				const firstItem = document.querySelector('.tech-item');
-				if (firstItem) {
-					const itemWidth = firstItem.offsetWidth + 30; // item width + gap
-					const currentTransform = window.getComputedStyle(techTrack).transform;
-					let currentX = 0;
-
-					if (currentTransform !== 'none') {
-						const matrix = currentTransform.match(/matrix\(([^)]+)\)/);
-						if (matrix) {
-							currentX = parseFloat(matrix[1].split(',')[4]);
-						}
-					}
-
-					// Move backward by 5 items
-					const newX = currentX + (itemWidth * 5);
-					techTrack.style.transform = `translateX(${newX}px)`;
-
-					// Resume animation after a brief pause
-					setTimeout(function() {
-						resumeAnimation();
-					}, 2000);
+		// Play/Pause functionality
+		if (playPauseBtn && playIcon && pauseIcon) {
+			playPauseBtn.addEventListener('click', function() {
+				if (isPaused) {
+					// Resume animation
+					resumeAnimation();
+					closeAllTooltips();
+					playIcon.style.display = 'none';
+					pauseIcon.style.display = 'block';
+				} else {
+					// Pause animation
+					pauseAnimation();
+					playIcon.style.display = 'block';
+					pauseIcon.style.display = 'none';
 				}
 			});
-		}
 
-		// Right arrow - speed up the carousel
-		if (rightBtn) {
-			rightBtn.addEventListener('click', function() {
-				// Cycle through speed levels
-				speedIndex = (speedIndex + 1) % speeds.length;
-				currentSpeed = speeds[speedIndex];
-
-				// Update animation duration
-				techTrack.style.animationDuration = currentSpeed + 's';
-
-				// Visual feedback - briefly highlight the arrow
-				rightBtn.style.background = 'rgba(100, 255, 218, 0.3)';
-				setTimeout(function() {
-					rightBtn.style.background = 'rgba(255, 255, 255, 0.1)';
-				}, 300);
-			});
+			// Set initial state (pause icon visible = animation playing)
+			pauseIcon.style.display = 'block';
+			playIcon.style.display = 'none';
 		}
 	}
 

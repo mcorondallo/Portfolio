@@ -2208,45 +2208,6 @@ a:hover {
 	animation-play-state: paused;
 }
 
-/* Side Arrow Controls */
-.tech-arrow {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	background: rgba(255, 255, 255, 0.1);
-	border: none;
-	border-radius: 50%;
-	width: 50px;
-	height: 50px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	z-index: 100;
-	color: rgba(255, 255, 255, 0.7);
-	transition: all 0.3s ease;
-	backdrop-filter: blur(5px);
-}
-
-.tech-arrow:hover {
-	background: rgba(255, 255, 255, 0.2);
-	color: rgba(255, 255, 255, 1);
-	transform: translateY(-50%) scale(1.1);
-}
-
-.tech-arrow-left {
-	left: 10px;
-}
-
-.tech-arrow-right {
-	right: 10px;
-}
-
-.tech-arrow svg {
-	width: 32px;
-	height: 32px;
-}
-
 /* Individual Tech Item */
 .tech-item {
 	display: flex;
@@ -3298,4 +3259,58 @@ article {
 	.project-expander-image {
 		max-width: 100%;
 	}
+}
+
+/* Animated Gradient Background - Color Bends Style */
+.animated-gradient-bg::after {
+	background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #533483, #e94560) !important;
+	background-size: 400% 400% !important;
+	animation: gradientShift 15s ease infinite !important;
+}
+
+@keyframes gradientShift {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* Play/Pause Button for Carousel */
+.tech-carousel-control {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.tech-play-pause-btn {
+	background: rgba(255, 255, 255, 0.1);
+	border: 2px solid rgba(100, 255, 218, 0.5);
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	color: rgba(255, 255, 255, 0.8);
+	backdrop-filter: blur(10px);
+}
+
+.tech-play-pause-btn:hover {
+	background: rgba(100, 255, 218, 0.2);
+	border-color: #64ffda;
+	color: #64ffda;
+	transform: scale(1.1);
+	box-shadow: 0 0 20px rgba(100, 255, 218, 0.4);
+}
+
+.tech-play-pause-btn svg {
+	width: 20px;
+	height: 20px;
 }
