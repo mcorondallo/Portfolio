@@ -72,31 +72,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		// Control buttons
 		const playPauseBtn = document.getElementById('tech-play-pause');
-		const slowBtn = document.getElementById('tech-slow');
-		const fastBtn = document.getElementById('tech-fast');
+		const rewindBtn = document.getElementById('tech-rewind');
+		const forwardBtn = document.getElementById('tech-forward');
+		const slider = document.getElementById('tech-slider');
 		const playIcon = playPauseBtn.querySelector('.play-icon');
 		const pauseIcon = playPauseBtn.querySelector('.pause-icon');
 
-		// Speed settings
-		let currentSpeed = 'normal'; // slow, normal, fast
-		const speeds = {
-			slow: '80s',
-			normal: '50s',
-			fast: '25s'
-		};
+		// Track carousel position
+		let isUserControlling = false;
+		const itemWidth = 120; // Approximate item width + gap
 
 		// Play/Pause functionality
 		if (playPauseBtn) {
 			playPauseBtn.addEventListener('click', function() {
 				if (isPaused) {
-					// Resume: reset to normal speed and play
-					currentSpeed = 'normal';
-					techTrack.style.animationDuration = speeds.normal;
+					// Resume animation
 					resumeAnimation();
 					closeAllTooltips();
 					playIcon.style.display = 'none';
 					pauseIcon.style.display = 'block';
-					updateSpeedIndicators();
+					isUserControlling = false;
 				} else {
 					// Pause animation
 					pauseAnimation();
@@ -110,53 +105,52 @@ document.addEventListener('DOMContentLoaded', function() {
 			playIcon.style.display = 'none';
 		}
 
-		// Slow speed functionality
-		if (slowBtn) {
-			slowBtn.addEventListener('click', function() {
-				currentSpeed = 'slow';
-				techTrack.style.animationDuration = speeds.slow;
-				// Ensure animation is running when changing speed
-				if (isPaused) {
-					resumeAnimation();
-					playIcon.style.display = 'none';
-					pauseIcon.style.display = 'block';
+		// Slider functionality
+		if (slider) {
+			slider.addEventListener('input', function() {
+				// Pause animation when user starts dragging
+				if (!isPaused) {
+					pauseAnimation();
+					playIcon.style.display = 'block';
+					pauseIcon.style.display = 'none';
 				}
-				updateSpeedIndicators();
+				isUserControlling = true;
+
+				// Calculate position based on slider value (0-100)
+				const position = -(slider.value * 30); // Multiply by factor for smooth scrolling
+				techTrack.style.transform = `translateX(${position}px)`;
+			});
+
+			// Optional: Resume animation when slider is released
+			slider.addEventListener('change', function() {
+				// User can click play button to resume if they want
 			});
 		}
 
-		// Fast speed functionality
-		if (fastBtn) {
-			fastBtn.addEventListener('click', function() {
-				currentSpeed = 'fast';
-				techTrack.style.animationDuration = speeds.fast;
-				// Ensure animation is running when changing speed
-				if (isPaused) {
-					resumeAnimation();
-					playIcon.style.display = 'none';
-					pauseIcon.style.display = 'block';
-				}
-				updateSpeedIndicators();
+		// Rewind button
+		if (rewindBtn) {
+			rewindBtn.addEventListener('click', function() {
+				const currentValue = parseInt(slider.value);
+				const newValue = Math.max(0, currentValue - 10);
+				slider.value = newValue;
+
+				// Trigger slider input event
+				const event = new Event('input');
+				slider.dispatchEvent(event);
 			});
 		}
 
-		// Update speed button visual indicators
-		function updateSpeedIndicators() {
-			// Reset all buttons
-			slowBtn.style.borderColor = 'rgba(100, 255, 218, 0.4)';
-			fastBtn.style.borderColor = 'rgba(100, 255, 218, 0.4)';
-			slowBtn.style.color = 'rgba(255, 255, 255, 0.7)';
-			fastBtn.style.color = 'rgba(255, 255, 255, 0.7)';
+		// Forward button
+		if (forwardBtn) {
+			forwardBtn.addEventListener('click', function() {
+				const currentValue = parseInt(slider.value);
+				const newValue = Math.min(100, currentValue + 10);
+				slider.value = newValue;
 
-			// Highlight active button
-			if (currentSpeed === 'slow') {
-				slowBtn.style.borderColor = '#64ffda';
-				slowBtn.style.color = '#64ffda';
-			} else if (currentSpeed === 'fast') {
-				fastBtn.style.borderColor = '#64ffda';
-				fastBtn.style.color = '#64ffda';
-			}
-			// Normal speed has no highlighted button
+				// Trigger slider input event
+				const event = new Event('input');
+				slider.dispatchEvent(event);
+			});
 		}
 	}
 

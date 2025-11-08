@@ -357,12 +357,15 @@
 											</div>
 											<!-- Carousel Controls -->
 											<div class="tech-carousel-controls">
-												<button class="tech-control-btn" id="tech-slow" aria-label="Slow speed" title="Slow animation">
+												<button class="tech-control-btn" id="tech-rewind" aria-label="Rewind" title="Rewind carousel">
 													<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-														<circle cx="12" cy="12" r="10"></circle>
-														<polyline points="12 6 12 12 16 14"></polyline>
+														<polygon points="11 19 2 12 11 5 11 19"></polygon>
+														<polygon points="22 19 13 12 22 5 22 19"></polygon>
 													</svg>
 												</button>
+												<div class="tech-slider-container">
+													<input type="range" id="tech-slider" class="tech-slider" min="0" max="100" value="0" aria-label="Carousel position slider">
+												</div>
 												<button class="tech-control-btn" id="tech-play-pause" aria-label="Play/Pause" title="Play/Pause animation">
 													<svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 														<polygon points="5 3 19 12 5 21 5 3"></polygon>
@@ -372,10 +375,10 @@
 														<rect x="14" y="4" width="4" height="16"></rect>
 													</svg>
 												</button>
-												<button class="tech-control-btn" id="tech-fast" aria-label="Fast speed" title="Fast animation">
+												<button class="tech-control-btn" id="tech-forward" aria-label="Forward" title="Forward carousel">
 													<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 														<polygon points="13 19 22 12 13 5 13 19"></polygon>
-														<path d="M2 19V5"></path>
+														<polygon points="2 19 11 12 2 5 2 19"></polygon>
 													</svg>
 												</button>
 											</div>
