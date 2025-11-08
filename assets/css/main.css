@@ -2190,7 +2190,7 @@ a:hover {
 .tech-track {
 	display: flex;
 	gap: 30px;
-	animation: scroll-infinite 40s linear infinite;
+	animation: scroll-infinite 60s linear infinite;
 	width: fit-content;
 	will-change: transform;
 }
@@ -2206,6 +2206,45 @@ a:hover {
 
 .tech-carousel:hover .tech-track {
 	animation-play-state: paused;
+}
+
+/* Side Arrow Controls */
+.tech-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background: rgba(255, 255, 255, 0.1);
+	border: none;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	z-index: 100;
+	color: rgba(255, 255, 255, 0.7);
+	transition: all 0.3s ease;
+	backdrop-filter: blur(5px);
+}
+
+.tech-arrow:hover {
+	background: rgba(255, 255, 255, 0.2);
+	color: rgba(255, 255, 255, 1);
+	transform: translateY(-50%) scale(1.1);
+}
+
+.tech-arrow-left {
+	left: 10px;
+}
+
+.tech-arrow-right {
+	right: 10px;
+}
+
+.tech-arrow svg {
+	width: 32px;
+	height: 32px;
 }
 
 /* Individual Tech Item */
@@ -2399,66 +2438,6 @@ a:hover {
 	}
 }
 
-/* Carousel Controls */
-.tech-carousel-controls {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 15px;
-	margin-top: 25px;
-	padding: 15px 0;
-}
-
-.tech-control-btn {
-	background: transparent;
-	border: 2px solid rgba(100, 255, 218, 0.4);
-	border-radius: 50%;
-	width: 48px;
-	height: 48px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-	color: rgba(255, 255, 255, 0.7);
-	box-shadow: none;
-	backdrop-filter: none;
-	flex-shrink: 0;
-}
-
-.tech-control-btn:hover {
-	background: rgba(100, 255, 218, 0.1);
-	border-color: #64ffda;
-	color: #64ffda;
-	transform: scale(1.1);
-	box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
-}
-
-.tech-control-btn:active {
-	transform: scale(0.95);
-}
-
-.tech-control-btn svg {
-	width: 20px;
-	height: 20px;
-}
-
-/* Play/Pause button - slightly larger */
-#tech-play-pause {
-	width: 56px;
-	height: 56px;
-	border-width: 2.5px;
-	border-color: rgba(100, 255, 218, 0.5);
-}
-
-#tech-play-pause:hover {
-	box-shadow: 0 8px 30px rgba(100, 255, 218, 0.4);
-}
-
-#tech-play-pause svg {
-	width: 24px;
-	height: 24px;
-}
 
 /* Responsive */
 @media screen and (max-width: 736px) {

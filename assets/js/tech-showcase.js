@@ -71,74 +71,60 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 
 		// Control buttons
-		const playPauseBtn = document.getElementById('tech-play-pause');
 		const leftBtn = document.getElementById('tech-left');
 		const rightBtn = document.getElementById('tech-right');
-		const playIcon = playPauseBtn.querySelector('.play-icon');
-		const pauseIcon = playPauseBtn.querySelector('.pause-icon');
 
-		// Track carousel position
-		let currentPosition = 0;
+		// Track current speed
+		let currentSpeed = 60; // Default slow speed in seconds
+		const speeds = [60, 45, 30, 20]; // Different speed levels
+		let speedIndex = 0;
 
-		// Play/Pause functionality
-		if (playPauseBtn) {
-			playPauseBtn.addEventListener('click', function() {
-				if (isPaused) {
-					// Resume animation
-					resumeAnimation();
-					closeAllTooltips();
-					playIcon.style.display = 'none';
-					pauseIcon.style.display = 'block';
-				} else {
-					// Pause animation
-					pauseAnimation();
-					playIcon.style.display = 'block';
-					pauseIcon.style.display = 'none';
-				}
-			});
-
-			// Set initial state (pause icon visible = animation playing)
-			pauseIcon.style.display = 'block';
-			playIcon.style.display = 'none';
-		}
-
-		// Left arrow - go backward
+		// Left arrow - scroll backward to see previous logos
 		if (leftBtn) {
 			leftBtn.addEventListener('click', function() {
-				// Pause animation when using manual controls
-				if (!isPaused) {
-					pauseAnimation();
-					playIcon.style.display = 'block';
-					pauseIcon.style.display = 'none';
-				}
+				// Temporarily pause and move backward
+				pauseAnimation();
 
-				// Move carousel backward (3 items)
 				const firstItem = document.querySelector('.tech-item');
 				if (firstItem) {
 					const itemWidth = firstItem.offsetWidth + 30; // item width + gap
-					currentPosition += itemWidth * 3;
-					techTrack.style.transform = `translateX(${currentPosition}px)`;
+					const currentTransform = window.getComputedStyle(techTrack).transform;
+					let currentX = 0;
+
+					if (currentTransform !== 'none') {
+						const matrix = currentTransform.match(/matrix\(([^)]+)\)/);
+						if (matrix) {
+							currentX = parseFloat(matrix[1].split(',')[4]);
+						}
+					}
+
+					// Move backward by 5 items
+					const newX = currentX + (itemWidth * 5);
+					techTrack.style.transform = `translateX(${newX}px)`;
+
+					// Resume animation after a brief pause
+					setTimeout(function() {
+						resumeAnimation();
+					}, 2000);
 				}
 			});
 		}
 
-		// Right arrow - go forward
+		// Right arrow - speed up the carousel
 		if (rightBtn) {
 			rightBtn.addEventListener('click', function() {
-				// Pause animation when using manual controls
-				if (!isPaused) {
-					pauseAnimation();
-					playIcon.style.display = 'block';
-					pauseIcon.style.display = 'none';
-				}
+				// Cycle through speed levels
+				speedIndex = (speedIndex + 1) % speeds.length;
+				currentSpeed = speeds[speedIndex];
 
-				// Move carousel forward (3 items)
-				const firstItem = document.querySelector('.tech-item');
-				if (firstItem) {
-					const itemWidth = firstItem.offsetWidth + 30; // item width + gap
-					currentPosition -= itemWidth * 3;
-					techTrack.style.transform = `translateX(${currentPosition}px)`;
-				}
+				// Update animation duration
+				techTrack.style.animationDuration = currentSpeed + 's';
+
+				// Visual feedback - briefly highlight the arrow
+				rightBtn.style.background = 'rgba(100, 255, 218, 0.3)';
+				setTimeout(function() {
+					rightBtn.style.background = 'rgba(255, 255, 255, 0.1)';
+				}, 300);
 			});
 		}
 	}
