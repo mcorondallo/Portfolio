@@ -89,19 +89,25 @@ document.addEventListener('DOMContentLoaded', function() {
 		if (playPauseBtn) {
 			playPauseBtn.addEventListener('click', function() {
 				if (isPaused) {
+					// Resume: reset to normal speed and play
+					currentSpeed = 'normal';
+					techTrack.style.animationDuration = speeds.normal;
 					resumeAnimation();
 					closeAllTooltips();
 					playIcon.style.display = 'none';
 					pauseIcon.style.display = 'block';
+					updateSpeedIndicators();
 				} else {
+					// Pause animation
 					pauseAnimation();
 					playIcon.style.display = 'block';
 					pauseIcon.style.display = 'none';
 				}
 			});
 
-			// Set initial state
+			// Set initial state (pause icon visible = animation playing)
 			pauseIcon.style.display = 'block';
+			playIcon.style.display = 'none';
 		}
 
 		// Slow speed functionality
@@ -109,6 +115,12 @@ document.addEventListener('DOMContentLoaded', function() {
 			slowBtn.addEventListener('click', function() {
 				currentSpeed = 'slow';
 				techTrack.style.animationDuration = speeds.slow;
+				// Ensure animation is running when changing speed
+				if (isPaused) {
+					resumeAnimation();
+					playIcon.style.display = 'none';
+					pauseIcon.style.display = 'block';
+				}
 				updateSpeedIndicators();
 			});
 		}
@@ -118,6 +130,12 @@ document.addEventListener('DOMContentLoaded', function() {
 			fastBtn.addEventListener('click', function() {
 				currentSpeed = 'fast';
 				techTrack.style.animationDuration = speeds.fast;
+				// Ensure animation is running when changing speed
+				if (isPaused) {
+					resumeAnimation();
+					playIcon.style.display = 'none';
+					pauseIcon.style.display = 'block';
+				}
 				updateSpeedIndicators();
 			});
 		}
@@ -138,6 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				fastBtn.style.borderColor = '#64ffda';
 				fastBtn.style.color = '#64ffda';
 			}
+			// Normal speed has no highlighted button
 		}
 	}
 

@@ -199,7 +199,7 @@ const techConfig = [
 	},
 	{
 		name: 'Figma',
-		icon: 'https://cdn.worldvectorlogo.com/logos/figma-5.svg',
+		icon: 'https://static.vecteezy.com/system/resources/previews/065/386/871/non_2x/figma-logo-icon-figma-app-editable-transparent-background-premium-social-media-design-for-digital-download-free-png.png',
 		url: 'https://www.figma.com/',
 		category: 'design',
 		description: 'Collaborative design tool for UI/UX mockups, prototyping, and design system documentation.'
