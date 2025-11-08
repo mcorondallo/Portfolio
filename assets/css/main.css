@@ -2399,6 +2399,66 @@ a:hover {
 	}
 }
 
+/* Carousel Controls */
+.tech-carousel-controls {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 12px;
+	margin-top: 25px;
+	padding: 15px 0;
+}
+
+.tech-control-btn {
+	background: rgba(20, 20, 20, 0.95);
+	border: 2px solid rgba(100, 255, 218, 0.3);
+	border-radius: 50%;
+	width: 48px;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	color: rgba(255, 255, 255, 0.7);
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(10px);
+}
+
+.tech-control-btn:hover {
+	background: rgba(30, 30, 30, 0.98);
+	border-color: #64ffda;
+	color: #64ffda;
+	transform: scale(1.1);
+	box-shadow: 0 6px 25px rgba(100, 255, 218, 0.3);
+}
+
+.tech-control-btn:active {
+	transform: scale(0.95);
+}
+
+.tech-control-btn svg {
+	width: 20px;
+	height: 20px;
+}
+
+/* Play/Pause button - slightly larger */
+#tech-play-pause {
+	width: 56px;
+	height: 56px;
+	border-width: 2.5px;
+	border-color: rgba(100, 255, 218, 0.5);
+}
+
+#tech-play-pause:hover {
+	box-shadow: 0 8px 30px rgba(100, 255, 218, 0.4);
+}
+
+#tech-play-pause svg {
+	width: 24px;
+	height: 24px;
+}
+
 /* Responsive */
 @media screen and (max-width: 736px) {
 	.tech-showcase-title {
@@ -2424,6 +2484,35 @@ a:hover {
 	
 	.tech-label {
 		font-size: 0.7rem;
+	}
+
+	/* Mobile controls optimization */
+	.tech-carousel-controls {
+		gap: 15px;
+		margin-top: 20px;
+		padding: 12px 0;
+	}
+
+	.tech-control-btn {
+		width: 52px;
+		height: 52px;
+		border-width: 2.5px;
+	}
+
+	.tech-control-btn svg {
+		width: 22px;
+		height: 22px;
+	}
+
+	#tech-play-pause {
+		width: 64px;
+		height: 64px;
+		border-width: 3px;
+	}
+
+	#tech-play-pause svg {
+		width: 28px;
+		height: 28px;
 	}
 }
 

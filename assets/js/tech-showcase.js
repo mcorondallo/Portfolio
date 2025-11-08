@@ -69,6 +69,56 @@ document.addEventListener('DOMContentLoaded', function() {
 				}
 			});
 		}
+
+		// Control buttons
+		const playPauseBtn = document.getElementById('tech-play-pause');
+		const rewindBtn = document.getElementById('tech-rewind');
+		const forwardBtn = document.getElementById('tech-forward');
+		const playIcon = playPauseBtn.querySelector('.play-icon');
+		const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+
+		// Play/Pause functionality
+		if (playPauseBtn) {
+			playPauseBtn.addEventListener('click', function() {
+				if (isPaused) {
+					resumeAnimation();
+					closeAllTooltips();
+					playIcon.style.display = 'none';
+					pauseIcon.style.display = 'block';
+				} else {
+					pauseAnimation();
+					playIcon.style.display = 'block';
+					pauseIcon.style.display = 'none';
+				}
+			});
+
+			// Set initial state
+			pauseIcon.style.display = 'block';
+		}
+
+		// Rewind functionality - skip backward
+		if (rewindBtn) {
+			rewindBtn.addEventListener('click', function() {
+				const firstItem = document.querySelector('.tech-item');
+				if (firstItem) {
+					const itemWidth = firstItem.offsetWidth + 30; // item width + gap
+					const currentLeft = parseInt(window.getComputedStyle(techTrack).left) || 0;
+					techTrack.style.left = (currentLeft + itemWidth * 3) + 'px'; // Skip 3 items
+				}
+			});
+		}
+
+		// Forward functionality - skip forward
+		if (forwardBtn) {
+			forwardBtn.addEventListener('click', function() {
+				const firstItem = document.querySelector('.tech-item');
+				if (firstItem) {
+					const itemWidth = firstItem.offsetWidth + 30; // item width + gap
+					const currentLeft = parseInt(window.getComputedStyle(techTrack).left) || 0;
+					techTrack.style.left = (currentLeft - itemWidth * 3) + 'px'; // Skip 3 items
+				}
+			});
+		}
 	}
 
 	/**
