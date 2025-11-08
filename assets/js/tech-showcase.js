@@ -72,15 +72,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		// Control buttons
 		const playPauseBtn = document.getElementById('tech-play-pause');
-		const rewindBtn = document.getElementById('tech-rewind');
-		const forwardBtn = document.getElementById('tech-forward');
-		const slider = document.getElementById('tech-slider');
+		const leftBtn = document.getElementById('tech-left');
+		const rightBtn = document.getElementById('tech-right');
 		const playIcon = playPauseBtn.querySelector('.play-icon');
 		const pauseIcon = playPauseBtn.querySelector('.pause-icon');
 
 		// Track carousel position
-		let isUserControlling = false;
-		const itemWidth = 120; // Approximate item width + gap
+		let currentPosition = 0;
 
 		// Play/Pause functionality
 		if (playPauseBtn) {
@@ -91,7 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
 					closeAllTooltips();
 					playIcon.style.display = 'none';
 					pauseIcon.style.display = 'block';
-					isUserControlling = false;
 				} else {
 					// Pause animation
 					pauseAnimation();
@@ -105,51 +102,43 @@ document.addEventListener('DOMContentLoaded', function() {
 			playIcon.style.display = 'none';
 		}
 
-		// Slider functionality
-		if (slider) {
-			slider.addEventListener('input', function() {
-				// Pause animation when user starts dragging
+		// Left arrow - go backward
+		if (leftBtn) {
+			leftBtn.addEventListener('click', function() {
+				// Pause animation when using manual controls
 				if (!isPaused) {
 					pauseAnimation();
 					playIcon.style.display = 'block';
 					pauseIcon.style.display = 'none';
 				}
-				isUserControlling = true;
 
-				// Calculate position based on slider value (0-100)
-				const position = -(slider.value * 30); // Multiply by factor for smooth scrolling
-				techTrack.style.transform = `translateX(${position}px)`;
-			});
-
-			// Optional: Resume animation when slider is released
-			slider.addEventListener('change', function() {
-				// User can click play button to resume if they want
+				// Move carousel backward (3 items)
+				const firstItem = document.querySelector('.tech-item');
+				if (firstItem) {
+					const itemWidth = firstItem.offsetWidth + 30; // item width + gap
+					currentPosition += itemWidth * 3;
+					techTrack.style.transform = `translateX(${currentPosition}px)`;
+				}
 			});
 		}
 
-		// Rewind button
-		if (rewindBtn) {
-			rewindBtn.addEventListener('click', function() {
-				const currentValue = parseInt(slider.value);
-				const newValue = Math.max(0, currentValue - 10);
-				slider.value = newValue;
+		// Right arrow - go forward
+		if (rightBtn) {
+			rightBtn.addEventListener('click', function() {
+				// Pause animation when using manual controls
+				if (!isPaused) {
+					pauseAnimation();
+					playIcon.style.display = 'block';
+					pauseIcon.style.display = 'none';
+				}
 
-				// Trigger slider input event
-				const event = new Event('input');
-				slider.dispatchEvent(event);
-			});
-		}
-
-		// Forward button
-		if (forwardBtn) {
-			forwardBtn.addEventListener('click', function() {
-				const currentValue = parseInt(slider.value);
-				const newValue = Math.min(100, currentValue + 10);
-				slider.value = newValue;
-
-				// Trigger slider input event
-				const event = new Event('input');
-				slider.dispatchEvent(event);
+				// Move carousel forward (3 items)
+				const firstItem = document.querySelector('.tech-item');
+				if (firstItem) {
+					const itemWidth = firstItem.offsetWidth + 30; // item width + gap
+					currentPosition -= itemWidth * 3;
+					techTrack.style.transform = `translateX(${currentPosition}px)`;
+				}
 			});
 		}
 	}

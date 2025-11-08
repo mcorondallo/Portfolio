@@ -2451,66 +2451,6 @@ a:hover {
 	border-color: rgba(100, 255, 218, 0.5);
 }
 
-/* Slider Container */
-.tech-slider-container {
-	flex: 1;
-	max-width: 350px;
-	padding: 0 10px;
-}
-
-/* Slider Styling */
-.tech-slider {
-	width: 100%;
-	height: 6px;
-	-webkit-appearance: none;
-	appearance: none;
-	background: rgba(100, 255, 218, 0.2);
-	border-radius: 10px;
-	outline: none;
-	cursor: pointer;
-	transition: background 0.3s;
-}
-
-.tech-slider:hover {
-	background: rgba(100, 255, 218, 0.3);
-}
-
-/* Slider Thumb - Webkit (Chrome, Safari) */
-.tech-slider::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	appearance: none;
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	background: #64ffda;
-	border: 2px solid rgba(255, 255, 255, 0.3);
-	cursor: pointer;
-	box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
-	transition: all 0.3s;
-}
-
-.tech-slider::-webkit-slider-thumb:hover {
-	transform: scale(1.2);
-	box-shadow: 0 0 15px rgba(100, 255, 218, 0.8);
-}
-
-/* Slider Thumb - Firefox */
-.tech-slider::-moz-range-thumb {
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	background: #64ffda;
-	border: 2px solid rgba(255, 255, 255, 0.3);
-	cursor: pointer;
-	box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
-	transition: all 0.3s;
-}
-
-.tech-slider::-moz-range-thumb:hover {
-	transform: scale(1.2);
-	box-shadow: 0 0 15px rgba(100, 255, 218, 0.8);
-}
-
 #tech-play-pause:hover {
 	box-shadow: 0 8px 30px rgba(100, 255, 218, 0.4);
 }
