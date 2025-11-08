@@ -72,10 +72,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		// Control buttons
 		const playPauseBtn = document.getElementById('tech-play-pause');
-		const rewindBtn = document.getElementById('tech-rewind');
-		const forwardBtn = document.getElementById('tech-forward');
+		const slowBtn = document.getElementById('tech-slow');
+		const fastBtn = document.getElementById('tech-fast');
 		const playIcon = playPauseBtn.querySelector('.play-icon');
 		const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+
+		// Speed settings
+		let currentSpeed = 'normal'; // slow, normal, fast
+		const speeds = {
+			slow: '80s',
+			normal: '50s',
+			fast: '25s'
+		};
 
 		// Play/Pause functionality
 		if (playPauseBtn) {
@@ -96,28 +104,40 @@ document.addEventListener('DOMContentLoaded', function() {
 			pauseIcon.style.display = 'block';
 		}
 
-		// Rewind functionality - skip backward
-		if (rewindBtn) {
-			rewindBtn.addEventListener('click', function() {
-				const firstItem = document.querySelector('.tech-item');
-				if (firstItem) {
-					const itemWidth = firstItem.offsetWidth + 30; // item width + gap
-					const currentLeft = parseInt(window.getComputedStyle(techTrack).left) || 0;
-					techTrack.style.left = (currentLeft + itemWidth * 3) + 'px'; // Skip 3 items
-				}
+		// Slow speed functionality
+		if (slowBtn) {
+			slowBtn.addEventListener('click', function() {
+				currentSpeed = 'slow';
+				techTrack.style.animationDuration = speeds.slow;
+				updateSpeedIndicators();
 			});
 		}
 
-		// Forward functionality - skip forward
-		if (forwardBtn) {
-			forwardBtn.addEventListener('click', function() {
-				const firstItem = document.querySelector('.tech-item');
-				if (firstItem) {
-					const itemWidth = firstItem.offsetWidth + 30; // item width + gap
-					const currentLeft = parseInt(window.getComputedStyle(techTrack).left) || 0;
-					techTrack.style.left = (currentLeft - itemWidth * 3) + 'px'; // Skip 3 items
-				}
+		// Fast speed functionality
+		if (fastBtn) {
+			fastBtn.addEventListener('click', function() {
+				currentSpeed = 'fast';
+				techTrack.style.animationDuration = speeds.fast;
+				updateSpeedIndicators();
 			});
+		}
+
+		// Update speed button visual indicators
+		function updateSpeedIndicators() {
+			// Reset all buttons
+			slowBtn.style.borderColor = 'rgba(100, 255, 218, 0.4)';
+			fastBtn.style.borderColor = 'rgba(100, 255, 218, 0.4)';
+			slowBtn.style.color = 'rgba(255, 255, 255, 0.7)';
+			fastBtn.style.color = 'rgba(255, 255, 255, 0.7)';
+
+			// Highlight active button
+			if (currentSpeed === 'slow') {
+				slowBtn.style.borderColor = '#64ffda';
+				slowBtn.style.color = '#64ffda';
+			} else if (currentSpeed === 'fast') {
+				fastBtn.style.borderColor = '#64ffda';
+				fastBtn.style.color = '#64ffda';
+			}
 		}
 	}
 

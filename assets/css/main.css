@@ -1904,8 +1904,8 @@ a:hover {
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	background: rgba(20, 20, 20, 0.95);
-	border: 2px solid rgba(100, 255, 218, 0.5);
+	background: transparent;
+	border: 2px solid rgba(100, 255, 218, 0.6);
 	border-radius: 25px;
 	padding: 14px 24px;
 	color: #f0f0f0;
@@ -1914,15 +1914,15 @@ a:hover {
 	font-weight: 700;
 	letter-spacing: 0.5px;
 	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(100, 255, 218, 0.1);
-	backdrop-filter: blur(15px);
+	box-shadow: none;
+	backdrop-filter: none;
 }
 
 .nav-toggle:hover {
-	background: rgba(30, 30, 30, 0.98);
+	background: rgba(100, 255, 218, 0.1);
 	border-color: #64ffda;
 	transform: translateY(-2px);
-	box-shadow: 0 6px 30px rgba(100, 255, 218, 0.3), 0 0 40px rgba(100, 255, 218, 0.2);
+	box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
 	color: #64ffda;
 }
 
@@ -1977,13 +1977,13 @@ a:hover {
 	position: absolute;
 	top: calc(100% + 15px);
 	right: 0;
-	background: rgba(20, 20, 20, 0.98);
-	border: 2px solid rgba(100, 255, 218, 0.4);
+	background: rgba(20, 20, 20, 0.3);
+	border: 2px solid rgba(100, 255, 218, 0.5);
 	border-radius: 15px;
 	padding: 15px;
 	min-width: 220px;
-	box-shadow: 0 10px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(100, 255, 218, 0.1);
-	backdrop-filter: blur(15px);
+	box-shadow: none;
+	backdrop-filter: blur(20px);
 	opacity: 0;
 	visibility: hidden;
 	transform: translateY(-10px) scale(0.95);
@@ -2410,8 +2410,8 @@ a:hover {
 }
 
 .tech-control-btn {
-	background: rgba(20, 20, 20, 0.95);
-	border: 2px solid rgba(100, 255, 218, 0.3);
+	background: transparent;
+	border: 2px solid rgba(100, 255, 218, 0.4);
 	border-radius: 50%;
 	width: 48px;
 	height: 48px;
@@ -2421,16 +2421,16 @@ a:hover {
 	cursor: pointer;
 	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	color: rgba(255, 255, 255, 0.7);
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-	backdrop-filter: blur(10px);
+	box-shadow: none;
+	backdrop-filter: none;
 }
 
 .tech-control-btn:hover {
-	background: rgba(30, 30, 30, 0.98);
+	background: rgba(100, 255, 218, 0.1);
 	border-color: #64ffda;
 	color: #64ffda;
 	transform: scale(1.1);
-	box-shadow: 0 6px 25px rgba(100, 255, 218, 0.3);
+	box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
 }
 
 .tech-control-btn:active {
