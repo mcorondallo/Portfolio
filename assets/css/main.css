@@ -2915,6 +2915,30 @@ a:hover {
 	font-size: 2.5rem;
 	display: block;
 	margin-bottom: 10px;
+	color: #ffffff;
+}
+
+.expertise-icon svg {
+	width: 40px;
+	height: 40px;
+	stroke: #ffffff;
+	filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Section blur backgrounds */
+article {
+	position: relative;
+	background: rgba(20, 20, 20, 0.7);
+	backdrop-filter: blur(10px);
+	border-radius: 15px;
+	padding: 40px;
+	margin-bottom: 30px;
+}
+
+#story, #projects {
+	background: rgba(20, 20, 20, 0.75);
+	backdrop-filter: blur(12px);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .expertise-item h4 {
