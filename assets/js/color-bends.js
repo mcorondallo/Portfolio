@@ -6,7 +6,7 @@ class ColorBends {
 	constructor(container, options = {}) {
 		this.container = container;
 		this.options = {
-			colors: options.colors || ['#64ffda', '#7c9aff', '#64ffda'],
+			colors: options.colors || ['#FF0800', '#0019FF', '#00FF04'],
 			rotation: options.rotation || 0,
 			autoRotate: options.autoRotate || 0,
 			speed: options.speed || 0.2,
