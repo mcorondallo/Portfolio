@@ -148,23 +148,23 @@ class ColorBends {
 					snoise(uv * frequency + t * 0.5 + 100.0) * warpStrength
 				);
 
-				vec2 warpedUV = uv + warp * 0.1;
+				vec2 warpedUV = uv + warp * 0.2;
 
 				// Add parallax effect
 				warpedUV += vec2(sin(t * 0.3) * parallax * 0.05, cos(t * 0.2) * parallax * 0.05);
 
 				// Create gradient blend using warped coordinates
-				float gradient1 = length(warpedUV - vec2(0.2 + sin(t * 0.4) * 0.3, 0.5 + cos(t * 0.3) * 0.3));
-				float gradient2 = length(warpedUV - vec2(0.8 + cos(t * 0.5) * 0.3, 0.5 + sin(t * 0.4) * 0.3));
-				float gradient3 = length(warpedUV - vec2(0.5 + sin(t * 0.3) * 0.2, 0.2 + cos(t * 0.5) * 0.2));
+				float gradient1 = length(warpedUV - vec2(0.3 + sin(t * 0.4) * 0.25, 0.5 + cos(t * 0.3) * 0.25));
+				float gradient2 = length(warpedUV - vec2(0.7 + cos(t * 0.5) * 0.25, 0.5 + sin(t * 0.4) * 0.25));
+				float gradient3 = length(warpedUV - vec2(0.5 + sin(t * 0.3) * 0.3, 0.3 + cos(t * 0.5) * 0.3));
 
 				// Add noise
 				float noiseValue = snoise(warpedUV * 10.0 + t) * noiseAmount;
 
-				// Blend colors
-				vec3 color = mix(color1, color2, smoothstep(0.0, 1.5, gradient1 + noiseValue));
-				color = mix(color, color3, smoothstep(0.0, 1.5, gradient2 + noiseValue));
-				color = mix(color, color1, smoothstep(0.0, 1.2, gradient3 + noiseValue));
+				// Blend colors with smoother transitions
+				vec3 color = mix(color1, color2, smoothstep(0.0, 0.8, gradient1 + noiseValue));
+				color = mix(color, color3, smoothstep(0.2, 1.0, gradient2 + noiseValue));
+				color = mix(color, color2, smoothstep(0.1, 0.9, gradient3 + noiseValue));
 
 				gl_FragColor = vec4(color, 1.0);
 			}
@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Initialize ColorBends effect on the background
 	new ColorBends(bgContainer, {
-		colors: ['#64ffda', '#7c9aff', '#64ffda'],
+		colors: ['#64ffda', '#7c9aff', '#4f46e5'],
 		rotation: 0,
 		autoRotate: 0,
 		speed: 0.2,
