@@ -161,10 +161,10 @@ class ColorBends {
 				// Add noise
 				float noiseValue = snoise(warpedUV * 10.0 + t) * noiseAmount;
 
-				// Create thin halo effect with more black space
-				float fade1 = smoothstep(0.2, 0.5, gradient1) - smoothstep(0.5, 0.8, gradient1);
-				float fade2 = smoothstep(0.2, 0.5, gradient2) - smoothstep(0.5, 0.8, gradient2);
-				float fade3 = smoothstep(0.2, 0.5, gradient3) - smoothstep(0.5, 0.8, gradient3);
+				// Create very thin halo effect with more black space
+				float fade1 = smoothstep(0.3, 0.4, gradient1) - smoothstep(0.4, 0.5, gradient1);
+				float fade2 = smoothstep(0.3, 0.4, gradient2) - smoothstep(0.4, 0.5, gradient2);
+				float fade3 = smoothstep(0.3, 0.4, gradient3) - smoothstep(0.4, 0.5, gradient3);
 
 				vec3 color = vec3(0.0);
 				color += color1 * fade1;
