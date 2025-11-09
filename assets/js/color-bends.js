@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Initialize ColorBends effect on the background
 	new ColorBends(bgContainer, {
-		colors: ['#ff3366', '#ffcc00', '#00ffcc'],
+		colors: ['#FF0800', '#0019FF', '#00FF04'],
 		rotation: 0,
 		autoRotate: 0,
 		speed: 0.2,
