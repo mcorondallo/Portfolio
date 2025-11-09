@@ -39,7 +39,6 @@ class ColorBends {
 		this.canvas.style.width = '100%';
 		this.canvas.style.height = '100%';
 		this.canvas.style.pointerEvents = 'none';
-		this.canvas.style.zIndex = '0';
 		this.container.appendChild(this.canvas);
 
 		// Get WebGL context
@@ -316,11 +315,14 @@ document.addEventListener('DOMContentLoaded', function() {
 	bgContainer.style.height = '100%';
 	bgContainer.style.zIndex = '-1';
 	bgContainer.style.pointerEvents = 'none';
+	bgContainer.style.backgroundColor = '#000000';
 
 	document.body.insertBefore(bgContainer, document.body.firstChild);
 
+	console.log('ColorBends container created:', bgContainer);
+
 	// Initialize ColorBends effect on the background
-	new ColorBends(bgContainer, {
+	const colorBends = new ColorBends(bgContainer, {
 		colors: ['#64ffda', '#7c9aff', '#64ffda'],
 		rotation: 0,
 		autoRotate: 0,
@@ -333,4 +335,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		noise: 0.1,
 		transparent: false
 	});
+
+	console.log('ColorBends initialized:', colorBends);
 });
