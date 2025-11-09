@@ -161,10 +161,15 @@ class ColorBends {
 				// Add noise
 				float noiseValue = snoise(warpedUV * 10.0 + t) * noiseAmount;
 
-				// Blend colors with smoother transitions
-				vec3 color = mix(color1, color2, smoothstep(0.0, 0.8, gradient1 + noiseValue));
-				color = mix(color, color3, smoothstep(0.2, 1.0, gradient2 + noiseValue));
-				color = mix(color, color2, smoothstep(0.1, 0.9, gradient3 + noiseValue));
+				// Create thin halo effect with more black space
+				float fade1 = smoothstep(0.2, 0.5, gradient1) - smoothstep(0.5, 0.8, gradient1);
+				float fade2 = smoothstep(0.2, 0.5, gradient2) - smoothstep(0.5, 0.8, gradient2);
+				float fade3 = smoothstep(0.2, 0.5, gradient3) - smoothstep(0.5, 0.8, gradient3);
+
+				vec3 color = vec3(0.0);
+				color += color1 * fade1;
+				color += color2 * fade2;
+				color += color3 * fade3;
 
 				gl_FragColor = vec4(color, 1.0);
 			}
