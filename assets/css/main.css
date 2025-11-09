@@ -1167,11 +1167,7 @@ input, select, textarea {
 			-webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out;
 			-ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out;
 			transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out;
-			background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #533483, #e94560);
-			background-size: 400% 400%;
-			background-position: center;
-			background-repeat: no-repeat;
-			animation: gradientShift 15s ease infinite;
+			background: transparent;
 			z-index: 2;
 		}
 
