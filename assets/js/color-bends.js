@@ -41,9 +41,6 @@ class ColorBends {
 		this.canvas.style.pointerEvents = 'none';
 		this.container.appendChild(this.canvas);
 
-		console.log('Canvas created and appended:', this.canvas);
-		console.log('Canvas dimensions:', this.canvas.offsetWidth, 'x', this.canvas.offsetHeight);
-
 		// Get WebGL context
 		this.gl = this.canvas.getContext('webgl') || this.canvas.getContext('experimental-webgl');
 
@@ -53,13 +50,9 @@ class ColorBends {
 			return;
 		}
 
-		console.log('WebGL context obtained successfully');
-
 		// Set up WebGL
 		this.setupWebGL();
 		this.resize();
-
-		console.log('After resize - Canvas size:', this.canvas.width, 'x', this.canvas.height);
 
 		// Event listeners
 		window.addEventListener('resize', () => this.resize());
@@ -67,7 +60,6 @@ class ColorBends {
 
 		// Start animation
 		this.animate();
-		console.log('Animation started');
 	}
 
 	setupWebGL() {
@@ -327,10 +319,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	document.body.insertBefore(bgContainer, document.body.firstChild);
 
-	console.log('ColorBends container created:', bgContainer);
-
 	// Initialize ColorBends effect on the background
-	const colorBends = new ColorBends(bgContainer, {
+	new ColorBends(bgContainer, {
 		colors: ['#64ffda', '#7c9aff', '#64ffda'],
 		rotation: 0,
 		autoRotate: 0,
@@ -343,6 +333,4 @@ document.addEventListener('DOMContentLoaded', function() {
 		noise: 0.1,
 		transparent: false
 	});
-
-	console.log('ColorBends initialized:', colorBends);
 });
