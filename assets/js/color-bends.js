@@ -304,22 +304,33 @@ class ColorBends {
 	}
 }
 
-// Initialize ColorBends on tech showcase
+// Initialize ColorBends on entire page background
 document.addEventListener('DOMContentLoaded', function() {
-	const techShowcase = document.querySelector('.tech-showcase-container');
-	if (techShowcase) {
-		new ColorBends(techShowcase, {
-			colors: ['#64ffda', '#7c9aff', '#64ffda'],
-			rotation: 0,
-			autoRotate: 0,
-			speed: 0.2,
-			scale: 1,
-			frequency: 1,
-			warpStrength: 1,
-			mouseInfluence: 1,
-			parallax: 0.5,
-			noise: 0.1,
-			transparent: false
-		});
-	}
+	// Create a fixed background container for ColorBends
+	const bgContainer = document.createElement('div');
+	bgContainer.id = 'color-bends-background';
+	bgContainer.style.position = 'fixed';
+	bgContainer.style.top = '0';
+	bgContainer.style.left = '0';
+	bgContainer.style.width = '100%';
+	bgContainer.style.height = '100%';
+	bgContainer.style.zIndex = '-1';
+	bgContainer.style.pointerEvents = 'none';
+
+	document.body.insertBefore(bgContainer, document.body.firstChild);
+
+	// Initialize ColorBends effect on the background
+	new ColorBends(bgContainer, {
+		colors: ['#64ffda', '#7c9aff', '#64ffda'],
+		rotation: 0,
+		autoRotate: 0,
+		speed: 0.2,
+		scale: 1,
+		frequency: 1,
+		warpStrength: 1,
+		mouseInfluence: 1,
+		parallax: 0.5,
+		noise: 0.1,
+		transparent: false
+	});
 });
