@@ -41,6 +41,9 @@ class ColorBends {
 		this.canvas.style.pointerEvents = 'none';
 		this.container.appendChild(this.canvas);
 
+		console.log('Canvas created and appended:', this.canvas);
+		console.log('Canvas dimensions:', this.canvas.offsetWidth, 'x', this.canvas.offsetHeight);
+
 		// Get WebGL context
 		this.gl = this.canvas.getContext('webgl') || this.canvas.getContext('experimental-webgl');
 
@@ -50,9 +53,13 @@ class ColorBends {
 			return;
 		}
 
+		console.log('WebGL context obtained successfully');
+
 		// Set up WebGL
 		this.setupWebGL();
 		this.resize();
+
+		console.log('After resize - Canvas size:', this.canvas.width, 'x', this.canvas.height);
 
 		// Event listeners
 		window.addEventListener('resize', () => this.resize());
@@ -60,6 +67,7 @@ class ColorBends {
 
 		// Start animation
 		this.animate();
+		console.log('Animation started');
 	}
 
 	setupWebGL() {
