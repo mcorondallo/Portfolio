@@ -69,33 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				}
 			});
 		}
-
-		// Play/Pause Button
-		const playPauseBtn = document.getElementById('tech-play-pause');
-		const playIcon = playPauseBtn ? playPauseBtn.querySelector('.play-icon') : null;
-		const pauseIcon = playPauseBtn ? playPauseBtn.querySelector('.pause-icon') : null;
-
-		// Play/Pause functionality
-		if (playPauseBtn && playIcon && pauseIcon) {
-			playPauseBtn.addEventListener('click', function() {
-				if (isPaused) {
-					// Resume animation
-					resumeAnimation();
-					closeAllTooltips();
-					playIcon.style.display = 'none';
-					pauseIcon.style.display = 'block';
-				} else {
-					// Pause animation
-					pauseAnimation();
-					playIcon.style.display = 'block';
-					pauseIcon.style.display = 'none';
-				}
-			});
-
-			// Set initial state (pause icon visible = animation playing)
-			pauseIcon.style.display = 'block';
-			playIcon.style.display = 'none';
-		}
 	}
 
 	/**
