@@ -153,21 +153,21 @@ class ColorBends {
 				// Add parallax effect
 				warpedUV += vec2(sin(t * 0.3) * parallax * 0.05, cos(t * 0.2) * parallax * 0.05);
 
-				// Create flowing bands instead of circles
-				float band1 = abs(sin((warpedUV.x + warpedUV.y * 0.5 + t * 0.3) * 3.14159 * 2.0));
-				float band2 = abs(sin((warpedUV.x * 0.7 - warpedUV.y + t * 0.4) * 3.14159 * 2.0));
-				float band3 = abs(sin((warpedUV.y * 1.3 - warpedUV.x * 0.3 + t * 0.5) * 3.14159 * 2.0));
+				// Create very thin flowing bands with low frequency
+				float band1 = abs(sin((warpedUV.x + warpedUV.y * 0.5 + t * 0.3) * 3.14159 * 0.8));
+				float band2 = abs(sin((warpedUV.x * 0.7 - warpedUV.y + t * 0.4) * 3.14159 * 0.6));
+				float band3 = abs(sin((warpedUV.y * 1.3 - warpedUV.x * 0.3 + t * 0.5) * 3.14159 * 0.7));
 
-				// Add noise variation
-				float noiseValue = snoise(warpedUV * 5.0 + t) * noiseAmount;
+				// Add subtle noise variation
+				float noiseValue = snoise(warpedUV * 5.0 + t) * noiseAmount * 0.3;
 				band1 += noiseValue;
 				band2 += noiseValue;
 				band3 += noiseValue;
 
-				// Create thin flowing halos
-				float fade1 = smoothstep(0.05, 0.1, band1) - smoothstep(0.1, 0.2, band1);
-				float fade2 = smoothstep(0.05, 0.1, band2) - smoothstep(0.1, 0.2, band2);
-				float fade3 = smoothstep(0.05, 0.1, band3) - smoothstep(0.1, 0.2, band3);
+				// Create extremely thin, subtle halos
+				float fade1 = (smoothstep(0.0, 0.02, band1) - smoothstep(0.02, 0.06, band1)) * 0.8;
+				float fade2 = (smoothstep(0.0, 0.02, band2) - smoothstep(0.02, 0.06, band2)) * 0.8;
+				float fade3 = (smoothstep(0.0, 0.02, band3) - smoothstep(0.02, 0.06, band3)) * 0.8;
 
 				vec3 color = vec3(0.0);
 				color += color1 * fade1;
