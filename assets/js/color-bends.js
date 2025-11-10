@@ -137,8 +137,8 @@ class ColorBends {
 				// Apply scale
 				uv = (uv - 0.5) / scale + 0.5;
 
-				// Add mouse influence
-				vec2 mouseOffset = (mouse - 0.5) * mouseInfluence * 0.2;
+				// Add stronger mouse influence
+				vec2 mouseOffset = (mouse - 0.5) * mouseInfluence * 0.5;
 				uv += mouseOffset;
 
 				// Create animated warped coordinates
@@ -153,18 +153,21 @@ class ColorBends {
 				// Add parallax effect
 				warpedUV += vec2(sin(t * 0.3) * parallax * 0.05, cos(t * 0.2) * parallax * 0.05);
 
-				// Create gradient blend using warped coordinates
-				float gradient1 = length(warpedUV - vec2(0.3 + sin(t * 0.4) * 0.25, 0.5 + cos(t * 0.3) * 0.25));
-				float gradient2 = length(warpedUV - vec2(0.7 + cos(t * 0.5) * 0.25, 0.5 + sin(t * 0.4) * 0.25));
-				float gradient3 = length(warpedUV - vec2(0.5 + sin(t * 0.3) * 0.3, 0.3 + cos(t * 0.5) * 0.3));
+				// Create flowing bands instead of circles
+				float band1 = abs(sin((warpedUV.x + warpedUV.y * 0.5 + t * 0.3) * 3.14159 * 2.0));
+				float band2 = abs(sin((warpedUV.x * 0.7 - warpedUV.y + t * 0.4) * 3.14159 * 2.0));
+				float band3 = abs(sin((warpedUV.y * 1.3 - warpedUV.x * 0.3 + t * 0.5) * 3.14159 * 2.0));
 
-				// Add noise
-				float noiseValue = snoise(warpedUV * 10.0 + t) * noiseAmount;
+				// Add noise variation
+				float noiseValue = snoise(warpedUV * 5.0 + t) * noiseAmount;
+				band1 += noiseValue;
+				band2 += noiseValue;
+				band3 += noiseValue;
 
-				// Create very thin halo effect with more black space
-				float fade1 = smoothstep(0.3, 0.4, gradient1) - smoothstep(0.4, 0.5, gradient1);
-				float fade2 = smoothstep(0.3, 0.4, gradient2) - smoothstep(0.4, 0.5, gradient2);
-				float fade3 = smoothstep(0.3, 0.4, gradient3) - smoothstep(0.4, 0.5, gradient3);
+				// Create thin flowing halos
+				float fade1 = smoothstep(0.05, 0.1, band1) - smoothstep(0.1, 0.2, band1);
+				float fade2 = smoothstep(0.05, 0.1, band2) - smoothstep(0.1, 0.2, band2);
+				float fade3 = smoothstep(0.05, 0.1, band3) - smoothstep(0.1, 0.2, band3);
 
 				vec3 color = vec3(0.0);
 				color += color1 * fade1;
