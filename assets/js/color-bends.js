@@ -91,90 +91,55 @@ class ColorBends {
 			uniform float parallax;
 			uniform float noiseAmount;
 
-			// Simplex noise function
-			vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
-			vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
-			vec3 permute(vec3 x) { return mod289(((x*34.0)+1.0)*x); }
-
-			float snoise(vec2 v) {
-				const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);
-				vec2 i  = floor(v + dot(v, C.yy));
-				vec2 x0 = v -   i + dot(i, C.xx);
-				vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
-				vec4 x12 = x0.xyxy + C.xxzz;
-				x12.xy -= i1;
-				i = mod289(i);
-				vec3 p = permute(permute(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));
-				vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
-				m = m*m;
-				m = m*m;
-				vec3 x = 2.0 * fract(p * C.www) - 1.0;
-				vec3 h = abs(x) - 0.5;
-				vec3 ox = floor(x + 0.5);
-				vec3 a0 = x - ox;
-				m *= 1.79284291400159 - 0.85373472095314 * (a0*a0 + h*h);
-				vec3 g;
-				g.x  = a0.x  * x0.x  + h.x  * x0.y;
-				g.yz = a0.yz * x12.xz + h.yz * x12.yw;
-				return 130.0 * dot(m, g);
-			}
-
 			void main() {
+				// Normalize coordinates
 				vec2 uv = gl_FragCoord.xy / resolution.xy;
+				vec2 centered = (uv - 0.5) * 2.0;
+				centered.x *= resolution.x / resolution.y;
 
-				// Apply rotation
-				float angle = rotation * 0.0174533; // Convert to radians
-				vec2 center = vec2(0.5, 0.5);
-				vec2 rotated = uv - center;
-				float cosA = cos(angle);
-				float sinA = sin(angle);
-				rotated = vec2(
-					rotated.x * cosA - rotated.y * sinA,
-					rotated.x * sinA + rotated.y * cosA
-				);
-				uv = rotated + center;
-
-				// Apply scale
-				uv = (uv - 0.5) / scale + 0.5;
-
-				// Add stronger mouse influence
-				vec2 mouseOffset = (mouse - 0.5) * mouseInfluence * 0.5;
-				uv += mouseOffset;
-
-				// Create animated warped coordinates
+				// Animation time
 				float t = time * speed;
-				vec2 warp = vec2(
-					snoise(uv * frequency + t * 0.5) * warpStrength,
-					snoise(uv * frequency + t * 0.5 + 100.0) * warpStrength
-				);
 
-				vec2 warpedUV = uv + warp * 0.2;
+				// Create three moving gradient orbs
+				vec2 orb1Pos = vec2(sin(t * 0.5) * 0.4, cos(t * 0.3) * 0.3);
+				vec2 orb2Pos = vec2(sin(t * 0.4 + 2.0) * 0.35, cos(t * 0.5 + 2.0) * 0.35);
+				vec2 orb3Pos = vec2(sin(t * 0.6 + 4.0) * 0.3, cos(t * 0.4 + 4.0) * 0.4);
 
-				// Add parallax effect
-				warpedUV += vec2(sin(t * 0.3) * parallax * 0.05, cos(t * 0.2) * parallax * 0.05);
+				// Mouse influence
+				vec2 mouseInfluenceVec = (mouse - 0.5) * mouseInfluence * 0.3;
+				orb1Pos += mouseInfluenceVec;
+				orb2Pos += mouseInfluenceVec * 0.7;
+				orb3Pos += mouseInfluenceVec * 0.5;
 
-				// Create very thin flowing bands with low frequency
-				float band1 = abs(sin((warpedUV.x + warpedUV.y * 0.5 + t * 0.3) * 3.14159 * 0.8));
-				float band2 = abs(sin((warpedUV.x * 0.7 - warpedUV.y + t * 0.4) * 3.14159 * 0.6));
-				float band3 = abs(sin((warpedUV.y * 1.3 - warpedUV.x * 0.3 + t * 0.5) * 3.14159 * 0.7));
+				// Calculate distances to each orb
+				float dist1 = length(centered - orb1Pos);
+				float dist2 = length(centered - orb2Pos);
+				float dist3 = length(centered - orb3Pos);
 
-				// Add subtle noise variation
-				float noiseValue = snoise(warpedUV * 5.0 + t) * noiseAmount * 0.3;
-				band1 += noiseValue;
-				band2 += noiseValue;
-				band3 += noiseValue;
+				// Create smooth gradients with glow
+				float glow1 = exp(-dist1 * 2.0) * 1.2;
+				float glow2 = exp(-dist2 * 2.0) * 1.2;
+				float glow3 = exp(-dist3 * 2.0) * 1.2;
 
-				// Create extremely thin, subtle halos
-				float fade1 = (smoothstep(0.0, 0.02, band1) - smoothstep(0.02, 0.06, band1)) * 0.8;
-				float fade2 = (smoothstep(0.0, 0.02, band2) - smoothstep(0.02, 0.06, band2)) * 0.8;
-				float fade3 = (smoothstep(0.0, 0.02, band3) - smoothstep(0.02, 0.06, band3)) * 0.8;
+				// Additional soft aura
+				float aura1 = smoothstep(0.8, 0.0, dist1) * 0.5;
+				float aura2 = smoothstep(0.8, 0.0, dist2) * 0.5;
+				float aura3 = smoothstep(0.8, 0.0, dist3) * 0.5;
 
-				vec3 color = vec3(0.0);
-				color += color1 * fade1;
-				color += color2 * fade2;
-				color += color3 * fade3;
+				// Combine glows
+				vec3 finalColor = vec3(0.0);
+				finalColor += color1 * (glow1 + aura1);
+				finalColor += color2 * (glow2 + aura2);
+				finalColor += color3 * (glow3 + aura3);
 
-				gl_FragColor = vec4(color, 1.0);
+				// Add subtle color mixing where orbs overlap
+				float overlap = min(glow1 + glow2 + glow3, 1.5);
+				finalColor *= (0.7 + overlap * 0.3);
+
+				// Ensure pure black background
+				finalColor = clamp(finalColor, 0.0, 1.0);
+
+				gl_FragColor = vec4(finalColor, 1.0);
 			}
 		`;
 
@@ -329,14 +294,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Initialize ColorBends effect on the background
 	new ColorBends(bgContainer, {
-		colors: ['#FF0800', '#0019FF', '#00FF04'],
+		colors: ['#FF0066', '#00FFFF', '#9933FF'],  // Pink, Cyan, Purple
 		rotation: 0,
 		autoRotate: 0,
-		speed: 0.2,
+		speed: 0.15,
 		scale: 1,
 		frequency: 1,
 		warpStrength: 1,
-		mouseInfluence: 1,
+		mouseInfluence: 0.8,
 		parallax: 0.5,
 		noise: 0.1,
 		transparent: false
