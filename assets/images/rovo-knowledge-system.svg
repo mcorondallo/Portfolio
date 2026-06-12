@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" role="img" aria-labelledby="title desc">
+  <title id="title">Rovo AI Documentation Knowledge System</title>
+  <desc id="desc">A Jira and Rovo AI knowledge system showing documentation pages connected to an agent hub and sub-agents.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102033"/>
+      <stop offset="1" stop-color="#151a3d"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dff7ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <rect width="520" height="360" rx="32" fill="url(#bg)"/>
+  <path d="M58 284c45-31 85-31 120 0s75 31 120 0 85-31 132 0" fill="none" stroke="#64ffda" stroke-width="8" stroke-linecap="round" opacity=".55"/>
+  <g filter="url(#shadow)">
+    <rect x="48" y="54" width="128" height="88" rx="14" fill="url(#card)"/>
+    <rect x="68" y="76" width="74" height="8" rx="4" fill="#0052cc"/>
+    <rect x="68" y="96" width="88" height="7" rx="3.5" fill="#8aa1bd"/>
+    <rect x="68" y="114" width="58" height="7" rx="3.5" fill="#8aa1bd"/>
+    <rect x="48" y="188" width="128" height="88" rx="14" fill="url(#card)"/>
+    <rect x="68" y="210" width="80" height="8" rx="4" fill="#36c5f0"/>
+    <rect x="68" y="230" width="88" height="7" rx="3.5" fill="#8aa1bd"/>
+    <rect x="68" y="248" width="64" height="7" rx="3.5" fill="#8aa1bd"/>
+  </g>
+  <g fill="none" stroke="#7c9aff" stroke-width="5" stroke-linecap="round" opacity=".9">
+    <path d="M176 98h64"/>
+    <path d="M176 232h64"/>
+    <path d="M240 98c28 0 25 40 45 57"/>
+    <path d="M240 232c28 0 25-40 45-57"/>
+  </g>
+  <g filter="url(#shadow)">
+    <circle cx="310" cy="165" r="62" fill="#0052cc"/>
+    <circle cx="310" cy="165" r="44" fill="#0f172a" opacity=".28"/>
+    <path d="M286 166h48M310 142v48M294 150l32 32M326 150l-32 32" stroke="#f8fbff" stroke-width="8" stroke-linecap="round"/>
+    <text x="310" y="248" text-anchor="middle" fill="#f8fbff" font-family="Sora, Arial, sans-serif" font-size="24" font-weight="800">Rovo AI</text>
+  </g>
+  <g fill="none" stroke="#64ffda" stroke-width="5" stroke-linecap="round">
+    <path d="M366 142h54"/>
+    <path d="M366 188h54"/>
+    <path d="M402 142c28 0 24-36 54-36"/>
+    <path d="M402 188c28 0 24 36 54 36"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="420" y="76" width="62" height="62" rx="18" fill="#64ffda"/>
+    <path d="M440 107h22M451 96v22" stroke="#102033" stroke-width="6" stroke-linecap="round"/>
+    <rect x="420" y="192" width="62" height="62" rx="18" fill="#b9fff0"/>
+    <path d="M439 222h24M439 235h18" stroke="#102033" stroke-width="6" stroke-linecap="round"/>
+    <rect x="420" y="139" width="62" height="42" rx="15" fill="#7c9aff"/>
+    <circle cx="442" cy="160" r="6" fill="#102033"/>
+    <circle cx="460" cy="160" r="6" fill="#102033"/>
+  </g>
+  <text x="112" y="318" text-anchor="middle" fill="#f8fbff" font-family="Sora, Arial, sans-serif" font-size="18" font-weight="700">Docs</text>
+  <text x="451" y="318" text-anchor="middle" fill="#f8fbff" font-family="Sora, Arial, sans-serif" font-size="18" font-weight="700">Sub-agents</text>
+</svg>
