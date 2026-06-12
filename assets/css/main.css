@@ -1701,10 +1701,38 @@ h2.major {
 	background: none;
 	-webkit-background-clip: initial;
 	background-clip: initial;
-	-webkit-text-fill-color: #f8fbff;
-	color: #f8fbff;
+	-webkit-text-fill-color: initial;
 	animation: none;
-	font-weight: 900;
+	color: #f8fbff;
+	font-family: 'Sora', sans-serif;
+	font-size: 3.45rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	line-height: 1.12;
+	margin-bottom: 15px;
+	text-shadow: 0 2px 12px rgba(0, 0, 0, 0.42);
+}
+
+#hero-name .hero-first-name {
+	color: #ffffff;
+	-webkit-text-fill-color: #ffffff;
+}
+
+#hero-name .hero-last-name {
+	color: #b9fff0;
+	-webkit-text-fill-color: #b9fff0;
+}
+
+@media screen and (max-width: 736px) {
+	#header h1#hero-name {
+		font-size: 2.45rem;
+		letter-spacing: 0.04em;
+	}
+
+	#hero-name .hero-first-name,
+	#hero-name .hero-last-name {
+		display: block;
+	}
 }
 
 @keyframes gradient-shift {
