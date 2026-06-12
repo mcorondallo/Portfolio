@@ -114,11 +114,11 @@ const techConfig = [
 		description: 'Diagramming tool for creating BI governance frameworks, data flow visualizations, and architecture diagrams.'
 	},
 	{
-		name: 'XGBoost',
-		icon: 'https://upload.wikimedia.org/wikipedia/commons/6/69/XGBoost_logo.png',
-		url: 'https://xgboost.ai/',
+		name: 'Machine Learning',
+		icon: 'assets/images/machine-learning-logo.svg',
+		url: 'https://en.wikipedia.org/wiki/Machine_learning',
 		category: 'ml',
-		description: 'Machine learning library used in Nomos AI for predictive collections and debt recovery modeling.'
+		description: 'Predictive modeling and classification techniques used in Nomos AI for collections and debt recovery workflows.'
 	},
 	{
 		name: 'MicroPython',

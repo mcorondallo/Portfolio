@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Machine Learning Logo</title>
+  <desc id="desc">A neural network style machine learning icon with connected nodes.</desc>
+  <rect width="160" height="160" rx="28" fill="#101827"/>
+  <path d="M34 48h26l20 32-20 32H34L14 80z" fill="#64ffda" opacity=".18"/>
+  <path d="M100 48h26l20 32-20 32h-26L80 80z" fill="#7c9aff" opacity=".2"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M46 52l34 28-34 28M80 80l34-28M80 80l34 28" stroke="#f8fbff" stroke-width="7"/>
+    <path d="M46 52l68 56M46 108l68-56" stroke="#64ffda" stroke-width="4" opacity=".85"/>
+  </g>
+  <g fill="#f8fbff" stroke="#101827" stroke-width="5">
+    <circle cx="46" cy="52" r="13"/>
+    <circle cx="46" cy="108" r="13"/>
+    <circle cx="80" cy="80" r="14"/>
+    <circle cx="114" cy="52" r="13"/>
+    <circle cx="114" cy="108" r="13"/>
+  </g>
+  <text x="80" y="139" text-anchor="middle" fill="#f8fbff" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">ML</text>
+</svg>
