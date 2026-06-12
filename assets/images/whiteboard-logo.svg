@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Whiteboard Logo</title>
+  <desc id="desc">A digital whiteboard icon with pen strokes and notes.</desc>
+  <rect width="160" height="160" rx="28" fill="#102033"/>
+  <rect x="28" y="34" width="104" height="78" rx="12" fill="#f8fbff"/>
+  <path d="M45 60h30M45 77h20M95 58l18 18-30 16z" fill="none" stroke="#0078d4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M51 101c17-12 34-12 51 0" fill="none" stroke="#64ffda" stroke-width="7" stroke-linecap="round"/>
+  <path d="M59 126h42M80 112v14" stroke="#f8fbff" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="118" cy="48" r="8" fill="#ffb84d"/>
+</svg>

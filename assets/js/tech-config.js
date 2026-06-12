@@ -1,5 +1,5 @@
 // Technology showcase configuration
-// Using CDN links for logos
+// Prefer local SVGs for core carousel icons so the showcase is not broken by third-party hotlinking.
 const techConfig = [
 	{
 		name: 'Power BI',
@@ -73,14 +73,14 @@ const techConfig = [
 	},
 	{
 		name: 'Power Automate',
-		icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Microsoft_Power_Automate.svg/1200px-Microsoft_Power_Automate.svg.png',
+		icon: 'assets/images/power-automate-logo.svg',
 		url: 'https://powerautomate.microsoft.com/',
 		category: 'automation',
 		description: 'Cloud automation service for creating workflows between apps and intelligent business processes.'
 	},
 	{
 		name: 'Power Apps',
-		icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Powerapps-logo.svg/2048px-Powerapps-logo.svg.png',
+		icon: 'assets/images/power-apps-logo.svg',
 		url: 'https://powerapps.microsoft.com/',
 		category: 'lowcode',
 		description: 'Low-code platform for building custom business apps with drag-and-drop interface and data connectors.'
@@ -150,7 +150,7 @@ const techConfig = [
 	},
 	{
 		name: 'OneLake',
-		icon: 'https://debruyn.dev/2023/all-microsoft-fabric-icons-for-diagramming-old-version/onelake_48_color.svg',
+		icon: 'assets/images/onelake-logo.svg',
 		url: 'https://learn.microsoft.com/en-us/fabric/onelake/',
 		category: 'cloud',
 		description: 'Unified data lake in Microsoft Fabric for centralized data storage and lakehouse architecture.'
@@ -178,7 +178,7 @@ const techConfig = [
 	},
 	{
 		name: 'Whiteboard',
-		icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Microsoft_Office_logo_%282013%E2%80%932019%29.svg/1024px-Microsoft_Office_logo_%282013%E2%80%932019%29.svg.png',
+		icon: 'assets/images/whiteboard-logo.svg',
 		url: 'https://www.microsoft.com/microsoft-365/microsoft-whiteboard/',
 		category: 'collaboration',
 		description: 'Digital canvas for brainstorming, collaborative workshops, and visual planning sessions.'

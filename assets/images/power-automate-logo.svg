@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Power Automate Logo</title>
+  <desc id="desc">A blue automation flow icon with connected arrows.</desc>
+  <rect width="160" height="160" rx="28" fill="#0f172a"/>
+  <path d="M34 48h55c17 0 31 14 31 31v2" fill="none" stroke="#36c5f0" stroke-width="18" stroke-linecap="round"/>
+  <path d="M126 75l24 18-24 18z" fill="#36c5f0"/>
+  <path d="M126 110H70c-17 0-31-14-31-31v-2" fill="none" stroke="#0078d4" stroke-width="18" stroke-linecap="round"/>
+  <path d="M34 85L10 67l24-18z" fill="#0078d4"/>
+  <circle cx="80" cy="80" r="17" fill="#f8fbff"/>
+  <path d="M72 80h16M82 72l8 8-8 8" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

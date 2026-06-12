@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">OneLake Logo</title>
+  <desc id="desc">A Microsoft Fabric OneLake style data lake icon.</desc>
+  <rect width="160" height="160" rx="28" fill="#0f172a"/>
+  <path d="M26 96c15-12 29-12 44 0s29 12 44 0 29-12 44 0v32H26z" fill="#32d7c6" opacity=".35"/>
+  <path d="M18 108c18-14 35-14 53 0s35 14 53 0 35-14 53 0" fill="none" stroke="#64ffda" stroke-width="8" stroke-linecap="round"/>
+  <path d="M40 76l40-45 40 45-40 45z" fill="#f8fbff" opacity=".94"/>
+  <path d="M80 31v90M40 76h80" stroke="#0078d4" stroke-width="7" stroke-linecap="round"/>
+  <path d="M58 56h44M58 96h44" stroke="#7c9aff" stroke-width="6" stroke-linecap="round"/>
+</svg>

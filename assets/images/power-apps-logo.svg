@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Power Apps Logo</title>
+  <desc id="desc">A purple low-code application icon with layered app tiles.</desc>
+  <rect width="160" height="160" rx="28" fill="#171225"/>
+  <path d="M43 33h56l28 47-28 47H43L15 80z" fill="#742774"/>
+  <path d="M61 46h38l19 34-19 34H61L42 80z" fill="#b146c2"/>
+  <path d="M75 59h25l12 21-12 21H75L63 80z" fill="#f8fbff" opacity=".92"/>
+  <path d="M72 52l-29 61M102 47l-31 65" stroke="#eaa8ff" stroke-width="8" stroke-linecap="round" opacity=".8"/>
+  <circle cx="80" cy="80" r="9" fill="#742774"/>
+</svg>
