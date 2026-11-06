@@ -1,3 +1,4 @@
 *.bak*
 *.backup*
 index.html.bak*
+node_modules/
