@@ -853,3 +853,229 @@ h1.major, h2.major, h3.major, h4.major, h5.major, h6.major,
 		padding: 1.5rem;
 	}
 }
+
+/* ---- C1: projects accordion + timeline arrow row ----------------------- */
+
+/* Arrows move out of the track: control row top-right of the timeline */
+.story-timeline {
+	padding-top: 3.5rem;
+}
+
+.timeline-nav-left,
+.timeline-nav-right {
+	top: 0;
+	transform: none;
+}
+
+.timeline-nav-left {
+	left: auto;
+	right: 3rem;
+}
+
+.timeline-nav-right {
+	right: 0;
+}
+
+.timeline-nav:hover,
+.timeline-nav:active {
+	transform: none;
+}
+
+/* Collapsed cards: let the role title wrap instead of being clipped */
+.timeline-card.collapsed {
+	height: auto;
+	min-height: 140px;
+	padding-bottom: 2.75rem;
+}
+
+.timeline-company h4 {
+	font-size: 1.25rem;
+	white-space: normal;
+	overflow: visible;
+	text-overflow: clip;
+}
+
+@media screen and (max-width: 980px) {
+	.timeline-nav-left {
+		left: auto;
+		right: 3rem;
+	}
+
+	.timeline-nav-right {
+		right: 0;
+	}
+}
+
+@media screen and (max-width: 736px) {
+	.timeline-nav-left {
+		left: auto;
+		right: 3rem;
+	}
+
+	.timeline-nav-right {
+		right: 0;
+	}
+}
+
+/* Projects: hairline rows */
+.projects-expander-container {
+	max-width: none;
+	margin: 0;
+	border-top: 1px solid var(--line);
+}
+
+.project-expander-item {
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid var(--line);
+	border-radius: 0;
+	margin: 0;
+	box-shadow: none;
+	overflow: visible;
+}
+
+.project-expander-item:hover {
+	border-color: var(--line);
+	box-shadow: none;
+}
+
+.project-expander-header {
+	padding: 1.5rem 0;
+	gap: 1.5rem;
+}
+
+.project-expander-header h3,
+#main article .project-expander-header h3 {
+	font-family: var(--font-display);
+	font-size: 1.5rem;
+	font-weight: 400;
+	line-height: 1.25;
+	letter-spacing: 0;
+	text-transform: none;
+	color: var(--text);
+	margin: 0;
+	transition: color .2s var(--ease);
+}
+
+.project-expander-header h3 i {
+	color: var(--text-dim);
+	font-size: .9rem;
+	margin-right: .75rem;
+	width: 1.1rem;
+	text-align: center;
+}
+
+.project-expander-item:hover .project-expander-header h3,
+.project-expander-item.expanded .project-expander-header h3 {
+	color: var(--gold-soft);
+}
+
+.expander-icon {
+	flex: 0 0 auto;
+	width: 10px;
+	height: 10px;
+	font-size: 0;
+	color: var(--text-muted);
+	border-right: 1px solid currentColor;
+	border-bottom: 1px solid currentColor;
+	transform: rotate(45deg) translate(-2px, -2px);
+	transition: transform .3s var(--ease), color .2s var(--ease);
+}
+
+.project-expander-item:hover .expander-icon {
+	color: var(--text);
+}
+
+.project-expander-item.expanded .expander-icon {
+	color: var(--gold);
+	transform: rotate(225deg) translate(-2px, -2px);
+}
+
+.project-panel {
+	padding: .5rem 0 2.5rem;
+}
+
+.project-panel-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+}
+
+.project-panel-text {
+	flex: 1 1 280px;
+	max-width: 70ch;
+	min-width: 0;
+}
+
+.project-panel-media {
+	flex: 0 0 250px;
+	max-width: 100%;
+}
+
+.project-panel-media img {
+	width: 100%;
+	height: auto;
+	border-radius: var(--radius);
+	border: 1px solid var(--line);
+}
+
+#main article .project-panel p,
+.project-panel li {
+	font-size: .9375rem;
+	line-height: 1.65;
+	color: var(--text-muted);
+}
+
+.project-panel strong {
+	color: var(--text);
+	font-weight: 500;
+}
+
+.project-panel ul {
+	margin: 0 0 1.25rem;
+	padding-left: 1.25rem;
+}
+
+.project-panel li {
+	margin-bottom: .4rem;
+}
+
+.project-stack {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: .5rem;
+	margin: 0 0 1.25rem;
+}
+
+.project-stack-label {
+	font-size: .6875rem;
+	font-weight: 500;
+	letter-spacing: .16em;
+	text-transform: uppercase;
+	color: var(--text-dim);
+	margin-right: .5rem;
+}
+
+.project-panel .button {
+	margin-top: .5rem;
+}
+
+@media screen and (max-width: 736px) {
+	.project-expander-header {
+		padding: 1.25rem 0;
+	}
+
+	.project-expander-header h3,
+	#main article .project-expander-header h3 {
+		font-size: 1.25rem;
+	}
+
+	.project-panel-media {
+		flex-basis: 100%;
+	}
+}
+
+#main article .story-intro p + p {
+	margin-top: 1em;
+}
