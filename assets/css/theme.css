@@ -546,3 +546,217 @@ h1.major, h2.major, h3.major, h4.major, h5.major, h6.major,
 	}
 }
 
+/* ---- B2: story + timeline --------------------------------------------- */
+
+.story-intro {
+	font-size: clamp(1.125rem, 1.6vw, 1.375rem);
+	line-height: 1.65;
+	font-weight: 300;
+	color: var(--text-muted);
+	text-align: left;
+	max-width: 62ch;
+	margin: 0 0 3rem;
+}
+
+#main article .story-intro p {
+	margin: 0;
+	line-height: inherit;
+}
+
+.story-intro strong {
+	color: var(--text);
+}
+
+.story-timeline {
+	margin: 2rem 0 0;
+	padding: 0;
+}
+
+.timeline-track {
+	gap: 1.25rem;
+	padding: .5rem 0 1.5rem;
+	scrollbar-color: var(--line-strong) transparent;
+}
+
+.timeline-track::-webkit-scrollbar-thumb {
+	background: var(--line-strong);
+	border-radius: 0;
+}
+
+.timeline-track::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.timeline-card {
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	box-shadow: none;
+	padding: 1.5rem;
+	transition: border-color .25s var(--ease), transform .25s var(--ease), height .4s var(--ease);
+}
+
+.timeline-card:hover {
+	background: var(--surface);
+	border-color: var(--line-strong);
+	box-shadow: none;
+	transform: translateY(-2px);
+}
+
+.timeline-card.timeline-current {
+	background: var(--surface);
+	border: 1px solid var(--line);
+	border-top: 2px solid var(--gold);
+}
+
+.timeline-card.timeline-current:hover {
+	border-color: var(--line-strong);
+	border-top-color: var(--gold);
+}
+
+.timeline-education,
+.timeline-education:hover {
+	background: var(--surface);
+	border-color: var(--line);
+}
+
+.timeline-card.collapsed,
+.timeline-card.collapsed:hover,
+.timeline-card.expanded {
+	box-shadow: none;
+}
+
+.timeline-card.collapsed:hover,
+.timeline-card.expanded {
+	border-color: var(--line-strong);
+}
+
+.timeline-card.timeline-current.collapsed:hover,
+.timeline-card.timeline-current.expanded {
+	border-top-color: var(--gold);
+}
+
+.timeline-year {
+	font-family: var(--font-body);
+	font-size: .75rem;
+	font-weight: 500;
+	letter-spacing: .16em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+	text-shadow: none;
+	margin-bottom: 1rem;
+}
+
+.timeline-current .timeline-year {
+	color: var(--gold);
+}
+
+.company-icon {
+	color: var(--text-dim);
+	font-size: 1.25rem;
+	margin-bottom: .75rem;
+}
+
+.timeline-company h4 {
+	font-family: var(--font-display);
+	font-size: 1.4rem;
+	font-weight: 400;
+	line-height: 1.2;
+	color: var(--text);
+	margin: 0 0 .25rem;
+}
+
+.timeline-company h5 {
+	font-family: var(--font-body);
+	font-size: .8125rem;
+	font-weight: 400;
+	letter-spacing: .02em;
+	text-transform: none;
+	color: var(--text-muted);
+	margin: 0;
+}
+
+.timeline-description p,
+#main article .timeline-description p {
+	font-size: .875rem;
+	line-height: 1.6;
+	color: var(--text-muted);
+	margin: 0;
+}
+
+.skill-tag {
+	font-family: var(--font-body);
+	font-size: 12px;
+	font-weight: 400;
+	padding: .25rem .6rem;
+	background: transparent;
+	border: 1px solid var(--line-strong);
+	border-radius: var(--radius);
+	color: var(--text-muted);
+}
+
+.timeline-highlight {
+	border-top: 1px solid var(--line);
+}
+
+.timeline-highlight strong {
+	font-size: .6875rem;
+	font-weight: 500;
+	letter-spacing: .16em;
+	text-transform: uppercase;
+	color: var(--text-dim);
+}
+
+.timeline-highlight li {
+	font-size: .8125rem;
+	line-height: 1.55;
+	color: var(--text-muted);
+}
+
+.expand-indicator {
+	color: var(--text-dim);
+}
+
+.timeline-card:hover .expand-indicator {
+	color: var(--gold);
+	transform: none;
+}
+
+/* Arrows: square 40px, black + hairline, gold on hover */
+.timeline-nav {
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	font-size: 1rem;
+	border-radius: var(--radius);
+	background: var(--bg) !important;
+	border: 1px solid var(--line-strong);
+	color: var(--text);
+	box-shadow: none;
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
+}
+
+.timeline-nav:hover {
+	background: var(--bg) !important;
+	border-color: var(--gold);
+	color: var(--gold-soft);
+	box-shadow: none;
+	transform: translateY(-50%);
+}
+
+.timeline-nav:active {
+	transform: translateY(-50%);
+}
+
+@media screen and (max-width: 736px) {
+	.timeline-nav {
+		width: 40px;
+		height: 40px;
+	}
+
+	.timeline-card {
+		padding: 1.25rem;
+	}
+}
+
