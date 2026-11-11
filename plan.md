@@ -45,9 +45,9 @@ Recent work with **Databricks Genie**: working in Databricks workspaces, managin
 - [x] A3. Menu button + dropdown + side/staggered nav: black/white with gold active/hover. Square-ish, not pill.
 
 **Phase B: story** (Sonnet, then Opus review)
-- [ ] B1. Remove grey card look of articles: sections sit on `--bg` with generous padding, max-width ~1100px, numbered eyebrow headings (01 My Story, 02 Projects, 03 Awards, 04 Contact).
-- [ ] B2. My Story intro + timeline cards (current card: gold top border / gold year), arrows restyled. Databricks additions in Mileway card.
-- [ ] B3. Core Expertise grid: hairline grid, icons gold, Databricks added. Remove duplicated quote block.
+- [x] B1. Remove grey card look of articles: sections sit on `--bg` with generous padding, max-width ~1100px, numbered eyebrow headings (01 My Story, 02 Projects, 03 Awards, 04 Contact).
+- [x] B2. My Story intro + timeline cards (current card: gold top border / gold year), arrows restyled. Databricks additions in Mileway card.
+- [x] B3. Core Expertise grid: hairline grid, icons gold, Databricks added. Remove duplicated quote block.
 
 **Phase C: projects -> contact + cleanup** (Sonnet, then Opus review)
 - [ ] C1. Projects list: rows with hairline separators, serif titles normal case, gold chevron, expanded panel styled. Add Databricks project.
