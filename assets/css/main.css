@@ -107,8 +107,8 @@ input, select, textarea {
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: radial-gradient(circle at 20% 30%, rgba(100, 255, 218, 0.06) 0%, transparent 50%),
-		            radial-gradient(circle at 80% 70%, rgba(100, 120, 255, 0.05) 0%, transparent 50%);
+		background: radial-gradient(circle at 20% 30%, rgba(201, 162, 75, 0.06) 0%, transparent 50%),
+		            radial-gradient(circle at 80% 70%, rgba(201, 162, 75, 0.05) 0%, transparent 50%);
 		z-index: -1;
 		pointer-events: none;
 	}
@@ -1671,11 +1671,11 @@ input, select, textarea {
 
 /* CSS Variables for gradient colors */
 :root {
-	--gradient-start: #64ffda;
-	--gradient-mid: #7c9aff;
-	--gradient-end: #b794f6;
-	--glow-color: rgba(100, 255, 218, 0.4);
-	--glow-color-secondary: rgba(124, 154, 255, 0.3);
+	--gradient-start: #c9a24b;
+	--gradient-mid: #e0bd6a;
+	--gradient-end: #e0bd6a;
+	--glow-color: transparent;
+	--glow-color-secondary: transparent;
 }
 
 /* Animated Gradient Text for Name (h1) and Section Headers (h2.major) */
@@ -1811,7 +1811,7 @@ a {
 }
 
 a:hover {
-	text-shadow: 0 0 8px var(--glow-color);
+	text-shadow: none;
 }
 
 /* Card Hover Glow with Mouse Tracking */
@@ -1833,7 +1833,7 @@ a:hover {
 	border-radius: 8px;
 	background: radial-gradient(
 		600px circle at var(--mouse-x) var(--mouse-y),
-		rgba(100, 255, 218, 0.15),
+		rgba(201, 162, 75, 0.15),
 		transparent 40%
 	);
 	opacity: 0;
@@ -1928,7 +1928,7 @@ a:hover {
 	align-items: center;
 	gap: 10px;
 	background: transparent;
-	border: 2px solid rgba(100, 255, 218, 0.6);
+	border: 2px solid rgba(201, 162, 75, 0.6);
 	border-radius: 25px;
 	padding: 14px 24px;
 	color: #f0f0f0;
@@ -1942,22 +1942,22 @@ a:hover {
 }
 
 .nav-toggle:hover {
-	background: rgba(100, 255, 218, 0.1);
-	border-color: #64ffda;
+	background: rgba(201, 162, 75, 0.1);
+	border-color: #c9a24b;
 	transform: translateY(-2px);
-	box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
-	color: #64ffda;
+	box-shadow: 0 0 20px rgba(201, 162, 75, 0.3);
+	color: #c9a24b;
 }
 
 .nav-toggle:focus {
-	outline: 2px solid rgba(100, 255, 218, 0.8);
+	outline: 2px solid rgba(201, 162, 75, 0.8);
 	outline-offset: 2px;
 }
 
 .nav-toggle-icon {
 	width: 20px;
 	height: 2px;
-	background: #64ffda;
+	background: #c9a24b;
 	position: relative;
 	transition: all 0.3s ease;
 }
@@ -1968,7 +1968,7 @@ a:hover {
 	position: absolute;
 	width: 20px;
 	height: 2px;
-	background: #64ffda;
+	background: #c9a24b;
 	transition: all 0.3s ease;
 }
 
@@ -2001,7 +2001,7 @@ a:hover {
 	top: calc(100% + 15px);
 	right: 0;
 	background: rgba(20, 20, 20, 0.3);
-	border: 2px solid rgba(100, 255, 218, 0.5);
+	border: 2px solid rgba(201, 162, 75, 0.5);
 	border-radius: 15px;
 	padding: 15px;
 	min-width: 220px;
@@ -2041,7 +2041,7 @@ a:hover {
 }
 
 .staggered-item:focus {
-	outline: 2px solid rgba(100, 255, 218, 0.6);
+	outline: 2px solid rgba(201, 162, 75, 0.6);
 	outline-offset: 2px;
 }
 
@@ -2089,16 +2089,16 @@ a:hover {
 	left: 0;
 	width: 0;
 	height: 100%;
-	background: linear-gradient(90deg, rgba(100, 255, 218, 0.1), rgba(100, 255, 218, 0.05));
+	background: linear-gradient(90deg, rgba(201, 162, 75, 0.1), rgba(201, 162, 75, 0.05));
 	transition: width 0.3s ease;
 	z-index: -1;
 }
 
 .staggered-item:hover {
-	color: #64ffda;
-	background: rgba(100, 255, 218, 0.12);
+	color: #c9a24b;
+	background: rgba(201, 162, 75, 0.12);
 	transform: translateX(-5px);
-	box-shadow: 0 2px 10px rgba(100, 255, 218, 0.15);
+	box-shadow: 0 2px 10px rgba(201, 162, 75, 0.15);
 }
 
 .staggered-item:hover::before {
@@ -2106,10 +2106,10 @@ a:hover {
 }
 
 .staggered-item.active {
-	color: #64ffda;
-	background: rgba(100, 255, 218, 0.15);
-	border-left: 4px solid #64ffda;
-	box-shadow: 0 2px 15px rgba(100, 255, 218, 0.2);
+	color: #c9a24b;
+	background: rgba(201, 162, 75, 0.15);
+	border-left: 4px solid #c9a24b;
+	box-shadow: 0 2px 15px rgba(201, 162, 75, 0.2);
 }
 
 .item-icon {
@@ -2194,7 +2194,7 @@ a:hover {
 	text-align: center;
 	font-size: 1.4rem;
 	margin-bottom: 30px;
-	background: linear-gradient(90deg, #64ffda, #7c9aff);
+	background: linear-gradient(90deg, #c9a24b, #e0bd6a);
 	-webkit-background-clip: text;
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -2243,7 +2243,7 @@ a:hover {
 	padding: 18px 15px;
 	min-width: 110px;
 	background: rgba(255, 255, 255, 0.03);
-	border: 1px solid rgba(100, 255, 218, 0.15);
+	border: 1px solid rgba(201, 162, 75, 0.15);
 	border-radius: 12px;
 	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 	cursor: pointer;
@@ -2280,10 +2280,10 @@ a:hover {
 /* Hover effect */
 .tech-item:hover,
 .tech-item:focus {
-	background: rgba(100, 255, 218, 0.08);
-	border-color: rgba(100, 255, 218, 0.4);
+	background: rgba(201, 162, 75, 0.08);
+	border-color: rgba(201, 162, 75, 0.4);
 	transform: translateY(-10px) scale(1.05);
-	box-shadow: 0 12px 35px rgba(100, 255, 218, 0.15);
+	box-shadow: 0 12px 35px rgba(201, 162, 75, 0.15);
 	animation: none;
 	outline: none;
 }
@@ -2295,7 +2295,7 @@ a:hover {
 	left: -100%;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.1), transparent);
+	background: linear-gradient(90deg, transparent, rgba(201, 162, 75, 0.1), transparent);
 	transition: left 0.5s ease;
 }
 
@@ -2325,7 +2325,7 @@ a:hover {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: linear-gradient(135deg, #64ffda, #7c9aff);
+	background: linear-gradient(135deg, #c9a24b, #e0bd6a);
 	border-radius: 8px;
 	font-size: 1.2rem;
 	font-weight: 700;
@@ -2345,7 +2345,7 @@ a:hover {
 
 .tech-item:hover .tech-label,
 .tech-item:focus .tech-label {
-	color: #64ffda;
+	color: #c9a24b;
 }
 
 /* Active tech item state */
@@ -2355,12 +2355,12 @@ a:hover {
 }
 
 .tech-item-active img {
-	filter: grayscale(0%) opacity(1) drop-shadow(0 0 15px rgba(100, 255, 218, 0.5));
+	filter: grayscale(0%) opacity(1) drop-shadow(0 0 15px rgba(201, 162, 75, 0.5));
 	transform: scale(1.2);
 }
 
 .tech-item-active .tech-label {
-	color: #64ffda;
+	color: #c9a24b;
 	font-weight: 700;
 }
 
@@ -2371,8 +2371,8 @@ a:hover {
 	color: rgba(255, 255, 255, 0.95);
 	padding: 16px 20px;
 	border-radius: 12px;
-	border: 2px solid rgba(100, 255, 218, 0.5);
-	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(100, 255, 218, 0.2);
+	border: 2px solid rgba(201, 162, 75, 0.5);
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(201, 162, 75, 0.2);
 	backdrop-filter: blur(15px);
 	max-width: 320px;
 	font-size: 0.9rem;
@@ -2394,7 +2394,7 @@ a:hover {
 	height: 0;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
-	border-top: 10px solid rgba(100, 255, 218, 0.5);
+	border-top: 10px solid rgba(201, 162, 75, 0.5);
 }
 
 .tech-tooltip::after {
@@ -2643,7 +2643,7 @@ a:hover {
 	
 	/* Custom scrollbar */
 	scrollbar-width: thin;
-	scrollbar-color: rgba(100, 255, 218, 0.3) transparent;
+	scrollbar-color: rgba(201, 162, 75, 0.3) transparent;
 }
 
 .timeline-track::-webkit-scrollbar {
@@ -2656,12 +2656,12 @@ a:hover {
 }
 
 .timeline-track::-webkit-scrollbar-thumb {
-	background: rgba(100, 255, 218, 0.3);
+	background: rgba(201, 162, 75, 0.3);
 	border-radius: 10px;
 }
 
 .timeline-track::-webkit-scrollbar-thumb:hover {
-	background: rgba(100, 255, 218, 0.5);
+	background: rgba(201, 162, 75, 0.5);
 }
 
 /* Timeline Cards */
@@ -2670,7 +2670,7 @@ a:hover {
 	max-width: 320px;
 	flex-shrink: 0;
 	background: rgba(255, 255, 255, 0.03);
-	border: 1px solid rgba(100, 255, 218, 0.2);
+	border: 1px solid rgba(201, 162, 75, 0.2);
 	border-radius: 12px;
 	padding: 25px;
 	scroll-snap-align: start;
@@ -2679,35 +2679,35 @@ a:hover {
 }
 
 .timeline-card:hover {
-	background: rgba(100, 255, 218, 0.05);
-	border-color: rgba(100, 255, 218, 0.4);
+	background: rgba(201, 162, 75, 0.05);
+	border-color: rgba(201, 162, 75, 0.4);
 	transform: translateY(-5px);
-	box-shadow: 0 10px 30px rgba(100, 255, 218, 0.15);
+	box-shadow: 0 10px 30px rgba(201, 162, 75, 0.15);
 }
 
 /* Current position highlight */
 .timeline-card.timeline-current {
-	border: 2px solid rgba(100, 255, 218, 0.6);
-	background: rgba(100, 255, 218, 0.08);
+	border: 2px solid rgba(201, 162, 75, 0.6);
+	background: rgba(201, 162, 75, 0.08);
 }
 
 /* Education card variation */
 .timeline-education {
-	border-color: rgba(124, 154, 255, 0.3);
+	border-color: rgba(224, 189, 106, 0.3);
 }
 
 .timeline-education:hover {
-	border-color: rgba(124, 154, 255, 0.6);
-	background: rgba(124, 154, 255, 0.05);
+	border-color: rgba(224, 189, 106, 0.6);
+	background: rgba(224, 189, 106, 0.05);
 }
 
 .timeline-year {
 	font-size: 1.5rem;
-	color: #64ffda;
+	color: #c9a24b;
 	font-weight: 700;
 	margin-bottom: 15px;
 	letter-spacing: 2px;
-	text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+	text-shadow: 0 0 10px rgba(201, 162, 75, 0.5);
 }
 
 .timeline-company {
@@ -2755,10 +2755,10 @@ a:hover {
 .skill-tag {
 	font-size: 0.75rem;
 	padding: 4px 10px;
-	background: rgba(100, 255, 218, 0.1);
-	border: 1px solid rgba(100, 255, 218, 0.3);
+	background: rgba(201, 162, 75, 0.1);
+	border: 1px solid rgba(201, 162, 75, 0.3);
 	border-radius: 12px;
-	color: #64ffda;
+	color: #c9a24b;
 	white-space: nowrap;
 }
 
@@ -2769,7 +2769,7 @@ a:hover {
 }
 
 .timeline-highlight strong {
-	color: #64ffda;
+	color: #c9a24b;
 	display: block;
 	margin-bottom: 10px;
 	font-size: 0.9rem;
@@ -2795,7 +2795,7 @@ a:hover {
 .core-expertise h3 {
 	text-align: center;
 	margin-bottom: 30px;
-	background: linear-gradient(90deg, #64ffda, #7c9aff);
+	background: linear-gradient(90deg, #c9a24b, #e0bd6a);
 	-webkit-background-clip: text;
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -2812,7 +2812,7 @@ a:hover {
 
 .expertise-item {
 	background: rgba(255, 255, 255, 0.02);
-	border: 1px solid rgba(100, 255, 218, 0.15);
+	border: 1px solid rgba(201, 162, 75, 0.15);
 	border-radius: 10px;
 	padding: 25px;
 	text-align: center;
@@ -2820,10 +2820,10 @@ a:hover {
 }
 
 .expertise-item:hover {
-	background: rgba(100, 255, 218, 0.05);
-	border-color: rgba(100, 255, 218, 0.4);
+	background: rgba(201, 162, 75, 0.05);
+	border-color: rgba(201, 162, 75, 0.4);
 	transform: translateY(-3px);
-	box-shadow: 0 8px 25px rgba(100, 255, 218, 0.1);
+	box-shadow: 0 8px 25px rgba(201, 162, 75, 0.1);
 }
 
 .expertise-icon {
@@ -2857,8 +2857,8 @@ a:hover {
 .personal-note {
 	margin-top: 50px;
 	padding: 25px 30px;
-	background: linear-gradient(135deg, rgba(100, 255, 218, 0.05), rgba(124, 154, 255, 0.05));
-	border-left: 3px solid #64ffda;
+	background: linear-gradient(135deg, rgba(201, 162, 75, 0.05), rgba(224, 189, 106, 0.05));
+	border-left: 3px solid #c9a24b;
 	border-radius: 8px;
 }
 
@@ -2928,7 +2928,7 @@ a:hover {
 	transform: translateY(-50%);
 	z-index: 10;
 	background: rgba(20, 20, 20, 0.9);
-	border: 1px solid rgba(100, 255, 218, 0.4);
+	border: 1px solid rgba(201, 162, 75, 0.4);
 	border-radius: 50%;
 	width: 45px;
 	height: 45px;
@@ -2936,7 +2936,7 @@ a:hover {
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
-	color: #64ffda;
+	color: #c9a24b;
 	font-size: 1.2rem;
 	transition: all 0.3s ease;
 	backdrop-filter: blur(10px);
@@ -2944,10 +2944,10 @@ a:hover {
 }
 
 .timeline-nav:hover {
-	background: rgba(100, 255, 218, 0.15);
-	border-color: #64ffda;
+	background: rgba(201, 162, 75, 0.15);
+	border-color: #c9a24b;
 	transform: translateY(-50%) scale(1.1);
-	box-shadow: 0 6px 20px rgba(100, 255, 218, 0.3);
+	box-shadow: 0 6px 20px rgba(201, 162, 75, 0.3);
 }
 
 .timeline-nav:active {
@@ -3012,9 +3012,9 @@ a:hover {
 	
 	.button.primary:hover {
 		background-color: rgba(255, 255, 255, 0.15) !important;
-		box-shadow: inset 0 0 0 2px #64ffda, 0 0 15px rgba(100, 255, 218, 0.5);
-		border-color: #64ffda;
-		color: #64ffda !important;
+		box-shadow: inset 0 0 0 2px #c9a24b;
+		border-color: #c9a24b;
+		color: #c9a24b !important;
 		transform: translateY(-2px);
 	}
 	
@@ -3041,9 +3041,9 @@ a:hover {
 	.carousel-button:hover,
 	.timeline-nav:hover {
 		background: rgba(255, 255, 255, 0.1) !important;
-		border-color: #64ffda;
-		color: #64ffda;
-		box-shadow: 0 0 15px rgba(100, 255, 218, 0.4);
+		border-color: #c9a24b;
+		color: #c9a24b;
+		box-shadow: 0 0 15px rgba(201, 162, 75, 0.4);
 		transform: scale(1.05);
 	}
 	
@@ -3066,14 +3066,14 @@ a:hover {
 	}
 	
 	.timeline-card.collapsed:hover {
-		box-shadow: 0 4px 20px rgba(100, 255, 218, 0.3);
-		border-color: rgba(100, 255, 218, 0.5);
+		box-shadow: 0 4px 20px rgba(201, 162, 75, 0.3);
+		border-color: rgba(201, 162, 75, 0.5);
 	}
 	
 	.timeline-card.expanded {
 		height: auto;
-		box-shadow: 0 8px 30px rgba(100, 255, 218, 0.4);
-		border-color: #64ffda;
+		box-shadow: 0 8px 30px rgba(201, 162, 75, 0.4);
+		border-color: #c9a24b;
 	}
 	
 	/* Hide detailed content when collapsed */
@@ -3095,7 +3095,7 @@ a:hover {
 		position: absolute;
 		bottom: 10px;
 		right: 15px;
-		color: #64ffda;
+		color: #c9a24b;
 		font-size: 1.2rem;
 		transition: all 0.3s ease;
 		pointer-events: none;
@@ -3130,8 +3130,8 @@ a:hover {
 }
 
 .project-expander-item:hover {
-	border-color: rgba(100, 255, 218, 0.3);
-	box-shadow: 0 4px 15px rgba(100, 255, 218, 0.1);
+	border-color: rgba(201, 162, 75, 0.3);
+	box-shadow: 0 4px 15px rgba(201, 162, 75, 0.1);
 }
 
 .project-expander-header {
@@ -3151,12 +3151,12 @@ a:hover {
 }
 
 .project-expander-item:hover .project-expander-header h3 {
-	color: #64ffda;
+	color: #c9a24b;
 }
 
 .expander-icon {
 	font-size: 1.2rem;
-	color: #64ffda;
+	color: #c9a24b;
 	transition: transform 0.3s ease;
 }
 
@@ -3229,7 +3229,7 @@ a:hover {
 
 .project-visual-rovo {
 	background:
-		radial-gradient(circle at 25% 20%, rgba(100, 255, 218, 0.28), transparent 34%),
+		radial-gradient(circle at 25% 20%, rgba(201, 162, 75, 0.28), transparent 34%),
 		linear-gradient(135deg, rgba(0, 82, 204, 0.72), rgba(35, 25, 89, 0.82));
 }
 
@@ -3261,7 +3261,7 @@ a:hover {
 
 .tech-play-pause-btn {
 	background: rgba(255, 255, 255, 0.1);
-	border: 2px solid rgba(100, 255, 218, 0.5);
+	border: 2px solid rgba(201, 162, 75, 0.5);
 	border-radius: 50%;
 	width: 50px;
 	height: 50px;
@@ -3275,11 +3275,11 @@ a:hover {
 }
 
 .tech-play-pause-btn:hover {
-	background: rgba(100, 255, 218, 0.2);
-	border-color: #64ffda;
-	color: #64ffda;
+	background: rgba(201, 162, 75, 0.2);
+	border-color: #c9a24b;
+	color: #c9a24b;
 	transform: scale(1.1);
-	box-shadow: 0 0 20px rgba(100, 255, 218, 0.4);
+	box-shadow: 0 0 20px rgba(201, 162, 75, 0.4);
 }
 
 .tech-play-pause-btn svg {
@@ -3290,6 +3290,6 @@ a:hover {
 /* Award Cards Hover Animation */
 .award-card:hover {
 	transform: translateY(-3px);
-	border-color: rgba(100, 255, 218, 0.3);
+	border-color: rgba(201, 162, 75, 0.3);
 	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
