@@ -178,7 +178,7 @@ const techConfig = [
 	},
 	{
 		name: 'Whiteboard',
-		icon: 'assets/images/whiteboard-logo.svg',
+		icon: 'assets/images/whiteboard-logo.png',
 		url: 'https://www.microsoft.com/microsoft-365/microsoft-whiteboard/',
 		category: 'collaboration',
 		description: 'Digital canvas for brainstorming, collaborative workshops, and visual planning sessions.'

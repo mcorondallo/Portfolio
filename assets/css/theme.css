@@ -548,6 +548,34 @@ h1.major, h2.major, h3.major, h4.major, h5.major, h6.major,
 
 /* ---- B2: story + timeline --------------------------------------------- */
 
+.story-header {
+	display: flex;
+	align-items: flex-start;
+	gap: clamp(2rem, 4vw, 3.5rem);
+	margin: 0 0 3rem;
+}
+
+.story-portrait {
+	flex: 0 0 200px;
+	width: 200px;
+}
+
+.story-portrait img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	border-radius: var(--radius);
+	border: 1px solid var(--line);
+	filter: grayscale(1) contrast(1.05);
+	transition: filter .3s var(--ease), border-color .3s var(--ease);
+}
+
+.story-portrait img:hover {
+	filter: grayscale(0) contrast(1);
+	border-color: var(--line-strong);
+}
+
 .story-intro {
 	font-size: clamp(1.125rem, 1.6vw, 1.375rem);
 	line-height: 1.65;
@@ -555,7 +583,22 @@ h1.major, h2.major, h3.major, h4.major, h5.major, h6.major,
 	color: var(--text-muted);
 	text-align: left;
 	max-width: 62ch;
-	margin: 0 0 3rem;
+	margin: 0;
+	flex: 1 1 420px;
+	min-width: 0;
+}
+
+@media screen and (max-width: 736px) {
+	.story-header {
+		flex-direction: column;
+		align-items: center;
+		text-align: left;
+	}
+
+	.story-portrait {
+		flex: 0 0 auto;
+		width: 140px;
+	}
 }
 
 #main article .story-intro p {
