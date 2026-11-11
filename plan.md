@@ -3,28 +3,57 @@
 Goal: stylish, modern, mostly black & white with a touch of gold. Visual redesign first; SEO / a11y / performance / mobile follow as separate branches (see "Later" below).
 Workflow: Opus assesses and splits tasks, Sonnet implements. One commit per task, screenshot check (Chromium, 1440px and 390px) before each commit. Merge to `main` = live (GitHub Pages, no CI).
 
-## Design direction (agreed with Maxime)
-- **Palette:** near-black background (`#0a0a0a`), off-white text (`#f5f2ec`), muted grey for secondary text, **gold accent used sparingly** (`#c9a24b`, hover `#e0bd6a`) for hairlines, key numbers, active nav, buttons. Replaces the current teal `#64ffda` accent. Define all as CSS variables on `:root`.
-- **Type:** pair a refined display face (e.g. Sora already loaded, or Fraunces/Playfair for editorial headings) with a clean body face (Inter). Large, tight-tracked headings; generous whitespace.
-- **Style:** thin gold dividers, subtle borders instead of heavy cards, smooth hover/scroll-reveal, no gradients or glow overload. Keep existing JS behaviours (timeline, tech carousel, project expander) unless a task says otherwise.
-- **Do not add** the Brunch Club Planner (`project/` stays untouched and unlinked).
+## Opus assessment (2026-11-11)
+- Page is HTML5 UP "Dimension" forced into a single scrolling page by a ~190-line inline `<style>` in `<head>` (lots of `!important`). 91 inline `style=""`, teal `#64ffda` hard-coded ~120x across CSS + HTML, purple `#7c9aff` in places.
+- "Source Sans Pro" body font is never loaded (falls back to system). Sora is loaded for headings.
+- Inline nav script references missing sections (`about`, `timeline`, `work`, `community`) -> console errors. Template `#elements` demo article is dead.
+- My Story intro text is duplicated (top paragraph + quote block under Core Expertise).
+- Font Awesome loaded 3x (cdnjs CSS, use.fontawesome JS, kit) -> perf task later, don't touch icons now except colour.
+- Screenshot tool: `node <scratchpad>/tools/shots.js <prefix> 1440,390` with `python3 -m http.server 8765 --bind 127.0.0.1` running from repo root. Output in `<scratchpad>/shots/`.
+
+**Strategy:** new `assets/css/theme.css` linked as the LAST stylesheet in `<head>` (after the inline `<style>`). All new styling goes there, driven by tokens. When a section is restyled, remove its inline `style=""` attributes and teal/purple inline colours from `index.html` so theme.css wins without `!important` wars. Keep every id/class used by JS (`timelineTrack`, `timeline-card`, `tech-showcase*`, `project*` expander classes, `scroll-reveal*`, `navDropdown`, etc.). Don't refactor JS.
+
+## Design spec — "Noir & Gold"
+Reference feel: editorial / luxury studio portfolios: black canvas, huge serif display type, hairline rules, numbered sections, restrained gold.
+
+**Tokens (`:root` in theme.css)**
+- `--bg: #0a0a0a`, `--surface: #111111`, `--surface-2: #161616`, `--line: rgba(255,255,255,.08)`, `--line-strong: rgba(255,255,255,.16)`
+- `--text: #f5f2ec`, `--text-muted: #a8a49c`, `--text-dim: #6f6c66`
+- `--gold: #c9a24b`, `--gold-soft: #e0bd6a`, `--gold-faint: rgba(201,162,75,.12)`
+- `--font-display: "Instrument Serif", Georgia, serif` (400 + italic), `--font-body: "Inter", system-ui, sans-serif` (300-600)
+- `--radius: 4px` (near-square, no pill shapes), `--ease: cubic-bezier(.2,.7,.2,1)`
+- Replace the Sora Google Fonts link with Instrument Serif (ital 0,1) + Inter (300..600), `display=swap`.
+
+**Rules**
+- Body: `--bg` everywhere, including below the content (no white area at page bottom). Body text 16-17px, line-height 1.65, `--text-muted`; strong = `--text`.
+- Gold is an accent only: section numbers, hairline under headings, active nav, key numbers, link hover, primary button border. Never gold paragraphs or big gold fills.
+- No teal, no purple, no glows/neon shadows, no gradient text. Cards = `--surface` + 1px `--line` border, hover -> border `--line-strong` + slight translateY(-2px).
+- Section headings: small eyebrow `01 — MY STORY` (Inter, 12px, letter-spacing .2em, gold) above a large serif title (Instrument Serif, clamp(2.5rem, 5vw, 4rem), `--text`, normal case, no letter-spacing).
+- Motion subtle: 200-300ms, keep existing scroll-reveal.
 
 ## Content to add (from Maxime)
-Recent work with **Databricks Genie**: working in Databricks workspaces, managing notebooks, building a migration plan from a data warehouse to Databricks, and developing skills (Genie / agent skills) for it. Wording stays factual: no metrics or outcomes beyond this.
+Recent work with **Databricks Genie**: working in Databricks workspaces, managing notebooks, building a migration plan from a data warehouse to Databricks, and developing skills for Genie. Wording stays factual: no metrics or outcomes beyond this.
 - [ ] Mileway timeline card: add "Databricks" skill tag + one achievement bullet.
-- [ ] Core Expertise > Cloud & Platform: mention Databricks next to Fabric.
-- [ ] New project entry "Databricks Genie & Warehouse Migration" in Projects (use the existing project-card pattern).
+- [ ] Core Expertise > Cloud & Platform: add Databricks next to Microsoft Fabric.
+- [ ] New project entry "Databricks Genie & Warehouse Migration" at the TOP of Projects (same markup pattern as other project cards, icon `fas fa-database`).
+- Do NOT add Brunch Club Planner. Don't touch `project/`.
 
-## Tasks (in order)
-- [ ] 1. Design tokens: CSS variables (colors, fonts, spacing), swap font link in `<head>`, base typography and body background.
-- [ ] 2. Hero: name typography, intro, scroll cue, tech showcase strip restyled.
-- [ ] 3. Side/top navigation restyle (gold active state).
-- [ ] 4. About / My Story + Core Expertise grid.
-- [ ] 5. Timeline cards (horizontal scroller) restyle + Databricks additions.
-- [ ] 6. Projects grid/cards + expander + Databricks project.
-- [ ] 7. Awards, Community, Contact ("Let's Connect") + footer.
-- [ ] 8. Cleanup: remove unused template "Elements" block and dead CSS only if verified unused; extract inline `style=""` touched by the redesign.
-- [ ] 9. Full pass: screenshots at 1440 / 768 / 390, check all JS features, then push branch and open PR.
+## Tasks
+**Phase A: foundation + hero + nav** (Sonnet, then Opus review)
+- [ ] A1. Create `theme.css` with tokens, base (body/html bg, typography, links, buttons, selection colour), swap Google Fonts link. Link it last in `<head>`.
+- [ ] A2. Hero: remove the template's circle icon + horizontal line; small gold eyebrow "Chapter Lead · Business Intelligence · Amsterdam" (from timeline content), huge serif name (first name `--text`, last name italic or gold-soft), tagline in Inter muted, no quotes/italic caps. Tech showcase strip: transparent bg, hairline top/bottom border, logos grayscale + 60% opacity, full colour on hover.
+- [ ] A3. Menu button + dropdown + side/staggered nav: black/white with gold active/hover. Square-ish, not pill.
+
+**Phase B: story** (Sonnet, then Opus review)
+- [ ] B1. Remove grey card look of articles: sections sit on `--bg` with generous padding, max-width ~1100px, numbered eyebrow headings (01 My Story, 02 Projects, 03 Awards, 04 Contact).
+- [ ] B2. My Story intro + timeline cards (current card: gold top border / gold year), arrows restyled. Databricks additions in Mileway card.
+- [ ] B3. Core Expertise grid: hairline grid, icons gold, Databricks added. Remove duplicated quote block.
+
+**Phase C: projects -> contact + cleanup** (Sonnet, then Opus review)
+- [ ] C1. Projects list: rows with hairline separators, serif titles normal case, gold chevron, expanded panel styled. Add Databricks project.
+- [ ] C2. Awards cards + Contact: serif "Let's connect", gold-outline CV button, monochrome social icons with gold hover. Footer.
+- [ ] C3. Cleanup: delete `#elements` article; remove inline-script references to missing sections (no console errors); delete inline `<style>` rules now dead (verify by screenshot).
+- [ ] C4. Full check 1440 / 768 / 390, zero console errors, push branch, open PR (no merge).
 
 ---
 
