@@ -137,3 +137,181 @@ input[type="button"]:hover {
 	color: var(--text);
 }
 
+/* ---- A2: hero ---------------------------------------------------------- */
+
+#header {
+	background: transparent;
+	background-image: none;
+}
+
+/* Remove the vertical connector lines the template draws between header children */
+#header > *:before {
+	display: none;
+}
+
+#header .content {
+	border: 0;
+	padding: 0 1.5rem;
+	width: 100%;
+}
+
+#header .content .inner {
+	padding: 0;
+	max-height: none;
+	overflow: visible;
+	width: 100%;
+}
+
+#header .content .hero-eyebrow {
+	font-family: var(--font-body);
+	font-size: .75rem;
+	font-weight: 500;
+	line-height: 1.6;
+	letter-spacing: .2em;
+	text-transform: uppercase;
+	color: var(--gold);
+	margin: 0 0 1.75rem;
+	text-wrap: balance;
+}
+
+#header h1#hero-name {
+	font-family: var(--font-display);
+	font-weight: 400;
+	font-size: clamp(3.25rem, 9vw, 8rem);
+	letter-spacing: -.01em;
+	line-height: 1;
+	text-transform: none;
+	text-shadow: none;
+	color: var(--text);
+	margin: 0 0 1.75rem;
+}
+
+#hero-name .hero-first-name {
+	color: var(--text);
+	-webkit-text-fill-color: var(--text);
+}
+
+#hero-name .hero-last-name {
+	color: var(--gold-soft);
+	-webkit-text-fill-color: var(--gold-soft);
+	font-style: italic;
+}
+
+#header .content p.tagline {
+	font-family: var(--font-body);
+	font-size: 1.125rem;
+	font-weight: 300;
+	font-style: normal;
+	letter-spacing: .01em;
+	line-height: 1.6;
+	text-transform: none;
+	color: var(--text-muted);
+	margin: 0;
+}
+
+@media screen and (max-width: 736px) {
+	#header h1#hero-name {
+		font-size: clamp(2.75rem, 14vw, 3.5rem);
+		letter-spacing: -.01em;
+		overflow-wrap: anywhere;
+	}
+
+	#header .content .hero-eyebrow {
+		font-size: .6875rem;
+		letter-spacing: .16em;
+		margin-bottom: 1.25rem;
+	}
+
+	#header .content p.tagline {
+		font-size: 1rem;
+	}
+}
+
+/* Tech showcase strip */
+#tech-showcase.tech-showcase-container {
+	width: 100%;
+	max-width: 1200px;
+	margin-top: 4rem;
+	padding: 0;
+	background: transparent;
+	border-radius: 0;
+	border-top: 1px solid var(--line);
+	border-bottom: 1px solid var(--line);
+}
+
+.tech-carousel {
+	padding: 1.25rem 0;
+}
+
+.tech-track {
+	gap: 1rem;
+}
+
+.tech-item {
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	padding: .5rem 1rem;
+	min-width: 96px;
+	animation: none;
+	transition: transform .3s var(--ease);
+}
+
+.tech-item::before {
+	display: none;
+}
+
+.tech-item:hover,
+.tech-item:focus {
+	background: transparent;
+	border-color: transparent;
+	box-shadow: none;
+	transform: translateY(-2px);
+}
+
+.tech-item img {
+	width: 40px;
+	height: 40px;
+	filter: grayscale(1);
+	opacity: .6;
+	transition: filter .3s var(--ease), opacity .3s var(--ease);
+}
+
+.tech-item:hover img,
+.tech-item:focus img,
+.tech-item-active img {
+	filter: grayscale(0);
+	opacity: 1;
+	transform: none;
+}
+
+.tech-label {
+	font-family: var(--font-body);
+	font-size: .6875rem;
+	font-weight: 400;
+	letter-spacing: .08em;
+	color: var(--text-dim);
+}
+
+.tech-item:hover .tech-label,
+.tech-item:focus .tech-label,
+.tech-item-active .tech-label {
+	color: var(--gold-soft);
+}
+
+.tech-fallback-icon {
+	background: var(--surface-2);
+	border: 1px solid var(--line-strong);
+	border-radius: var(--radius);
+	color: var(--text-muted);
+}
+
+.tech-tooltip {
+	background: var(--surface);
+	border: 1px solid var(--line-strong);
+	border-radius: var(--radius);
+	box-shadow: none;
+	color: var(--text-muted);
+}
+
