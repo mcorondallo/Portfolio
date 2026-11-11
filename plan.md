@@ -50,10 +50,10 @@ Recent work with **Databricks Genie**: working in Databricks workspaces, managin
 - [x] B3. Core Expertise grid: hairline grid, icons gold, Databricks added. Remove duplicated quote block.
 
 **Phase C: projects -> contact + cleanup** (Sonnet, then Opus review)
-- [ ] C1. Projects list: rows with hairline separators, serif titles normal case, gold chevron, expanded panel styled. Add Databricks project.
-- [ ] C2. Awards cards + Contact: serif "Let's connect", gold-outline CV button, monochrome social icons with gold hover. Footer.
-- [ ] C3. Cleanup: delete `#elements` article; remove inline-script references to missing sections (no console errors); delete inline `<style>` rules now dead (verify by screenshot).
-- [ ] C4. Full check 1440 / 768 / 390, zero console errors, push branch, open PR (no merge).
+- [x] C1. Projects list: rows with hairline separators, serif titles normal case, gold chevron, expanded panel styled. Add Databricks project.
+- [x] C2. Awards cards + Contact: serif "Let's connect", gold-outline CV button, monochrome social icons with gold hover. Footer.
+- [x] C3. Cleanup: delete `#elements` article; remove inline-script references to missing sections (no console errors); delete inline `<style>` rules now dead (verify by screenshot).
+- [x] C4. Full check 1440 / 768 / 390, zero console errors, push branch, open PR (no merge).
 
 ---
 
