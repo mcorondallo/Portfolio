@@ -1678,25 +1678,6 @@ input, select, textarea {
 	--glow-color-secondary: transparent;
 }
 
-/* Animated Gradient Text for Name (h1) and Section Headers (h2.major) */
-#header h1,
-h2.major {
-	background: linear-gradient(
-		90deg,
-		var(--gradient-start),
-		var(--gradient-mid),
-		var(--gradient-end),
-		var(--gradient-mid),
-		var(--gradient-start)
-	);
-	background-size: 200% 100%;
-	-webkit-background-clip: text;
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
-	animation: gradient-shift 8s ease-in-out infinite;
-	font-weight: 600;
-}
-
 #header h1#hero-name {
 	background: none;
 	-webkit-background-clip: initial;
@@ -1732,15 +1713,6 @@ h2.major {
 	#hero-name .hero-first-name,
 	#hero-name .hero-last-name {
 		display: block;
-	}
-}
-
-@keyframes gradient-shift {
-	0%, 100% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
 	}
 }
 
@@ -1812,45 +1784,6 @@ a {
 
 a:hover {
 	text-shadow: none;
-}
-
-/* Card Hover Glow with Mouse Tracking */
-.strength-category,
-.project-card {
-	--mouse-x: 50%;
-	--mouse-y: 50%;
-	position: relative;
-}
-
-.strength-category::after,
-.project-card::after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	border-radius: 8px;
-	background: radial-gradient(
-		600px circle at var(--mouse-x) var(--mouse-y),
-		rgba(201, 162, 75, 0.15),
-		transparent 40%
-	);
-	opacity: 0;
-	transition: opacity 0.3s ease;
-	pointer-events: none;
-	z-index: 1;
-}
-
-.strength-category:hover::after,
-.project-card:hover::after {
-	opacity: 1;
-}
-
-.strength-category > *,
-.project-card > * {
-	position: relative;
-	z-index: 2;
 }
 
 /* Smooth fade-in animation for sections on scroll */
@@ -2853,23 +2786,6 @@ a:hover {
 	margin: 0;
 }
 
-/* Personal Note */
-.personal-note {
-	margin-top: 50px;
-	padding: 25px 30px;
-	background: linear-gradient(135deg, rgba(201, 162, 75, 0.05), rgba(224, 189, 106, 0.05));
-	border-left: 3px solid #c9a24b;
-	border-radius: 8px;
-}
-
-.personal-note p {
-	font-size: 1rem;
-	line-height: 1.7;
-	color: rgba(255, 255, 255, 0.85);
-	margin: 0;
-	font-style: italic;
-}
-
 /* Mobile Responsive */
 @media screen and (max-width: 736px) {
 	.story-intro {
@@ -2909,13 +2825,6 @@ a:hover {
 		padding: 18px;
 	}
 	
-	.personal-note {
-		padding: 20px;
-	}
-	
-	.personal-note p {
-		font-size: 0.95rem;
-	}
 }
 
 /* ============================================
