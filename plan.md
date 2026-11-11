@@ -40,9 +40,9 @@ Recent work with **Databricks Genie**: working in Databricks workspaces, managin
 
 ## Tasks
 **Phase A: foundation + hero + nav** (Sonnet, then Opus review)
-- [ ] A1. Create `theme.css` with tokens, base (body/html bg, typography, links, buttons, selection colour), swap Google Fonts link. Link it last in `<head>`.
-- [ ] A2. Hero: remove the template's circle icon + horizontal line; small gold eyebrow "Chapter Lead · Business Intelligence · Amsterdam" (from timeline content), huge serif name (first name `--text`, last name italic or gold-soft), tagline in Inter muted, no quotes/italic caps. Tech showcase strip: transparent bg, hairline top/bottom border, logos grayscale + 60% opacity, full colour on hover.
-- [ ] A3. Menu button + dropdown + side/staggered nav: black/white with gold active/hover. Square-ish, not pill.
+- [x] A1. Create `theme.css` with tokens, base (body/html bg, typography, links, buttons, selection colour), swap Google Fonts link. Link it last in `<head>`.
+- [x] A2. Hero: remove the template's circle icon + horizontal line; small gold eyebrow "Chapter Lead · Business Intelligence · Amsterdam" (from timeline content), huge serif name (first name `--text`, last name italic or gold-soft), tagline in Inter muted, no quotes/italic caps. Tech showcase strip: transparent bg, hairline top/bottom border, logos grayscale + 60% opacity, full colour on hover.
+- [x] A3. Menu button + dropdown + side/staggered nav: black/white with gold active/hover. Square-ish, not pill.
 
 **Phase B: story** (Sonnet, then Opus review)
 - [ ] B1. Remove grey card look of articles: sections sit on `--bg` with generous padding, max-width ~1100px, numbered eyebrow headings (01 My Story, 02 Projects, 03 Awards, 04 Contact).
