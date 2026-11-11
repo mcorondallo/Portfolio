@@ -1,0 +1,139 @@
+/* ==========================================================================
+   Noir & Gold theme. Loaded LAST so it wins over main.css and inline <style>.
+   ========================================================================== */
+
+:root {
+	--bg: #0a0a0a;
+	--surface: #111111;
+	--surface-2: #161616;
+	--line: rgba(255, 255, 255, .08);
+	--line-strong: rgba(255, 255, 255, .16);
+	--text: #f5f2ec;
+	--text-muted: #a8a49c;
+	--text-dim: #6f6c66;
+	--gold: #c9a24b;
+	--gold-soft: #e0bd6a;
+	--gold-faint: rgba(201, 162, 75, .12);
+	--font-display: "Instrument Serif", Georgia, serif;
+	--font-body: "Inter", system-ui, sans-serif;
+	--radius: 4px;
+	--ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+/* ---- A1: base ---------------------------------------------------------- */
+
+/* The white area under the content came from html having no background of its
+   own while body used a fixed gradient. Paint both with --bg. */
+html {
+	background: var(--bg);
+}
+
+body {
+	background: var(--bg);
+	background-image: none;
+	color: var(--text-muted);
+	font-family: var(--font-body);
+	font-weight: 300;
+	line-height: 1.65;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Remove the teal/purple ambient glows */
+body::before {
+	background: none;
+}
+
+#wrapper {
+	background: transparent;
+}
+
+html {
+	font-size: 16px;
+}
+
+body, input, select, textarea {
+	font-family: var(--font-body);
+	font-size: 1rem;
+	line-height: 1.65;
+	color: var(--text-muted);
+}
+
+@media screen and (min-width: 737px) {
+	body, input, select, textarea {
+		font-size: 1.0625rem;
+	}
+}
+
+strong, b {
+	color: var(--text);
+	font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-display);
+	font-weight: 400;
+	color: var(--text);
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+a {
+	color: var(--text);
+	border-bottom-color: var(--line-strong);
+	transition: color .2s var(--ease), border-color .2s var(--ease);
+}
+
+a:hover {
+	color: var(--gold-soft);
+	border-bottom-color: var(--gold);
+}
+
+::selection {
+	background: var(--gold);
+	color: #0a0a0a;
+}
+
+::-moz-selection {
+	background: var(--gold);
+	color: #0a0a0a;
+}
+
+:focus-visible {
+	outline: 1px solid var(--gold);
+	outline-offset: 3px;
+}
+
+/* Buttons: square-ish, white hairline, gold on hover */
+.button,
+button.button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+	border-radius: var(--radius);
+	background: transparent;
+	color: var(--text);
+	box-shadow: none;
+	border: 1px solid var(--line-strong);
+	font-family: var(--font-body);
+	font-weight: 500;
+	letter-spacing: .12em;
+	transition: border-color .25s var(--ease), color .25s var(--ease), background-color .25s var(--ease);
+}
+
+.button:hover,
+button.button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover {
+	background: var(--gold-faint);
+	border-color: var(--gold);
+	color: var(--gold-soft);
+	box-shadow: none;
+	transform: none;
+}
+
+.button.primary {
+	border-color: var(--gold);
+	color: var(--text);
+}
+
