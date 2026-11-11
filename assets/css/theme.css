@@ -315,3 +315,135 @@ input[type="button"]:hover {
 	color: var(--text-muted);
 }
 
+/* ---- A3: navigation ---------------------------------------------------- */
+
+.staggered-nav {
+	font-family: var(--font-body);
+}
+
+.nav-toggle {
+	background: rgba(10, 10, 10, .72);
+	border: 1px solid var(--line-strong);
+	border-radius: var(--radius);
+	color: var(--text);
+	padding: .75rem 1.25rem;
+	font-size: .75rem;
+	font-weight: 500;
+	letter-spacing: .2em;
+	text-transform: uppercase;
+	box-shadow: none;
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
+}
+
+.nav-toggle:hover,
+.nav-toggle.active {
+	background: rgba(10, 10, 10, .72);
+	border-color: var(--gold);
+	color: var(--gold-soft);
+	transform: none;
+	box-shadow: none;
+}
+
+.nav-toggle:focus {
+	outline: none;
+}
+
+.nav-toggle:focus-visible {
+	outline: 1px solid var(--gold);
+	outline-offset: 3px;
+}
+
+.nav-toggle-icon,
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+	height: 1px;
+	background: currentColor;
+}
+
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+	left: 0;
+}
+
+.nav-toggle.active .nav-toggle-icon {
+	background: transparent;
+}
+
+.staggered-menu {
+	background: rgba(10, 10, 10, .94);
+	border: 1px solid var(--line-strong);
+	border-radius: var(--radius);
+	padding: .5rem;
+	min-width: 240px;
+	box-shadow: none;
+	-webkit-backdrop-filter: blur(12px);
+	backdrop-filter: blur(12px);
+}
+
+.staggered-item {
+	color: var(--text-muted);
+	border-radius: 0;
+	border-bottom: 0;
+	border-left: 2px solid transparent;
+	margin: 0;
+	padding: .8rem 1rem;
+	box-shadow: none;
+}
+
+.staggered-item::before {
+	display: none;
+}
+
+.staggered-item:hover {
+	color: var(--gold-soft);
+	background: var(--gold-faint);
+	transform: none;
+	box-shadow: none;
+	border-bottom: 0;
+}
+
+.staggered-item.active {
+	color: var(--gold-soft);
+	background: var(--gold-faint);
+	border-left: 2px solid var(--gold);
+	box-shadow: none;
+}
+
+.staggered-item:hover .item-icon {
+	transform: none;
+}
+
+.item-icon {
+	color: inherit;
+	font-size: .9rem;
+}
+
+.item-label {
+	font-family: var(--font-body);
+	font-size: .8125rem;
+	font-weight: 400;
+	letter-spacing: .08em;
+}
+
+/* Legacy dropdown (hidden in markup, kept for the inline script) */
+.main-nav-button,
+.dropdown-content a {
+	border-radius: var(--radius);
+}
+
+.dropdown-content {
+	background: var(--surface);
+	border: 1px solid var(--line-strong);
+	border-radius: var(--radius);
+	box-shadow: none;
+}
+
+.dropdown-content a {
+	color: var(--text-muted);
+}
+
+.dropdown-content a:hover {
+	color: var(--gold-soft);
+	background: var(--gold-faint);
+}
