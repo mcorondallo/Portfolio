@@ -271,6 +271,10 @@
 <!-- Staggered Navigation Menu (Top Right) -->
 <nav id="staggeredNav" class="staggered-nav" role="navigation" aria-label="Main navigation">
 	<div class="staggered-nav-container">
+		<a href="#contact" class="contact-quicklink" aria-label="Jump to contact section">
+			<i class="fas fa-envelope" aria-hidden="true"></i>
+			<span class="contact-quicklink-text">Contact Me</span>
+		</a>
 		<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="staggeredMenu">
 			<span class="nav-toggle-icon" aria-hidden="true"></span>
 			<span class="nav-toggle-text">Menu</span>
@@ -568,6 +572,33 @@
 									</div>
 								</div>
 							</div>
+
+							<!-- Beyond work -->
+							<div id="beyond-work" class="core-expertise scroll-reveal-delay-3">
+								<h3>Beyond Work</h3>
+								<div class="beyond-work-grid">
+									<div class="beyond-work-item">
+										<span class="expertise-icon"><i class="fas fa-utensils"></i></span>
+										<h4>Cooking</h4>
+										<p>Cooking and hosting evenings with friends</p>
+									</div>
+									<div class="beyond-work-item">
+										<span class="expertise-icon"><i class="fas fa-music"></i></span>
+										<h4>Music and drinks</h4>
+										<p>Mixology and DJ sets for parties</p>
+									</div>
+									<div class="beyond-work-item">
+										<span class="expertise-icon"><i class="fas fa-dumbbell"></i></span>
+										<h4>Training</h4>
+										<p>HIIT and kickboxing</p>
+									</div>
+									<div class="beyond-work-item">
+										<span class="expertise-icon"><i class="fas fa-server"></i></span>
+										<h4>Home lab</h4>
+										<p>Home server and home automation</p>
+									</div>
+								</div>
+							</div>
 						</article>
 
 							<article class="scroll-reveal" id="projects">
@@ -576,8 +607,15 @@
 
 								<!-- Project Expanders -->
 								<div class="projects-expander-container">
-
-									<!-- Project 12: Databricks Genie -->
+							<!-- Category: AI & Automation -->
+							<div class="projects-category expanded">
+								<button type="button" class="projects-category-header" aria-expanded="true">
+									<i class="fas fa-robot category-icon"></i>
+									<span class="category-title">AI & Automation</span>
+									<span class="category-count">4</span>
+									<i class="fas fa-chevron-down category-chevron"></i>
+								</button>
+								<div class="projects-category-body">
 									<div class="project-expander-item">
 										<div class="project-expander-header">
 											<h3><i class="fas fa-database"></i> Databricks Genie & Warehouse Migration</h3>
@@ -599,8 +637,6 @@
 											</div>
 										</div>
 									</div>
-
-									<!-- Project 11: Jira and Rovo AI Knowledge System -->
 									<div class="project-expander-item">
 										<div class="project-expander-header">
 											<h3><i class="fas fa-network-wired"></i> Jira & Rovo AI Documentation Knowledge System</h3>
@@ -628,8 +664,6 @@
 											</div>
 										</div>
 									</div>
-
-									<!-- Project 10: N8N Multi-Agent System -->
 									<div class="project-expander-item">
 										<div class="project-expander-header">
 											<h3><i class="fas fa-robot"></i> N8N Automation & Multi-Agent System</h3>
@@ -658,123 +692,6 @@
 											</div>
 										</div>
 									</div>
-
-									<!-- Project 9: Home Assistant Automation -->
-									<div class="project-expander-item">
-										<div class="project-expander-header">
-											<h3><i class="fas fa-home"></i> Smart Home Automation – Home Assistant</h3>
-											<span class="expander-icon">▼</span>
-										</div>
-										<div class="project-expander-content">
-											<div class="project-panel">
-												<div class="project-panel-row">
-													<div class="project-panel-text">
-														<p>Built a comprehensive home automation system using Home Assistant, integrating multiple IoT devices and creating intelligent automation workflows for energy efficiency and convenience.</p>
-														<p><strong>Key Features:</strong></p>
-														<ul>
-															<li>Automated lighting based on presence detection and time of day</li>
-															<li>Climate control optimization with temperature/humidity sensors</li>
-															<li>Energy monitoring and usage analytics dashboard</li>
-															<li>Voice control integration with Google Assistant</li>
-															<li>Custom automation scripts using YAML configurations</li>
-														</ul>
-														<div class="project-stack"><span class="project-stack-label">Tech Stack</span><span class="skill-tag">Home Assistant</span><span class="skill-tag">MQTT</span><span class="skill-tag">ESPHome</span><span class="skill-tag">Zigbee</span><span class="skill-tag">Docker</span></div>
-														<p><strong>Impact:</strong> 30% reduction in energy consumption, seamless smart home experience</p>
-													</div>
-													<div class="project-panel-media">
-														<img src="https://www.home-assistant.io/images/blog/2024-03-dashboard/dashboard-hero.png" alt="Home Assistant Dashboard" onerror="this.closest('.project-panel-media').remove()">
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<!-- Project 8: Data Academy -->
-									<div class="project-expander-item">
-										<div class="project-expander-header">
-											<h3><i class="fas fa-graduation-cap"></i> Data Academy – Company-Wide BI Training Program</h3>
-											<span class="expander-icon">▼</span>
-										</div>
-										<div class="project-expander-content">
-											<div class="project-panel">
-												<div class="project-panel-row">
-													<div class="project-panel-text">
-														<p>Designed and launched a comprehensive data education platform at Mileway, transforming how 700+ users engage with BI tools and develop analytical skills.</p>
-														<p><strong>Program Components:</strong></p>
-														<ul>
-															<li><strong>Coffee & Learn:</strong> Weekly informal sessions covering Power BI tips, DAX best practices, and visualization techniques</li>
-															<li><strong>Champions League:</strong> Quarterly BI competitions with real business challenges, fostering innovation and community engagement</li>
-															<li><strong>Structured Workshops:</strong> Role-based training paths from beginner to advanced, covering the full BI stack</li>
-															<li><strong>Champions Network:</strong> Built Teams channel connecting power users across departments for peer support</li>
-														</ul>
-														<p><strong>Impact:</strong> 80% user adoption rate, reduced support tickets by 40%, created self-service analytics culture</p>
-													</div>
-													<div class="project-panel-media">
-														<img src="https://learn.microsoft.com/en-us/power-bi/create-reports/media/service-dashboards/power-bi-dashboard2.png" alt="Power BI Dashboard" onerror="this.closest('.project-panel-media').remove()">
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<!-- Project 7: Process Mining -->
-									<div class="project-expander-item">
-										<div class="project-expander-header">
-											<h3><i class="fas fa-search"></i> Process Mining – Power BI Usage Analytics</h3>
-											<span class="expander-icon">▼</span>
-										</div>
-										<div class="project-expander-content">
-											<div class="project-panel">
-												<div class="project-panel-row">
-													<div class="project-panel-text">
-														<p>Developed process flow analysis to understand how users interact with Power BI reports, identifying bottlenecks and optimization opportunities.</p>
-														<p><strong>Approach:</strong></p>
-														<ul>
-															<li>Analyzed user navigation patterns and report usage data</li>
-															<li>Created visual process flows showing common user journeys</li>
-															<li>Identified underutilized features and confusing report layouts</li>
-															<li>Generated actionable insights to improve UX and report adoption</li>
-														</ul>
-														<p><strong>Impact:</strong> Optimized report design, improved user engagement, reduced support tickets</p>
-													</div>
-													<div class="project-panel-media">
-														<img src="https://learn.microsoft.com/en-us/power-automate/media/process-mining-tutorial/process-map-dash.png" alt="Process Mining Dashboard" onerror="this.closest('.project-panel-media').remove()">
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<!-- Project 6: Sunrise Alarm Clock -->
-									<div class="project-expander-item">
-										<div class="project-expander-header">
-											<h3><i class="fas fa-sun"></i> Sunrise Alarm Clock – MicroPython & Raspberry Pi</h3>
-											<span class="expander-icon">▼</span>
-										</div>
-										<div class="project-expander-content">
-											<div class="project-panel">
-												<div class="project-panel-row">
-													<div class="project-panel-text">
-														<p>Built from scratch using a Raspberry Pi Pico W and MicroPython, this custom sunrise LED alarm simulates a natural sunrise, gradually brightening 30 minutes before the alarm rings for a calm, energy-efficient wake-up experience.</p>
-														<p><strong>Learning Journey:</strong></p>
-														<ul>
-															<li>Pushed outside comfort zone into electronics, microcontrollers, and hardware programming</li>
-															<li>Handled everything from wiring to scripting without external support</li>
-															<li>Learned fast through experimentation and iteration</li>
-															<li>Plan to open-source the project and integrate with automation systems</li>
-														</ul>
-														<div class="project-stack"><span class="project-stack-label">Tech Stack</span><span class="skill-tag">Raspberry Pi Pico W</span><span class="skill-tag">MicroPython</span><span class="skill-tag">WS2812B LED strips</span><span class="skill-tag">GPIO</span></div>
-														<p><em>Demonstrates curiosity, resilience, and cross-disciplinary problem-solving</em></p>
-													</div>
-													<div class="project-panel-media">
-														<img src="https://projects-static.raspberrypi.org/projects/get-started-pico-w/c042316dfa248ec9593dff2113be6bc3fb56c6d8/en/images/pico-w-single.png" alt="Raspberry Pi Pico W" onerror="this.closest('.project-panel-media').remove()">
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<!-- Project 5: Nomos AI -->
 									<div class="project-expander-item">
 										<div class="project-expander-header">
 											<h3><i class="fas fa-brain"></i> Nomos AI – Predictive Collections Platform</h3>
@@ -803,8 +720,70 @@
 											</div>
 										</div>
 									</div>
+								</div>
+							</div>
 
-									<!-- Project 4: BI Governance -->
+							<!-- Category: BI Governance & Enablement -->
+							<div class="projects-category">
+								<button type="button" class="projects-category-header" aria-expanded="false">
+									<i class="fas fa-sitemap category-icon"></i>
+									<span class="category-title">BI Governance & Enablement</span>
+									<span class="category-count">4</span>
+									<i class="fas fa-chevron-down category-chevron"></i>
+								</button>
+								<div class="projects-category-body">
+									<div class="project-expander-item">
+										<div class="project-expander-header">
+											<h3><i class="fas fa-graduation-cap"></i> Data Academy – Company-Wide BI Training Program</h3>
+											<span class="expander-icon">▼</span>
+										</div>
+										<div class="project-expander-content">
+											<div class="project-panel">
+												<div class="project-panel-row">
+													<div class="project-panel-text">
+														<p>Designed and launched a comprehensive data education platform at Mileway, transforming how 700+ users engage with BI tools and develop analytical skills.</p>
+														<p><strong>Program Components:</strong></p>
+														<ul>
+															<li><strong>Coffee & Learn:</strong> Weekly informal sessions covering Power BI tips, DAX best practices, and visualization techniques</li>
+															<li><strong>Champions League:</strong> Quarterly BI competitions with real business challenges, fostering innovation and community engagement</li>
+															<li><strong>Structured Workshops:</strong> Role-based training paths from beginner to advanced, covering the full BI stack</li>
+															<li><strong>Champions Network:</strong> Built Teams channel connecting power users across departments for peer support</li>
+														</ul>
+														<p><strong>Impact:</strong> 80% user adoption rate, reduced support tickets by 40%, created self-service analytics culture</p>
+													</div>
+													<div class="project-panel-media">
+														<img src="https://learn.microsoft.com/en-us/power-bi/create-reports/media/service-dashboards/power-bi-dashboard2.png" alt="Power BI Dashboard" onerror="this.closest('.project-panel-media').remove()">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="project-expander-item">
+										<div class="project-expander-header">
+											<h3><i class="fas fa-search"></i> Process Mining – Power BI Usage Analytics</h3>
+											<span class="expander-icon">▼</span>
+										</div>
+										<div class="project-expander-content">
+											<div class="project-panel">
+												<div class="project-panel-row">
+													<div class="project-panel-text">
+														<p>Developed process flow analysis to understand how users interact with Power BI reports, identifying bottlenecks and optimization opportunities.</p>
+														<p><strong>Approach:</strong></p>
+														<ul>
+															<li>Analyzed user navigation patterns and report usage data</li>
+															<li>Created visual process flows showing common user journeys</li>
+															<li>Identified underutilized features and confusing report layouts</li>
+															<li>Generated actionable insights to improve UX and report adoption</li>
+														</ul>
+														<p><strong>Impact:</strong> Optimized report design, improved user engagement, reduced support tickets</p>
+													</div>
+													<div class="project-panel-media">
+														<img src="https://learn.microsoft.com/en-us/power-automate/media/process-mining-tutorial/process-map-dash.png" alt="Process Mining Dashboard" onerror="this.closest('.project-panel-media').remove()">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
 									<div class="project-expander-item">
 										<div class="project-expander-header">
 											<h3><i class="fas fa-sitemap"></i> BI Governance & Architecture Framework</h3>
@@ -832,8 +811,6 @@
 											</div>
 										</div>
 									</div>
-
-									<!-- Project 3: Power Apps -->
 									<div class="project-expander-item">
 										<div class="project-expander-header">
 											<h3><i class="fas fa-compass"></i> Power Apps Onboarding PoC</h3>
@@ -861,8 +838,18 @@
 											</div>
 										</div>
 									</div>
+								</div>
+							</div>
 
-									<!-- Project 2: Interactive CV -->
+							<!-- Category: Tableau & Teaching -->
+							<div class="projects-category">
+								<button type="button" class="projects-category-header" aria-expanded="false">
+									<i class="fas fa-chart-bar category-icon"></i>
+									<span class="category-title">Tableau & Teaching</span>
+									<span class="category-count">2</span>
+									<i class="fas fa-chevron-down category-chevron"></i>
+								</button>
+								<div class="projects-category-body">
 									<div class="project-expander-item">
 										<div class="project-expander-header">
 											<h3><i class="fas fa-chart-bar"></i> Interactive Tableau CV</h3>
@@ -898,8 +885,6 @@
 											</div>
 										</div>
 									</div>
-
-									<!-- Project 1: Tableau Course -->
 									<div class="project-expander-item">
 										<div class="project-expander-header">
 											<h3><i class="fas fa-book"></i> Tableau Course with Éditions ENI</h3>
@@ -927,6 +912,75 @@
 											</div>
 										</div>
 									</div>
+								</div>
+							</div>
+
+							<!-- Category: Personal & Hardware Projects -->
+							<div class="projects-category">
+								<button type="button" class="projects-category-header" aria-expanded="false">
+									<i class="fas fa-microchip category-icon"></i>
+									<span class="category-title">Personal & Hardware Projects</span>
+									<span class="category-count">2</span>
+									<i class="fas fa-chevron-down category-chevron"></i>
+								</button>
+								<div class="projects-category-body">
+									<div class="project-expander-item">
+										<div class="project-expander-header">
+											<h3><i class="fas fa-home"></i> Smart Home Automation – Home Assistant</h3>
+											<span class="expander-icon">▼</span>
+										</div>
+										<div class="project-expander-content">
+											<div class="project-panel">
+												<div class="project-panel-row">
+													<div class="project-panel-text">
+														<p>Built a comprehensive home automation system using Home Assistant, integrating multiple IoT devices and creating intelligent automation workflows for energy efficiency and convenience.</p>
+														<p><strong>Key Features:</strong></p>
+														<ul>
+															<li>Automated lighting based on presence detection and time of day</li>
+															<li>Climate control optimization with temperature/humidity sensors</li>
+															<li>Energy monitoring and usage analytics dashboard</li>
+															<li>Voice control integration with Google Assistant</li>
+															<li>Custom automation scripts using YAML configurations</li>
+														</ul>
+														<div class="project-stack"><span class="project-stack-label">Tech Stack</span><span class="skill-tag">Home Assistant</span><span class="skill-tag">MQTT</span><span class="skill-tag">ESPHome</span><span class="skill-tag">Zigbee</span><span class="skill-tag">Docker</span></div>
+														<p><strong>Impact:</strong> 30% reduction in energy consumption, seamless smart home experience</p>
+													</div>
+													<div class="project-panel-media">
+														<img src="https://www.home-assistant.io/images/blog/2024-03-dashboard/dashboard-hero.png" alt="Home Assistant Dashboard" onerror="this.closest('.project-panel-media').remove()">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="project-expander-item">
+										<div class="project-expander-header">
+											<h3><i class="fas fa-sun"></i> Sunrise Alarm Clock – MicroPython & Raspberry Pi</h3>
+											<span class="expander-icon">▼</span>
+										</div>
+										<div class="project-expander-content">
+											<div class="project-panel">
+												<div class="project-panel-row">
+													<div class="project-panel-text">
+														<p>Built from scratch using a Raspberry Pi Pico W and MicroPython, this custom sunrise LED alarm simulates a natural sunrise, gradually brightening 30 minutes before the alarm rings for a calm, energy-efficient wake-up experience.</p>
+														<p><strong>Learning Journey:</strong></p>
+														<ul>
+															<li>Pushed outside comfort zone into electronics, microcontrollers, and hardware programming</li>
+															<li>Handled everything from wiring to scripting without external support</li>
+															<li>Learned fast through experimentation and iteration</li>
+															<li>Plan to open-source the project and integrate with automation systems</li>
+														</ul>
+														<div class="project-stack"><span class="project-stack-label">Tech Stack</span><span class="skill-tag">Raspberry Pi Pico W</span><span class="skill-tag">MicroPython</span><span class="skill-tag">WS2812B LED strips</span><span class="skill-tag">GPIO</span></div>
+														<p><em>Demonstrates curiosity, resilience, and cross-disciplinary problem-solving</em></p>
+													</div>
+													<div class="project-panel-media">
+														<img src="https://projects-static.raspberrypi.org/projects/get-started-pico-w/c042316dfa248ec9593dff2113be6bc3fb56c6d8/en/images/pico-w-single.png" alt="Raspberry Pi Pico W" onerror="this.closest('.project-panel-media').remove()">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 
 								</div>
 
@@ -995,6 +1049,7 @@
 		<script src="assets/js/tech-config.js?v=20260612-2"></script>
 		<script src="assets/js/tech-showcase.js"></script>
 		<script src="assets/js/projects-expander.js"></script>
+		<script src="assets/js/projects-category.js"></script>
 		<script src="assets/js/staggered-nav.js"></script>
 		<script src="assets/js/scroll-reveal.js"></script>
 		<script src="assets/js/timeline-nav.js"></script>
