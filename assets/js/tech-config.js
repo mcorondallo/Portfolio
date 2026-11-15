@@ -24,7 +24,7 @@ const techConfig = [
 	},
 	{
 		name: 'Microsoft Fabric',
-		icon: 'https://swimburger.net/media/ppnn3pcl/azure.png',
+		icon: 'assets/images/fabric-logo.svg',
 		url: 'https://www.microsoft.com/microsoft-fabric',
 		category: 'cloud',
 		description: 'Unified analytics platform combining data engineering, data science, and business intelligence.'

@@ -1,10 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
-  <title id="title">Power Apps Logo</title>
-  <desc id="desc">A purple low-code application icon with layered app tiles.</desc>
-  <rect width="160" height="160" rx="28" fill="#171225"/>
-  <path d="M43 33h56l28 47-28 47H43L15 80z" fill="#742774"/>
-  <path d="M61 46h38l19 34-19 34H61L42 80z" fill="#b146c2"/>
-  <path d="M75 59h25l12 21-12 21H75L63 80z" fill="#f8fbff" opacity=".92"/>
-  <path d="M72 52l-29 61M102 47l-31 65" stroke="#eaa8ff" stroke-width="8" stroke-linecap="round" opacity=".8"/>
-  <circle cx="80" cy="80" r="9" fill="#742774"/>
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="paint0_linear" x1="71" y1="96.0002" x2="15" y2="-40.9998" gradientUnits="userSpaceOnUse">
+<stop stop-color="#742774"/>
+<stop offset="1" stop-color="#BB35A4"/>
+</linearGradient>
+<linearGradient id="paint1_linear" x1="32" y1="0.0002436" x2="78" y2="96.0002" gradientUnits="userSpaceOnUse">
+<stop stop-color="#E48CC7"/>
+<stop offset="1" stop-color="#D467B9"/>
+</linearGradient>
+<linearGradient id="paint2_linear" x1="62" y1="29.0002" x2="76" y2="72" gradientUnits="userSpaceOnUse">
+<stop stop-color="#E9A1CB"/>
+<stop offset="1" stop-color="#E48CC7"/>
+</linearGradient>
+<clipPath id="clip0">
+<rect width="96" height="96" fill="white"/>
+</clipPath>
+<clipPath id="clip1">
+<rect width="96" height="96" fill="white"/>
+</clipPath>
+<clipPath id="clip2">
+<rect width="96" height="96" fill="white" transform="translate(0 0.00012207)"/>
+</clipPath>
+</defs>
+<g clip-path="url(#clip0)">
+<g clip-path="url(#clip1)">
+<g clip-path="url(#clip2)">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="-1" y="1" width="97" height="94">
+<path d="M1.45715 44.049C-0.522237 46.3111 -0.522238 49.6889 1.45715 51.951L36.9897 92.5596C38.5833 94.381 41.4167 94.381 43.0103 92.5596L46.8367 88.1866L51.0504 92.7833C52.6358 94.5128 55.3623 94.5128 56.9476 92.7833L94.2825 52.0543C96.3853 49.7604 96.3853 46.2396 94.2825 43.9457L56.9476 3.21667C55.3623 1.4872 52.6358 1.4872 51.0504 3.21667L46.8367 7.81341L43.0103 3.44035C41.4167 1.61904 38.5833 1.61904 36.9897 3.44035L1.45715 44.049Z" fill="white"/>
+</mask>
+<g mask="url(#mask0)">
+<path d="M40 96L-2 48L40 0L82 48L40 96Z" fill="url(#paint0_linear)"/>
+<path d="M53.999 0L97.999 48L53.999 96L34.4767 74.7029C33.0748 73.1736 33.0748 70.8264 34.4767 69.2971L51.5214 50.7029C52.9232 49.1736 52.9232 46.8264 51.5214 45.2971L34.4767 26.7029C33.0748 25.1736 33.0748 22.8264 34.4767 21.2971L53.999 0Z" fill="url(#paint1_linear)"/>
+<path d="M73.0514 27.2167C74.6367 25.4872 77.3633 25.4872 78.9486 27.2167L98 48L78.9486 68.7833C77.3633 70.5128 74.6367 70.5128 73.0514 68.7833L57.7165 52.0543C55.6137 49.7604 55.6137 46.2396 57.7165 43.9457L73.0514 27.2167Z" fill="url(#paint2_linear)"/>
+</g>
+</g>
+</g>
+</g>
 </svg>
