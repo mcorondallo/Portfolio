@@ -733,6 +733,44 @@ h1.major, h2.major, h3.major, h4.major, h5.major, h6.major,
 	border-top-color: var(--gold);
 }
 
+/* Faint country outline behind the text at the foot of a card */
+.timeline-card {
+	isolation: isolate;
+}
+
+.timeline-geo {
+	position: absolute;
+	right: 1.1rem;
+	bottom: .9rem;
+	z-index: -1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: .4rem;
+	pointer-events: none;
+	user-select: none;
+}
+
+.timeline-geo img,
+.timeline-geo.image-loading.loaded img {
+	display: block;
+	width: 120px;
+	height: auto;
+	opacity: .07;
+}
+
+.timeline-geo span {
+	font-size: .625rem;
+	letter-spacing: .2em;
+	text-transform: uppercase;
+	color: var(--text);
+	opacity: .2;
+}
+
+.timeline-card.collapsed .timeline-geo {
+	display: none;
+}
+
 .timeline-year {
 	font-family: var(--font-body);
 	font-size: .75rem;
@@ -955,7 +993,7 @@ h1.major, h2.major, h3.major, h4.major, h5.major, h6.major,
 
 .beyond-work-grid {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	gap: 1px;
 	margin: 0;
 	background: var(--line);
